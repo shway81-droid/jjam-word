@@ -118,8 +118,18 @@
       </div>
     </section>
 
-    <!-- 5. 몸으로 말해요 -->
-    <section id="screen-gesture" class="screen gesture" hidden></section>
+    <!-- 5. 몸으로 말해요 — 한 명만 화면을 등지고 맞힌다. 단어가 화면의 주인이다. -->
+    <section id="screen-gesture" class="screen gesture" hidden>
+      <p class="gesture-topic" id="gesture-topic"></p>
+      <p class="gesture-word" id="gesture-word"></p>
+      <div class="gesture-actions">
+        <button class="btn btn-primary btn-big" id="btn-gesture-next" type="button">다음 카드 → <kbd>Space</kbd></button>
+      </div>
+      <div class="gesture-corner">
+        <span class="gesture-count" id="gesture-count"></span>
+        <button class="btn btn-ghost btn-sm" id="btn-gesture-quit" type="button">마치기</button>
+      </div>
+    </section>
 
     <!-- 6. 마무리 -->
     <section id="screen-done" class="screen done" hidden>

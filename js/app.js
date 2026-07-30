@@ -57,6 +57,7 @@ const state = {
   round: null,        // 끝말잇기 한 판
   timerId: null,
   deadline: 0,
+  cardCount: 0,       // 몸으로 말해요 — 이번에 넘긴 카드 수
 };
 
 const $ = (id) => document.getElementById(id);
@@ -311,7 +312,30 @@ function finish() {
 
 function startTool() {
   if (state.type === 'chain') { startChain(); return; }
-  renderGestureStub();
+  state.cardCount = 0;
+  nextCard();
+}
+
+/* ── 몸으로 말해요 ──
+   한 명만 화면을 등지고 맞힌다. 정답 데이터가 없으니 단계도 없다 —
+   카드를 크게 띄우고 [다음 카드] 하나뿐이다. */
+
+function nextCard() {
+  const got = pickNext(state.pool, {
+    recentIds: store.recentIds('gesture'),
+    recentTopics: state.recentTopics,
+  });
+  if (!got) { show('HOME'); return; }
+  if (got.exhausted) store.clearRecent('gesture');
+
+  state.item = got.item;
+  store.pushRecent('gesture', got.item.id);
+  state.recentTopics = [...state.recentTopics, got.item.topic].slice(-TOPIC_MEMORY);
+  state.cardCount += 1;
+
+  $('gesture-topic').textContent = got.item.topic || '';
+  $('gesture-word').textContent = got.item.word;
+  $('gesture-count').textContent = `${state.cardCount}장`;
   show('GESTURE');
 }
 
@@ -388,24 +412,6 @@ function chainAdvance(result) {
   if (!state.round.done) startChainTimer();
 }
 
-function toolStub(hostId, text) {
-  const host = $(hostId);
-  host.innerHTML = '';
-  const card = document.createElement('div');
-  card.className = 'setup-card';
-  const h = document.createElement('h1');
-  h.textContent = text;
-  const back = document.createElement('button');
-  back.type = 'button';
-  back.className = 'btn btn-ghost';
-  back.textContent = '← 처음으로';
-  back.addEventListener('click', () => show('HOME'));
-  card.append(h, back);
-  host.appendChild(card);
-}
-
-function renderGestureStub() { toolStub('screen-gesture', '몸으로 말해요는 다음 단계에서 만들어요.'); }
-
 /* ── 부팅 ──────────────────────────────────────────────────── */
 
 function wire() {
@@ -425,6 +431,9 @@ function wire() {
   $('btn-chain-again').addEventListener('click', startChain);
   $('btn-chain-new').addEventListener('click', startChain);
   $('btn-chain-quit').addEventListener('click', () => show('HOME'));
+
+  $('btn-gesture-next').addEventListener('click', nextCard);
+  $('btn-gesture-quit').addEventListener('click', () => show('HOME'));
 
   const mute = $('btn-mute');
   const paintMute = () => mute.setAttribute('aria-pressed', store.isMuted() ? 'true' : 'false');
@@ -446,10 +455,16 @@ function wire() {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const onQuiz = state.screen === 'PROMPT' || state.screen === 'HINT' || state.screen === 'ANSWER';
     const onChain = state.screen === 'CHAIN';
+    const onGesture = state.screen === 'GESTURE';
 
     if (e.key === 'Escape') {
       if (onQuiz) { e.preventDefault(); finish(); }
-      else if (onChain) { e.preventDefault(); show('HOME'); }
+      else if (onChain || onGesture) { e.preventDefault(); show('HOME'); }
+      return;
+    }
+
+    if (onGesture) {
+      if (e.key === ' ' || e.code === 'Space') { e.preventDefault(); nextCard(); }
       return;
     }
 

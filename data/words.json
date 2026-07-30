@@ -4872,6 +4872,706 @@
       "type": "chain",
       "level": "hard",
       "word": "버섯"
+    },
+    {
+      "id": "gesture-001",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "토끼"
+    },
+    {
+      "id": "gesture-002",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "코끼리"
+    },
+    {
+      "id": "gesture-003",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "원숭이"
+    },
+    {
+      "id": "gesture-004",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "강아지"
+    },
+    {
+      "id": "gesture-005",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "고양이"
+    },
+    {
+      "id": "gesture-006",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "뱀"
+    },
+    {
+      "id": "gesture-007",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "개구리"
+    },
+    {
+      "id": "gesture-008",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "동물",
+      "word": "오리"
+    },
+    {
+      "id": "gesture-009",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "기린"
+    },
+    {
+      "id": "gesture-010",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "사자"
+    },
+    {
+      "id": "gesture-011",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "캥거루"
+    },
+    {
+      "id": "gesture-012",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "펭귄"
+    },
+    {
+      "id": "gesture-013",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "거북이"
+    },
+    {
+      "id": "gesture-014",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "독수리"
+    },
+    {
+      "id": "gesture-015",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "게"
+    },
+    {
+      "id": "gesture-016",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "나비"
+    },
+    {
+      "id": "gesture-017",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "동물",
+      "word": "박쥐"
+    },
+    {
+      "id": "gesture-018",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "동물",
+      "word": "카멜레온"
+    },
+    {
+      "id": "gesture-019",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "동물",
+      "word": "하이에나"
+    },
+    {
+      "id": "gesture-020",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "동물",
+      "word": "문어"
+    },
+    {
+      "id": "gesture-021",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "음식",
+      "word": "라면"
+    },
+    {
+      "id": "gesture-022",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "음식",
+      "word": "사과"
+    },
+    {
+      "id": "gesture-023",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "음식",
+      "word": "바나나"
+    },
+    {
+      "id": "gesture-024",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "음식",
+      "word": "아이스크림"
+    },
+    {
+      "id": "gesture-025",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "음식",
+      "word": "김밥"
+    },
+    {
+      "id": "gesture-026",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "음식",
+      "word": "수박"
+    },
+    {
+      "id": "gesture-027",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "음식",
+      "word": "떡볶이"
+    },
+    {
+      "id": "gesture-028",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "음식",
+      "word": "국수"
+    },
+    {
+      "id": "gesture-029",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "음식",
+      "word": "팝콘"
+    },
+    {
+      "id": "gesture-030",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "음식",
+      "word": "솜사탕"
+    },
+    {
+      "id": "gesture-031",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "음식",
+      "word": "초콜릿"
+    },
+    {
+      "id": "gesture-032",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "음식",
+      "word": "만두"
+    },
+    {
+      "id": "gesture-033",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "음식",
+      "word": "삼겹살"
+    },
+    {
+      "id": "gesture-034",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "음식",
+      "word": "비빔밥"
+    },
+    {
+      "id": "gesture-035",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "음식",
+      "word": "컵라면"
+    },
+    {
+      "id": "gesture-036",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "학교물건",
+      "word": "가위"
+    },
+    {
+      "id": "gesture-037",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "학교물건",
+      "word": "연필"
+    },
+    {
+      "id": "gesture-038",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "학교물건",
+      "word": "지우개"
+    },
+    {
+      "id": "gesture-039",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "학교물건",
+      "word": "책"
+    },
+    {
+      "id": "gesture-040",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "학교물건",
+      "word": "공"
+    },
+    {
+      "id": "gesture-041",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "학교물건",
+      "word": "실내화"
+    },
+    {
+      "id": "gesture-042",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "학교물건",
+      "word": "줄넘기"
+    },
+    {
+      "id": "gesture-043",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "학교물건",
+      "word": "우산"
+    },
+    {
+      "id": "gesture-044",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "학교물건",
+      "word": "시계"
+    },
+    {
+      "id": "gesture-045",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "학교물건",
+      "word": "칠판"
+    },
+    {
+      "id": "gesture-046",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "학교물건",
+      "word": "빗자루"
+    },
+    {
+      "id": "gesture-047",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "학교물건",
+      "word": "물감"
+    },
+    {
+      "id": "gesture-048",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "학교물건",
+      "word": "현미경"
+    },
+    {
+      "id": "gesture-049",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "학교물건",
+      "word": "삼각자"
+    },
+    {
+      "id": "gesture-050",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "학교물건",
+      "word": "리코더"
+    },
+    {
+      "id": "gesture-051",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "의사"
+    },
+    {
+      "id": "gesture-052",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "경찰관"
+    },
+    {
+      "id": "gesture-053",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "요리사"
+    },
+    {
+      "id": "gesture-054",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "가수"
+    },
+    {
+      "id": "gesture-055",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "화가"
+    },
+    {
+      "id": "gesture-056",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "선생님"
+    },
+    {
+      "id": "gesture-057",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "농부"
+    },
+    {
+      "id": "gesture-058",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "직업",
+      "word": "운전기사"
+    },
+    {
+      "id": "gesture-059",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "소방관"
+    },
+    {
+      "id": "gesture-060",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "운동선수"
+    },
+    {
+      "id": "gesture-061",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "미용사"
+    },
+    {
+      "id": "gesture-062",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "사진작가"
+    },
+    {
+      "id": "gesture-063",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "지휘자"
+    },
+    {
+      "id": "gesture-064",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "어부"
+    },
+    {
+      "id": "gesture-065",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "목수"
+    },
+    {
+      "id": "gesture-066",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "직업",
+      "word": "마술사"
+    },
+    {
+      "id": "gesture-067",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "직업",
+      "word": "조종사"
+    },
+    {
+      "id": "gesture-068",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "직업",
+      "word": "우주인"
+    },
+    {
+      "id": "gesture-069",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "직업",
+      "word": "발레리나"
+    },
+    {
+      "id": "gesture-070",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "직업",
+      "word": "광부"
+    },
+    {
+      "id": "gesture-071",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "자연",
+      "word": "비"
+    },
+    {
+      "id": "gesture-072",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "자연",
+      "word": "바람"
+    },
+    {
+      "id": "gesture-073",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "자연",
+      "word": "파도"
+    },
+    {
+      "id": "gesture-074",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "자연",
+      "word": "무지개"
+    },
+    {
+      "id": "gesture-075",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "자연",
+      "word": "태풍"
+    },
+    {
+      "id": "gesture-076",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "자연",
+      "word": "번개"
+    },
+    {
+      "id": "gesture-077",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "자연",
+      "word": "폭포"
+    },
+    {
+      "id": "gesture-078",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "자연",
+      "word": "회오리"
+    },
+    {
+      "id": "gesture-079",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "자연",
+      "word": "화산"
+    },
+    {
+      "id": "gesture-080",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "자연",
+      "word": "지진"
+    },
+    {
+      "id": "gesture-081",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "탈것",
+      "word": "자동차"
+    },
+    {
+      "id": "gesture-082",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "탈것",
+      "word": "자전거"
+    },
+    {
+      "id": "gesture-083",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "탈것",
+      "word": "비행기"
+    },
+    {
+      "id": "gesture-084",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "탈것",
+      "word": "배"
+    },
+    {
+      "id": "gesture-085",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "탈것",
+      "word": "기차"
+    },
+    {
+      "id": "gesture-086",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "탈것",
+      "word": "오토바이"
+    },
+    {
+      "id": "gesture-087",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "탈것",
+      "word": "헬리콥터"
+    },
+    {
+      "id": "gesture-088",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "탈것",
+      "word": "열기구"
+    },
+    {
+      "id": "gesture-089",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "탈것",
+      "word": "잠수함"
+    },
+    {
+      "id": "gesture-090",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "탈것",
+      "word": "롤러코스터"
+    },
+    {
+      "id": "gesture-091",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "운동",
+      "word": "축구"
+    },
+    {
+      "id": "gesture-092",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "운동",
+      "word": "야구"
+    },
+    {
+      "id": "gesture-093",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "운동",
+      "word": "수영"
+    },
+    {
+      "id": "gesture-094",
+      "type": "gesture",
+      "level": "easy",
+      "topic": "운동",
+      "word": "줄다리기"
+    },
+    {
+      "id": "gesture-095",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "운동",
+      "word": "농구"
+    },
+    {
+      "id": "gesture-096",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "운동",
+      "word": "배구"
+    },
+    {
+      "id": "gesture-097",
+      "type": "gesture",
+      "level": "normal",
+      "topic": "운동",
+      "word": "태권도"
+    },
+    {
+      "id": "gesture-098",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "운동",
+      "word": "펜싱"
+    },
+    {
+      "id": "gesture-099",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "운동",
+      "word": "체조"
+    },
+    {
+      "id": "gesture-100",
+      "type": "gesture",
+      "level": "hard",
+      "topic": "운동",
+      "word": "역도"
     }
   ]
 }
