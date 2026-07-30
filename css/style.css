@@ -395,8 +395,20 @@ kbd {
   :root { --gutter: 18px; }
   html { font-size: 16px; }
   .brand-sub { display: none; }
+
+  /* 자매 바로가기는 이름이 빠져도 아이콘 5개라 287px 이다. 브랜드와 음소거
+     버튼까지 한 줄에 넣으면 폰 폭을 넘겨 페이지가 옆으로 밀린다.
+     .jjam-switch 의 스타일은 상류 공통 파일(shared/jjam-switcher.js) 안에 있어
+     여기서 줄일 수 없으므로, 상단바를 두 줄로 접어 가로 스크롤을 없앤다. */
+  .topbar { flex-wrap: wrap; row-gap: 0.5rem; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
   .setup-actions { flex-direction: column-reverse; }
   .setup-actions .btn { width: 100%; }
   .quiz-corner, .gesture-corner, .chain-corner { position: static; margin-top: 0.8rem; }
   .quiz, .chain, .gesture { padding-top: 0.6rem; }
+}
+
+/* 아주 좁은 폰 — 여백을 줄여 자매 바로가기 다섯 개가 한 줄에 들어오게 한다 */
+@media (max-width: 420px) {
+  :root { --gutter: 10px; }
 }

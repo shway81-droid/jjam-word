@@ -506,3 +506,10 @@ async function boot() {
 }
 
 boot();
+
+// 오프라인 (FR-09). 등록에 실패해도 앱은 그대로 돌아간다 — 오프라인만 안 될 뿐이다.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
