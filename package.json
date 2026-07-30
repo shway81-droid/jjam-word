@@ -1,0 +1,18 @@
+{
+  "name": "jjam-word",
+  "version": "1.0.0",
+  "private": true,
+  "description": "짬짬이 낱말 — 보기 없이 반 전체가 입으로 외치는 전자칠판용 말놀이",
+  "type": "module",
+  "scripts": {
+    "verify": "node --test && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs",
+    "test": "npm run verify",
+    "sync:shared": "node scripts/sync-shared.mjs",
+    "sync:check": "node scripts/sync-shared.mjs --check",
+    "icons": "node scripts/gen-icons.mjs",
+    "start": "npx http-server . -p 8379 -c-1"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
