@@ -189,7 +189,7 @@
       "level": "easy",
       "topic": "음식",
       "prompt": "ㅁㄷ",
-      "hint": "속을 넣고 피로 감싸 쪄요.",
+      "hint": "속을 넣고 피로 감싸 익혀요.",
       "answer": "만두",
       "also": [],
       "note": ""
@@ -767,7 +767,7 @@
       "level": "normal",
       "topic": "나라",
       "prompt": "ㅇㄷ",
-      "hint": "카레와 갠지스강으로 유명해요.",
+      "hint": "카레와 요가로 유명한 나라예요.",
       "answer": "인도",
       "also": [],
       "note": ""
@@ -910,7 +910,7 @@
       "level": "normal",
       "topic": "자연",
       "prompt": "ㄷㄱ",
-      "hint": "땅이나 산에 뻥 뚫린 굴이에요.",
+      "hint": "땅이나 산에 크게 뚫린 굴이에요.",
       "answer": "동굴",
       "also": [],
       "note": ""
@@ -2037,7 +2037,7 @@
       "hint": "첫 글자는 '쥐'",
       "answer": "쥐 잡는다",
       "also": [],
-      "note": "어쩌다 우연히 잘될 때 써요."
+      "note": "뜻하지 않게 잘될 때 써요."
     },
     {
       "id": "proverb-065",
@@ -2103,7 +2103,7 @@
       "hint": "첫 글자는 '티'",
       "answer": "티가 있다",
       "also": [],
-      "note": "아무리 좋아도 흠이 조금은 있어요."
+      "note": "아무리 좋아도 모자란 데가 조금은 있어요."
     },
     {
       "id": "proverb-071",
@@ -2726,7 +2726,7 @@
       "type": "idiom",
       "level": "normal",
       "topic": null,
-      "prompt": "달콤한 말로 남을 꾀는 것",
+      "prompt": "달콤한 말로 남을 속이는 것",
       "hint": "ㄱㅇㅇㅅ",
       "answer": "감언이설",
       "also": [],
@@ -2759,7 +2759,7 @@
       "type": "idiom",
       "level": "normal",
       "topic": null,
-      "prompt": "풀을 엮어서라도 은혜를 갚는 것",
+      "prompt": "풀을 이어서라도 은혜를 갚는 것",
       "hint": "ㄱㅊㅂㅇ",
       "answer": "결초보은",
       "also": [],
@@ -2814,7 +2814,7 @@
       "type": "idiom",
       "level": "normal",
       "topic": null,
-      "prompt": "기세가 하늘을 찌를 듯 뽐내는 것",
+      "prompt": "기세가 하늘을 찌를 듯 자랑하는 것",
       "hint": "ㄱㄱㅁㅈ",
       "answer": "기고만장",
       "also": [],
@@ -3302,7 +3302,7 @@
       "hint": "ㅅㅈㅂㅎ",
       "answer": "상전벽해",
       "also": [],
-      "note": "뽕밭이 푸른 바다가 되었다는 뜻이에요."
+      "note": "밭이 푸른 바다가 되었다는 뜻이에요."
     },
     {
       "id": "idiom-080",
@@ -3342,7 +3342,7 @@
       "type": "idiom",
       "level": "hard",
       "topic": null,
-      "prompt": "괴로움을 참으며 훗날을 준비하는 것",
+      "prompt": "괴로움을 참으며 뒷날을 준비하는 것",
       "hint": "ㅇㅅㅅㄷ",
       "answer": "와신상담",
       "also": [],
@@ -3596,7 +3596,7 @@
       "level": "easy",
       "topic": null,
       "prompt": "열 형제가 나란히 있는 것은?",
-      "hint": "다섯 개씩 두 편으로 나뉘어요.",
+      "hint": "다섯 개씩 두 편으로 갈라져요.",
       "answer": "손가락",
       "also": [],
       "note": ""
@@ -4307,7 +4307,7 @@
       "level": "hard",
       "topic": null,
       "prompt": "밟히면서도 사람을 편하게 해 주는 것은?",
-      "hint": "층을 오르내릴 때 디뎌요.",
+      "hint": "층을 오르내릴 때 밟아요.",
       "answer": "계단",
       "also": [
         "카펫"
@@ -4333,7 +4333,7 @@
       "level": "hard",
       "topic": null,
       "prompt": "열지 않고도 안이 다 보이는 것은?",
-      "hint": "속이 훤히 보이는 그릇이에요.",
+      "hint": "속이 잘 보이는 그릇이에요.",
       "answer": "유리병",
       "also": [
         "창문"
