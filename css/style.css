@@ -1,0 +1,350 @@
+/* ── 짬짬이 낱말 — Coral 디자인 시스템 ──
+   자매 사이트(게임·퀴즈·영상·이야기·쉼)와 같은 상단바 구조(색 띠 + 로고 46px + 제목 + 부제),
+   띠 색만 이 사이트의 코럴을 쓴다.
+
+   출제 화면은 이 제품의 전부다. 문제 한 줄이 전자칠판 뒷자리에서 읽혀야 하므로
+   글자 크기는 문제 길이에 따라 세 단계로 갈라진다(.quiz-prompt[data-len]). */
+
+/* ── 웹폰트: Pretendard(가변) 자가 호스팅 ──
+   assets/fonts/PretendardVariable.subset.woff2 는 짬짬이 가족이 쓰는 글자만 남긴
+   서브셋. 서브셋에 없는 글자는 시스템 한글 폰트로 자연스럽게 넘어간다.
+   라이선스: SIL OFL 1.1 — assets/fonts/LICENSE.txt */
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url('../assets/fonts/PretendardVariable.subset.woff2') format('woff2-variations');
+}
+
+:root {
+  /* 브랜드 색 — 원값은 여기 한 곳뿐이다. 나머지는 color-mix 로 파생된다.
+     (PRD 10절: 아이콘 시안 보고 확정 → 이 한 줄만 바꾸면 전체가 따라온다) */
+  --accent: #E4576E;
+
+  --accent-deep: color-mix(in srgb, var(--accent) 74%, #000);
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, #fff);
+  --on-accent: #ffffff;
+
+  --bg: color-mix(in srgb, var(--accent) 5%, #fff);
+  --card: #ffffff;
+  --surface: color-mix(in srgb, var(--accent) 10%, #fff);
+  --surface-high: color-mix(in srgb, var(--accent) 20%, #fff);
+  --outline-variant: color-mix(in srgb, var(--accent) 28%, #fff);
+
+  --ink: #3a1219;
+  --ink-soft: #6f4a52;
+
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-pill: 9999px;
+
+  --gutter: 32px;
+  --maxw: 1180px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html { font-size: 18px; }
+
+body {
+  font-family: "Pretendard Variable", "Pretendard", "Noto Sans KR",
+               "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+kbd {
+  font-family: inherit;
+  font-size: 0.72em;
+  font-weight: 700;
+  padding: 0.1em 0.42em;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.14);
+  vertical-align: 0.08em;
+  white-space: nowrap;
+}
+
+.ic { width: 1.5em; height: 1.5em; flex: 0 0 auto; vertical-align: -0.35em; user-select: none; }
+.brand-icon .ic { width: 46px; height: 46px; }   /* 사이트 아이콘 — 자매 로고와 같은 크기 */
+
+/* ── 상단바 — 가족 공통 구조: 색 띠, 본문과 같은 max-width 가운데 정렬 ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0.9rem var(--gutter);
+  background: var(--accent);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 30%, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--on-accent); }
+.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-name { font-size: 1.28rem; font-weight: 800; letter-spacing: -0.01em; }
+.brand-sub { font-size: 0.78rem; font-weight: 600; opacity: 0.88; }
+
+.topbar-actions { display: flex; align-items: center; gap: 0.4rem; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--on-accent);
+  transition: background 0.12s;
+}
+.icon-btn:hover { background: rgba(255, 255, 255, 0.16); }
+.icon-btn:focus-visible { outline: 3px solid #FFD34D; outline-offset: 2px; }
+.icon-btn .ic-line { width: 26px; height: 26px; }
+.ic-line path { fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.ic-line .spk { fill: currentColor; stroke: none; }
+/* 음소거 상태에서만 X 가 보이고 음파가 사라진다 */
+.icon-btn .spk-x { display: none; }
+.icon-btn[aria-pressed="true"] .spk-x { display: inline; }
+.icon-btn[aria-pressed="true"] .spk-wave { display: none; }
+
+/* ── 화면 공통 ── */
+.screen {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.6rem var(--gutter) 2.4rem;
+}
+
+/* ── 안내 띠 — 헤더 아래 흰 한 줄 (가족 공통) ── */
+.cta-strip {
+  background: var(--card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.3rem;
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+.cta-copy { font-size: 1.05rem; color: var(--ink-soft); }
+.cta-copy b { color: var(--accent-deep); font-weight: 800; }
+
+.group-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+  margin: 1.5rem 0 0.7rem;
+}
+.group-title:first-of-type { margin-top: 0.4rem; }
+
+/* ── 유형 카드 ── */
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+}
+
+.type-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-align: left;
+  padding: 1.15rem 1.25rem;
+  background: var(--card);
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--radius);
+  transition: transform 0.1s, border-color 0.12s, box-shadow 0.12s;
+}
+.type-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.type-card:active { transform: translateY(1px); }
+.type-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.type-emoji { font-size: 2.1rem; line-height: 1; flex: 0 0 auto; }
+.type-body { display: flex; flex-direction: column; gap: 0.15rem; }
+.type-label { font-size: 1.16rem; font-weight: 800; color: var(--ink); }
+.type-blurb { font-size: 0.86rem; color: var(--ink-soft); }
+
+/* ── 조건 선택 ── */
+.setup-title { font-size: 1.9rem; font-weight: 900; margin-bottom: 1.1rem; }
+
+.setup-card {
+  background: var(--card);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.setup-group h2 { font-size: 1rem; font-weight: 800; color: var(--ink-soft); margin-bottom: 0.6rem; }
+
+.option-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.option-btn {
+  padding: 0.62rem 1.15rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  transition: background 0.12s, color 0.12s;
+}
+.option-btn:hover { background: var(--surface-high); }
+.option-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.option-btn[aria-checked="true"] {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.setup-count { font-size: 0.94rem; color: var(--ink-soft); }
+.setup-count.is-empty { color: var(--accent-deep); font-weight: 700; }
+
+.setup-actions { display: flex; justify-content: space-between; gap: 0.8rem; margin-top: 1.3rem; }
+
+/* ── 버튼 ── */
+.btn {
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.02rem;
+  transition: transform 0.1s, background 0.12s, box-shadow 0.12s;
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+.btn-primary:hover { background: var(--accent-deep); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-deep);
+  border-color: var(--outline-variant);
+}
+.btn-ghost:hover { background: var(--surface); }
+
+.btn-big { font-size: 1.24rem; padding: 0.86rem 2.1rem; }
+.btn-sm { font-size: 0.86rem; padding: 0.42rem 0.9rem; }
+
+/* ── 출제 화면 — 전자칠판 전면 ──
+   문제 하나가 화면의 주인이다. 나머지는 전부 물러난다. */
+.quiz, .chain, .gesture {
+  min-height: calc(100vh - 84px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  position: relative;
+  padding-top: 3.4rem;
+}
+
+.quiz-topic, .gesture-topic {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  padding: 0.32rem 1rem;
+  border-radius: var(--radius-pill);
+}
+.quiz-topic:empty, .gesture-topic:empty { display: none; }
+
+.quiz-prompt {
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-align: center;
+  word-break: keep-all;
+  color: var(--ink);
+  /* 초성 몇 자짜리 짧은 문제 — 화면 폭을 최대한 쓴다 */
+  font-size: clamp(3rem, 13vw, 11rem);
+}
+/* 긴 문제(속담·수수께끼)는 한 화면에 담기도록 단계적으로 줄인다 */
+.quiz-prompt[data-len="mid"]  { font-size: clamp(2.4rem, 8vw, 7rem); letter-spacing: 0; }
+.quiz-prompt[data-len="long"] { font-size: clamp(2rem, 5.5vw, 4.6rem); letter-spacing: 0; line-height: 1.28; }
+
+.quiz-hint {
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-align: center;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.5rem;
+}
+
+.quiz-answer { text-align: center; }
+.answer-text {
+  font-size: clamp(2.6rem, 8vw, 6.4rem);
+  font-weight: 900;
+  color: var(--accent-deep);
+  line-height: 1.15;
+}
+.answer-also { font-size: clamp(1rem, 1.9vw, 1.4rem); font-weight: 700; color: var(--ink-soft); margin-top: 0.4rem; }
+.answer-note { font-size: clamp(0.95rem, 1.7vw, 1.25rem); color: var(--ink-soft); margin-top: 0.5rem; }
+
+@keyframes answer-pop {
+  0%   { opacity: 0; transform: scale(0.86); }
+  60%  { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.quiz-answer:not([hidden]) { animation: answer-pop 0.34s cubic-bezier(.2,.9,.3,1.2) both; }
+@media (prefers-reduced-motion: reduce) {
+  .quiz-answer:not([hidden]) { animation: none; }
+}
+
+.quiz-actions, .gesture-actions, .chain-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+.quiz-corner, .gesture-corner, .chain-corner {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.quiz-count, .gesture-count { font-size: 0.9rem; font-weight: 700; color: var(--ink-soft); }
+
+/* ── 마무리 ── */
+.done { text-align: center; }
+.done-emoji { font-size: 4.4rem; line-height: 1; }
+.done h1 { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 900; }
+.done-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 0.6rem; }
+
+.site-footer { margin-top: 2.4rem; text-align: center; font-size: 0.86rem; color: var(--ink-soft); }
+.site-footer kbd { background: var(--surface-high); }
+
+/* ── 좁은 화면 ── */
+@media (max-width: 720px) {
+  :root { --gutter: 18px; }
+  html { font-size: 16px; }
+  .brand-sub { display: none; }
+  .setup-actions { flex-direction: column-reverse; }
+  .setup-actions .btn { width: 100%; }
+  .quiz-corner, .gesture-corner, .chain-corner { position: static; margin-top: 0.8rem; }
+  .quiz, .chain, .gesture { padding-top: 0.6rem; }
+}

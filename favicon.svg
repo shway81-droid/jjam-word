@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="짬짬이 낱말">
+  <rect width="100" height="100" rx="24" fill="#E4576E"/>
+  <path d="M14 40a10 10 0 0 1 10-10h38a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10H40L24 84V70a10 10 0 0 1-10-10z" fill="#FFFFFF"/>
+  <path d="M31 42h22v7H38v17h-7z" fill="#E4576E"/>
+  <circle cx="76" cy="24" r="14" fill="#FFFFFF"/>
+  <path d="M76 15.5 V24.5 L82.5 28.5" fill="none" stroke="#152447" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

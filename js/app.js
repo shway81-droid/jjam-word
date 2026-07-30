@@ -1,0 +1,388 @@
+/* ── 짬짬이 낱말 ──
+   화면에 닿는 코드는 전부 여기 있다. 출제 규칙(pick.js)·저장(store.js)은
+   DOM을 모르는 모듈로 빼 두었다.
+
+   검증 스크립트(scripts/validate-data.mjs)가 아래 TYPES·LEVELS·TOPICS 를
+   정규식으로 읽어 간다. 상수 이름이나 형태를 바꾸면 그쪽도 함께 고쳐야 한다
+   (안 고치면 검증이 통과하는 대신 실패한다 — 조용히 무력화되지 않도록). */
+
+import { candidates, pickNext } from './pick.js';
+import { store } from './store.js';
+
+const TYPES = {
+  choseong: { label: 'ㄱㄴㄷ 초성퀴즈', emoji: '🔤', kind: 'quiz', topics: true, blurb: '초성을 보고 낱말을 외쳐요' },
+  proverb: { label: '속담 이어말하기', emoji: '🗣', kind: 'quiz', topics: false, blurb: '앞부분을 보고 뒷부분을 외쳐요' },
+  idiom: { label: '사자성어', emoji: '🀄', kind: 'quiz', topics: false, blurb: '뜻을 보고 사자성어를 외쳐요' },
+  riddle: { label: '수수께끼', emoji: '❓', kind: 'quiz', topics: false, blurb: '수수께끼의 답을 외쳐요' },
+  chain: { label: '끝말잇기 도우미', emoji: '🔗', kind: 'tool', topics: false, blurb: '차례와 시간을 화면이 맡아요' },
+  gesture: { label: '몸으로 말해요', emoji: '🎭', kind: 'tool', topics: true, blurb: '단어 카드를 크게 띄워요' },
+};
+
+const LEVELS = ['easy', 'normal', 'hard'];
+const TOPICS = ['동물', '음식', '학교물건', '직업', '나라', '자연', '탈것', '운동'];
+const STATES = ['HOME', 'SETUP', 'PROMPT', 'HINT', 'ANSWER', 'CHAIN', 'GESTURE', 'DONE'];
+
+const LEVEL_LABEL = { all: '전체', easy: '쉬움', normal: '보통', hard: '어려움' };
+const GROUPS = [2, 3, 4, 5, 6, 7, 8];
+const SECONDS = [5, 10, 15, 20];
+
+// 문제 길이에 따라 글자 크기를 세 단계로 (CSS .quiz-prompt[data-len])
+const LEN_MID = 8;
+const LEN_LONG = 18;
+function lenClass(text) {
+  if (text.length > LEN_LONG) return 'long';
+  if (text.length > LEN_MID) return 'mid';
+  return 'short';
+}
+
+// 최근 주제는 "3연속 회피"에만 쓰므로 몇 개만 들고 있으면 된다.
+const TOPIC_MEMORY = 4;
+
+const state = {
+  screen: 'HOME',
+  type: null,
+  level: 'all',
+  topic: 'all',
+  groups: 4,
+  seconds: 10,
+  pool: [],
+  item: null,
+  stage: 'PROMPT',
+  hintOpened: false,
+  counted: false,
+  recentTopics: [],
+  items: [],
+};
+
+const $ = (id) => document.getElementById(id);
+
+const SCREENS = {
+  HOME: 'screen-home',
+  SETUP: 'screen-setup',
+  PROMPT: 'screen-quiz',
+  HINT: 'screen-quiz',
+  ANSWER: 'screen-quiz',
+  CHAIN: 'screen-chain',
+  GESTURE: 'screen-gesture',
+  DONE: 'screen-done',
+  ERROR: 'screen-error',
+};
+
+function show(screen) {
+  if (screen !== 'ERROR' && !STATES.includes(screen)) return;
+  state.screen = screen;
+  const wanted = SCREENS[screen];
+  for (const id of new Set(Object.values(SCREENS))) {
+    $(id).hidden = id !== wanted;
+  }
+  window.scrollTo(0, 0);
+}
+
+function todayStr() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+/* ── 홈 ────────────────────────────────────────────────────── */
+
+function renderHome() {
+  const quiz = $('type-grid-quiz');
+  const tool = $('type-grid-tool');
+  quiz.textContent = '';
+  tool.textContent = '';
+
+  for (const [key, t] of Object.entries(TYPES)) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'type-card btn';
+    btn.innerHTML =
+      `<span class="type-emoji" aria-hidden="true">${t.emoji}</span>` +
+      `<span class="type-body"><span class="type-label"></span>` +
+      `<span class="type-blurb"></span></span>`;
+    btn.querySelector('.type-label').textContent = t.label;
+    btn.querySelector('.type-blurb').textContent = t.blurb;
+    btn.addEventListener('click', () => openSetup(key));
+    (t.kind === 'quiz' ? quiz : tool).appendChild(btn);
+  }
+}
+
+/* ── 조건 선택 ──────────────────────────────────────────────── */
+
+function optionButton(row, label, checked, onPick) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'option-btn';
+  btn.setAttribute('role', 'radio');
+  btn.setAttribute('aria-checked', checked ? 'true' : 'false');
+  btn.textContent = label;
+  btn.addEventListener('click', () => {
+    for (const sib of row.querySelectorAll('.option-btn')) sib.setAttribute('aria-checked', 'false');
+    btn.setAttribute('aria-checked', 'true');
+    onPick();
+  });
+  row.appendChild(btn);
+}
+
+function openSetup(type) {
+  state.type = type;
+  state.level = 'all';
+  state.topic = 'all';
+  state.recentTopics = [];
+
+  const t = TYPES[type];
+  $('setup-title').textContent = `${t.emoji} ${t.label}`;
+
+  const isChain = type === 'chain';
+  $('group-level').hidden = isChain;
+  $('group-topic').hidden = !t.topics;
+  $('group-groups').hidden = !isChain;
+  $('group-seconds').hidden = !isChain;
+
+  if (!isChain) {
+    const levelRow = $('opt-level');
+    levelRow.textContent = '';
+    for (const lv of ['all', ...LEVELS]) {
+      optionButton(levelRow, LEVEL_LABEL[lv], lv === 'all', () => {
+        state.level = lv;
+        updateCount();
+      });
+    }
+  }
+
+  if (t.topics) {
+    const topicRow = $('opt-topic');
+    topicRow.textContent = '';
+    // 그 유형에 실제로 문항이 있는 주제만 보여 준다 — 고르고 나서 "0개"가 되면
+    // 선생님이 이유를 알 수 없다.
+    const present = TOPICS.filter((tp) => candidates(state.items, { type, topic: tp }).length > 0);
+    optionButton(topicRow, '전체', true, () => {
+      state.topic = 'all';
+      updateCount();
+    });
+    for (const tp of present) {
+      optionButton(topicRow, tp, false, () => {
+        state.topic = tp;
+        updateCount();
+      });
+    }
+  }
+
+  if (isChain) {
+    const gRow = $('opt-groups');
+    gRow.textContent = '';
+    for (const g of GROUPS) {
+      optionButton(gRow, `${g}모둠`, g === state.groups, () => { state.groups = g; });
+    }
+    const sRow = $('opt-seconds');
+    sRow.textContent = '';
+    for (const s of SECONDS) {
+      optionButton(sRow, `${s}초`, s === state.seconds, () => { state.seconds = s; });
+    }
+  }
+
+  updateCount();
+  show('SETUP');
+}
+
+function poolNow() {
+  return candidates(state.items, { type: state.type, level: state.level, topic: state.topic });
+}
+
+function updateCount() {
+  const el = $('setup-count');
+  if (state.type === 'chain') {
+    const n = candidates(state.items, { type: 'chain' }).length;
+    el.textContent = `시작 단어 ${n}개 중에서 뽑아요.`;
+    el.classList.toggle('is-empty', n === 0);
+    $('btn-start').disabled = n === 0;
+    return;
+  }
+  const n = poolNow().length;
+  el.textContent = n === 0
+    ? '이 조건에 맞는 문제가 없어요. 난이도나 주제를 바꿔 주세요.'
+    : `고른 조건에 맞는 문제 ${n}개`;
+  el.classList.toggle('is-empty', n === 0);
+  $('btn-start').disabled = n === 0;
+}
+
+/* ── 출제 ──────────────────────────────────────────────────── */
+
+function start() {
+  state.pool = poolNow();
+  if (TYPES[state.type].kind === 'tool') {
+    startTool();
+    return;
+  }
+  if (state.pool.length === 0) return;
+  nextItem();
+}
+
+function nextItem() {
+  const got = pickNext(state.pool, {
+    recentIds: store.recentIds(state.type),
+    recentTopics: state.recentTopics,
+  });
+  if (!got) { show('HOME'); return; }
+
+  // 후보를 다 돌았으면 기록을 접는다. 접지 않으면 다음 문항부터 계속 exhausted 다.
+  if (got.exhausted) store.clearRecent(state.type);
+
+  state.item = got.item;
+  store.pushRecent(state.type, got.item.id);
+  state.recentTopics = [...state.recentTopics, got.item.topic].slice(-TOPIC_MEMORY);
+  state.hintOpened = false;
+  state.counted = false;
+
+  renderItem();
+  setStage('PROMPT');
+  show('PROMPT');
+}
+
+function renderItem() {
+  const it = state.item;
+  $('quiz-topic').textContent = it.topic || '';
+  const prompt = $('quiz-prompt');
+  prompt.textContent = it.prompt;
+  prompt.dataset.len = lenClass(it.prompt);
+  $('quiz-hint').textContent = it.hint;
+  $('answer-text').textContent = it.answer;
+
+  const also = $('answer-also');
+  const alsoList = Array.isArray(it.also) ? it.also.filter(Boolean) : [];
+  also.hidden = alsoList.length === 0;
+  also.textContent = alsoList.length ? `이것도 맞아요 — ${alsoList.join(' · ')}` : '';
+
+  const note = $('answer-note');
+  note.hidden = !it.note;
+  note.textContent = it.note || '';
+
+  $('quiz-count').textContent = `오늘 ${store.todayCount(todayStr())}문항`;
+}
+
+function setStage(stage) {
+  state.stage = stage;
+  if (stage === 'HINT') state.hintOpened = true;
+  const showAnswer = stage === 'ANSWER';
+
+  // 건너뛴 힌트는 정답과 함께 나타나지 않는다. 안 그러면 정답 버튼 한 번에
+  // 힌트와 정답이 동시에 튀어나와, 아이들 눈이 어디를 봐야 할지 모른다.
+  $('quiz-hint').hidden = !state.hintOpened;
+  $('quiz-answer').hidden = !showAnswer;
+  $('btn-hint').hidden = state.hintOpened || showAnswer;   // 힌트는 한 번만
+  $('btn-reveal').hidden = showAnswer;
+  $('btn-next').hidden = !showAnswer;
+
+  if (showAnswer && !state.counted) {
+    // 오늘 푼 수는 정답을 처음 열 때만 센다. 힌트를 여러 번 눌러도 늘지 않는다.
+    state.counted = true;
+    $('quiz-count').textContent = `오늘 ${store.bumpToday(todayStr())}문항`;
+  }
+}
+
+/* Space 한 번의 뜻 — 지금 단계에서 "다음"에 해당하는 하나 */
+function advanceStage() {
+  if (state.stage === 'ANSWER') nextItem();
+  else setStage('ANSWER');
+}
+
+function finish() {
+  const n = store.todayCount(todayStr());
+  $('done-text').textContent = n > 0 ? `오늘 ${n}문항 했어요!` : '오늘도 잘했어요!';
+  show('DONE');
+}
+
+/* ── 도구형 (끝말잇기·몸으로 말해요) ──────────────────────────
+   화면은 각자의 모듈에서 그린다. 여기서는 어느 화면으로 보낼지만 정한다. */
+
+function startTool() {
+  if (state.type === 'chain') { renderChainStub(); show('CHAIN'); return; }
+  renderGestureStub();
+  show('GESTURE');
+}
+
+function toolStub(hostId, text) {
+  const host = $(hostId);
+  host.innerHTML = '';
+  const card = document.createElement('div');
+  card.className = 'setup-card';
+  const h = document.createElement('h1');
+  h.textContent = text;
+  const back = document.createElement('button');
+  back.type = 'button';
+  back.className = 'btn btn-ghost';
+  back.textContent = '← 처음으로';
+  back.addEventListener('click', () => show('HOME'));
+  card.append(h, back);
+  host.appendChild(card);
+}
+
+function renderChainStub() { toolStub('screen-chain', '끝말잇기 도우미는 다음 단계에서 만들어요.'); }
+function renderGestureStub() { toolStub('screen-gesture', '몸으로 말해요는 다음 단계에서 만들어요.'); }
+
+/* ── 부팅 ──────────────────────────────────────────────────── */
+
+function wire() {
+  $('brand-home').addEventListener('click', (e) => { e.preventDefault(); show('HOME'); });
+  $('btn-setup-back').addEventListener('click', () => show('HOME'));
+  $('btn-start').addEventListener('click', start);
+  $('btn-hint').addEventListener('click', () => setStage('HINT'));
+  $('btn-reveal').addEventListener('click', () => setStage('ANSWER'));
+  $('btn-next').addEventListener('click', nextItem);
+  $('btn-skip').addEventListener('click', nextItem);
+  $('btn-quit').addEventListener('click', finish);
+  $('btn-continue').addEventListener('click', () => (state.item ? nextItem() : show('HOME')));
+  $('btn-home').addEventListener('click', () => show('HOME'));
+
+  const mute = $('btn-mute');
+  const paintMute = () => mute.setAttribute('aria-pressed', store.isMuted() ? 'true' : 'false');
+  paintMute();
+  mute.addEventListener('click', () => {
+    store.setMuted(!store.isMuted());
+    paintMute();
+  });
+
+  // 버튼에 포커스가 남으면 Space 가 두 번 먹는다(클릭 + 키보드). 눌린 뒤 포커스를 뗀다.
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (b) b.blur();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const onQuiz = state.screen === 'PROMPT' || state.screen === 'HINT' || state.screen === 'ANSWER';
+
+    if (e.key === 'Escape') {
+      if (onQuiz) { e.preventDefault(); finish(); }
+      return;
+    }
+    if (!onQuiz) return;
+
+    if (e.key === ' ' || e.code === 'Space') {
+      e.preventDefault();       // 스크롤 방지
+      advanceStage();
+    } else if (e.key === 'h' || e.key === 'H' || e.key === 'ㅗ') {
+      // 한글 자판이 켜져 있으면 H 자리에서 'ㅗ' 가 온다 — 교실에서 흔한 상황이다.
+      e.preventDefault();
+      if (state.stage === 'PROMPT') setStage('HINT');
+    }
+  });
+}
+
+async function boot() {
+  wire();
+  try {
+    const res = await fetch('data/words.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    state.items = Array.isArray(data.items) ? data.items : [];
+    if (state.items.length === 0) throw new Error('빈 데이터');
+  } catch {
+    show('ERROR');
+    return;
+  }
+  renderHome();
+  show('HOME');
+}
+
+boot();
