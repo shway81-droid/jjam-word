@@ -86,7 +86,9 @@
       "prompt": "ㄱㅂㅇ",
       "hint": "등에 집을 지고 천천히 걸어요.",
       "answer": "거북이",
-      "also": ["거북"],
+      "also": [
+        "거북"
+      ],
       "note": ""
     },
     {
@@ -108,7 +110,9 @@
       "prompt": "ㄱㄹ",
       "hint": "목이 아주 길어요.",
       "answer": "기린",
-      "also": ["고래"],
+      "also": [
+        "고래"
+      ],
       "note": "ㄱㄹ 로는 고래도 맞아요."
     },
     {
@@ -119,7 +123,9 @@
       "prompt": "ㄱㅊ",
       "hint": "빨갛고 매콤한 우리 반찬이에요.",
       "answer": "김치",
-      "also": ["고추"],
+      "also": [
+        "고추"
+      ],
       "note": ""
     },
     {
@@ -207,7 +213,9 @@
       "prompt": "ㅇㅇ",
       "hint": "소에서 나오는 흰 음료예요.",
       "answer": "우유",
-      "also": ["오이"],
+      "also": [
+        "오이"
+      ],
       "note": ""
     },
     {
@@ -218,7 +226,9 @@
       "prompt": "ㄱㅂ",
       "hint": "밥과 재료를 김으로 말아요.",
       "answer": "김밥",
-      "also": ["국밥"],
+      "also": [
+        "국밥"
+      ],
       "note": ""
     },
     {
@@ -328,6 +338,998 @@
       "prompt": "ㅅㄴㅎ",
       "hint": "교실에서만 신는 신발이에요.",
       "answer": "실내화",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ani-011",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "ㅋㅇㄹ",
+      "hint": "나무에 매달려 잠을 많이 자요. 호주에 살아요.",
+      "answer": "코알라",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ani-012",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "ㅎㅁ",
+      "hint": "물속에 있다가 입을 아주 크게 벌려요.",
+      "answer": "하마",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ani-013",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "동물",
+      "prompt": "ㅇㅇ",
+      "hint": "이빨이 날카롭고 물에 숨어 있어요.",
+      "answer": "악어",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ani-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "동물",
+      "prompt": "ㅋㅁㄹㅇ",
+      "hint": "몸 색을 바꿔 나뭇잎 사이에 숨어요.",
+      "answer": "카멜레온",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ani-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "동물",
+      "prompt": "ㅎㅇㅇㄴ",
+      "hint": "무리로 다니며 웃는 듯한 소리를 내요.",
+      "answer": "하이에나",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-food-011",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "ㅁㅇㄱ",
+      "hint": "생일에 끓여 먹어요.",
+      "answer": "미역국",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-food-012",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "ㅂㅂㅂ",
+      "hint": "여러 나물을 넣고 고추장에 섞어요.",
+      "answer": "비빔밥",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-food-013",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "음식",
+      "prompt": "ㅋㄹ",
+      "hint": "노랗고 향이 진한 인도 음식이에요.",
+      "answer": "카레",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-food-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "음식",
+      "prompt": "ㅂㄹㅋㄹ",
+      "hint": "초록색 작은 나무처럼 생긴 채소예요.",
+      "answer": "브로콜리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-food-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "음식",
+      "prompt": "ㅍㅇㅇㅍ",
+      "hint": "겉이 거칠고 머리에 잎이 달린 열대 과일이에요.",
+      "answer": "파인애플",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sch-011",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "ㅅㅇㅍ",
+      "hint": "여러 색으로 칠하는 필기도구예요.",
+      "answer": "색연필",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sch-012",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "ㅈㅅ",
+      "hint": "쇠붙이를 끌어당겨요.",
+      "answer": "자석",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sch-013",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "학교물건",
+      "prompt": "ㅅㅁㅎ",
+      "hint": "교실에서 내 물건을 넣어 두는 칸이에요.",
+      "answer": "사물함",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sch-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "학교물건",
+      "prompt": "ㅅㄱㅈ",
+      "hint": "세모 모양으로 각도를 재요.",
+      "answer": "삼각자",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sch-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "학교물건",
+      "prompt": "ㅎㅁㄱ",
+      "hint": "아주 작은 것을 크게 볼 때 써요.",
+      "answer": "현미경",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-001",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "직업",
+      "prompt": "ㅅㅅㄴ",
+      "hint": "학교에서 공부를 가르쳐 주세요.",
+      "answer": "선생님",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-002",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "직업",
+      "prompt": "ㅇㅅ",
+      "hint": "아픈 곳을 낫게 해 주세요.",
+      "answer": "의사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-003",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "직업",
+      "prompt": "ㄱㅊㄱ",
+      "hint": "위험한 일이 생기면 달려와 주세요.",
+      "answer": "경찰관",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-004",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㅅㅂㄱ",
+      "hint": "불을 끄고 사람을 구해요.",
+      "answer": "소방관",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-005",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㅇㄹㅅ",
+      "hint": "음식을 만드는 일을 해요.",
+      "answer": "요리사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-006",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㅇㄷㅅㅅ",
+      "hint": "경기에 나가 뛰는 일을 해요.",
+      "answer": "운동선수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-007",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㄱㅅ",
+      "hint": "노래를 부르는 일을 해요.",
+      "answer": "가수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-008",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㅎㄱ",
+      "hint": "그림을 그리는 일을 해요.",
+      "answer": "화가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-009",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㅇㅊㅂ",
+      "hint": "편지와 소포를 집으로 가져다줘요.",
+      "answer": "우체부",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-010",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "직업",
+      "prompt": "ㅁㅇㅅ",
+      "hint": "머리를 다듬어 주는 일을 해요.",
+      "answer": "미용사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-011",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "ㅅㅇㅅ",
+      "hint": "아픈 동물을 치료해요.",
+      "answer": "수의사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-012",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "ㅁㅅ",
+      "hint": "나무를 다루어 집과 가구를 만들어요.",
+      "answer": "목수",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-013",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "ㅈㅈㅅ",
+      "hint": "비행기를 몰아요.",
+      "answer": "조종사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "ㅅㅅ",
+      "hint": "도서관에서 책을 관리해요.",
+      "answer": "사서",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-job-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "직업",
+      "prompt": "ㅅㅅㄱ",
+      "hint": "이야기를 써서 책을 만들어요.",
+      "answer": "소설가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-001",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "나라",
+      "prompt": "ㅎㄱ",
+      "hint": "우리가 사는 나라예요.",
+      "answer": "한국",
+      "also": [
+        "대한민국"
+      ],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-002",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "나라",
+      "prompt": "ㅇㅂ",
+      "hint": "바다 건너 동쪽에 있는 섬나라예요.",
+      "answer": "일본",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-003",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "나라",
+      "prompt": "ㅈㄱ",
+      "hint": "만리장성이 있는 서쪽 이웃 나라예요.",
+      "answer": "중국",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-004",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㅁㄱ",
+      "hint": "성조기를 쓰고 주가 오십 개인 나라예요.",
+      "answer": "미국",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-005",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㅍㄹㅅ",
+      "hint": "에펠탑이 있는 나라예요.",
+      "answer": "프랑스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-006",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㅇㄱ",
+      "hint": "빨간 이층 버스와 큰 시계탑이 있어요.",
+      "answer": "영국",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-007",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㄷㅇ",
+      "hint": "자동차와 소시지로 유명한 유럽 나라예요.",
+      "answer": "독일",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-008",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㅎㅈ",
+      "hint": "캥거루가 사는 남쪽 대륙 나라예요.",
+      "answer": "호주",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-009",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㅇㄷ",
+      "hint": "카레와 갠지스강으로 유명해요.",
+      "answer": "인도",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-010",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "나라",
+      "prompt": "ㅋㄴㄷ",
+      "hint": "단풍잎이 국기에 있는 북쪽 나라예요.",
+      "answer": "캐나다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-011",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "ㅂㄹㅈ",
+      "hint": "아마존과 축구로 유명한 남아메리카 나라예요.",
+      "answer": "브라질",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-012",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "ㅇㅈㅌ",
+      "hint": "피라미드와 스핑크스가 있어요.",
+      "answer": "이집트",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-013",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "ㅅㅇㅅ",
+      "hint": "알프스 산과 시계로 유명해요.",
+      "answer": "스위스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "ㅁㅅㅋ",
+      "hint": "타코와 선인장으로 유명한 나라예요.",
+      "answer": "멕시코",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nat-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "나라",
+      "prompt": "ㄴㄷㄹㄷ",
+      "hint": "풍차와 튤립으로 유명해요.",
+      "answer": "네덜란드",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-001",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "자연",
+      "prompt": "ㅁㅈㄱ",
+      "hint": "비 온 뒤 하늘에 뜨는 일곱 색 띠예요.",
+      "answer": "무지개",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-002",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "자연",
+      "prompt": "ㄱㄹ",
+      "hint": "하늘에 떠 있는 솜 같은 것이에요.",
+      "answer": "구름",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-003",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "자연",
+      "prompt": "ㅂㄷ",
+      "hint": "짜고 넓은 물이에요.",
+      "answer": "바다",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-004",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㅍㅍ",
+      "hint": "물이 높은 곳에서 쏟아져 내려요.",
+      "answer": "폭포",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-005",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㅎㅅ",
+      "hint": "뜨거운 것이 터져 나오는 산이에요.",
+      "answer": "화산",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-006",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㅅㅁ",
+      "hint": "모래가 끝없이 펼쳐진 마른 땅이에요.",
+      "answer": "사막",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-007",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㄷㄱ",
+      "hint": "땅이나 산에 뻥 뚫린 굴이에요.",
+      "answer": "동굴",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-008",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㄱㄱ",
+      "hint": "산 사이로 물이 흐르는 곳이에요.",
+      "answer": "계곡",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-009",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㅈㅂ",
+      "hint": "깎아지른 듯 서 있는 바위 벽이에요.",
+      "answer": "절벽",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-010",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "자연",
+      "prompt": "ㅅㄴㄱ",
+      "hint": "갑자기 쏟아지다 그치는 비예요.",
+      "answer": "소나기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-011",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "자연",
+      "prompt": "ㅂㅎ",
+      "hint": "아주 오래 얼어붙어 천천히 움직이는 얼음이에요.",
+      "answer": "빙하",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-012",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "자연",
+      "prompt": "ㅈㅈ",
+      "hint": "땅이 흔들리는 일이에요.",
+      "answer": "지진",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-013",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "자연",
+      "prompt": "ㅇㄹㄹ",
+      "hint": "북쪽 밤하늘에 커튼처럼 흐르는 빛이에요.",
+      "answer": "오로라",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "자연",
+      "prompt": "ㅅㅎㅊ",
+      "hint": "따뜻한 바다에 사는 알록달록한 바위 같은 것이에요.",
+      "answer": "산호초",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-nature-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "자연",
+      "prompt": "ㅈㅇㅅ",
+      "hint": "동굴 천장에 고드름처럼 자라는 돌이에요.",
+      "answer": "종유석",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-001",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "ㅈㄷㅊ",
+      "hint": "네 바퀴로 길을 달려요.",
+      "answer": "자동차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-002",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "ㅂㅅ",
+      "hint": "여러 사람이 함께 타고 정해진 길로 다녀요.",
+      "answer": "버스",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-003",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "탈것",
+      "prompt": "ㅈㅈㄱ",
+      "hint": "두 바퀴를 발로 밟아 움직여요.",
+      "answer": "자전거",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-004",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㄱㅊ",
+      "hint": "철길 위를 길게 이어 달려요.",
+      "answer": "기차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-005",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅂㅎㄱ",
+      "hint": "하늘을 날아 먼 곳으로 가요.",
+      "answer": "비행기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-006",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅇㄱㅅ",
+      "hint": "사람을 태우고 바다를 건너요.",
+      "answer": "여객선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-007",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅈㅎㅊ",
+      "hint": "땅 밑 길을 달려요.",
+      "answer": "지하철",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-008",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅇㅌㅂㅇ",
+      "hint": "두 바퀴에 엔진이 달렸어요.",
+      "answer": "오토바이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-009",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅌㄹ",
+      "hint": "짐을 실어 옮기는 큰 차예요.",
+      "answer": "트럭",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-010",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅌㅅ",
+      "hint": "손을 들면 세워 주고 요금을 내고 타요.",
+      "answer": "택시",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-011",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "탈것",
+      "prompt": "ㅎㄹㅋㅌ",
+      "hint": "날개가 위에서 빙빙 돌아요.",
+      "answer": "헬리콥터",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-012",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "ㅈㅅㅎ",
+      "hint": "물속으로 들어가 다녀요.",
+      "answer": "잠수함",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-013",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "ㅋㅇㅂㅋ",
+      "hint": "줄에 매달려 산을 올라가요.",
+      "answer": "케이블카",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "ㅈㄱㄱㄱㅊ",
+      "hint": "굴뚝에서 흰 연기를 내며 달렸던 옛 기차예요.",
+      "answer": "증기기관차",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-ride-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "탈것",
+      "prompt": "ㅇㄱㄱ",
+      "hint": "뜨거운 공기로 하늘에 둥실 떠올라요.",
+      "answer": "열기구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-001",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "운동",
+      "prompt": "ㅊㄱ",
+      "hint": "발로 공을 차서 골을 넣어요.",
+      "answer": "축구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-002",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "운동",
+      "prompt": "ㅇㄱ",
+      "hint": "배트로 공을 치고 달려요.",
+      "answer": "야구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-003",
+      "type": "choseong",
+      "level": "easy",
+      "topic": "운동",
+      "prompt": "ㅅㅇ",
+      "hint": "물속에서 팔다리를 저어 나아가요.",
+      "answer": "수영",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-004",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㄴㄱ",
+      "hint": "높은 곳에 달린 링에 공을 넣어요.",
+      "answer": "농구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-005",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㅂㄱ",
+      "hint": "네트 위로 공을 넘겨 손으로 때려요.",
+      "answer": "배구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-006",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㅌㄱ",
+      "hint": "작은 채로 가벼운 공을 주고받아요.",
+      "answer": "탁구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-007",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㅌㄱㄷ",
+      "hint": "우리나라에서 시작된 발차기 무술이에요.",
+      "answer": "태권도",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-008",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㅂㄷㅁㅌ",
+      "hint": "깃털 달린 공을 채로 넘겨요.",
+      "answer": "배드민턴",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-009",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㅈㄴㄱ",
+      "hint": "줄을 돌리며 뛰어넘어요.",
+      "answer": "줄넘기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-010",
+      "type": "choseong",
+      "level": "normal",
+      "topic": "운동",
+      "prompt": "ㅅㅋㅇㅌ",
+      "hint": "얼음 위를 미끄러져 달려요.",
+      "answer": "스케이트",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-011",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "ㅊㅈ",
+      "hint": "몸을 접고 돌며 균형을 잡는 운동이에요.",
+      "answer": "체조",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-012",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "ㅍㅅ",
+      "hint": "가늘고 긴 검으로 찌르며 겨뤄요.",
+      "answer": "펜싱",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-013",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "ㅇㄷ",
+      "hint": "상대를 잡아 넘어뜨리는 무술이에요.",
+      "answer": "유도",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-014",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "ㅁㄹㅌ",
+      "hint": "아주 먼 거리를 오래 달려요.",
+      "answer": "마라톤",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "choseong-sport-015",
+      "type": "choseong",
+      "level": "hard",
+      "topic": "운동",
+      "prompt": "ㅅㅁ",
+      "hint": "말을 타고 달리는 운동이에요.",
+      "answer": "승마",
       "also": [],
       "note": ""
     }
