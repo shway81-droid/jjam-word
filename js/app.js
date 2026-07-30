@@ -9,6 +9,7 @@
 import { candidates, pickNext } from './pick.js';
 import { store } from './store.js';
 import { sound } from './sound.js';
+import { createRound, advance } from './chain.js';
 
 const TYPES = {
   choseong: { label: 'ㄱㄴㄷ 초성퀴즈', emoji: '🔤', kind: 'quiz', topics: true, blurb: '초성을 보고 낱말을 외쳐요' },
@@ -53,6 +54,9 @@ const state = {
   counted: false,
   recentTopics: [],
   items: [],
+  round: null,        // 끝말잇기 한 판
+  timerId: null,
+  deadline: 0,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -71,6 +75,9 @@ const SCREENS = {
 
 function show(screen) {
   if (screen !== 'ERROR' && !STATES.includes(screen)) return;
+  // 끝말잇기 화면을 떠나면 타이머를 끊는다. 안 끊으면 다른 화면에서
+  // 시간이 다 되어 판이 끝나 버린다.
+  if (state.screen === 'CHAIN' && screen !== 'CHAIN') stopChainTimer();
   state.screen = screen;
   const wanted = SCREENS[screen];
   for (const id of new Set(Object.values(SCREENS))) {
@@ -303,9 +310,82 @@ function finish() {
    화면은 각자의 모듈에서 그린다. 여기서는 어느 화면으로 보낼지만 정한다. */
 
 function startTool() {
-  if (state.type === 'chain') { renderChainStub(); show('CHAIN'); return; }
+  if (state.type === 'chain') { startChain(); return; }
   renderGestureStub();
   show('GESTURE');
+}
+
+/* ── 끝말잇기 도우미 ──
+   화면은 아이들이 말한 단어를 모른다(교사가 타이핑하지 않으므로).
+   차례와 남은 시간만 맡고, 성공·탈락은 교사의 딸깍으로 기록한다. */
+
+function startChain() {
+  const pool = candidates(state.items, { type: 'chain' });
+  const got = pickNext(pool, { recentIds: store.recentIds('chain') });
+  if (!got) { show('HOME'); return; }
+  if (got.exhausted) store.clearRecent('chain');
+  store.pushRecent('chain', got.item.id);
+
+  state.round = createRound({ word: got.item.word, groups: state.groups, seconds: state.seconds });
+  renderChain();
+  show('CHAIN');
+  startChainTimer();
+}
+
+function renderChain() {
+  const r = state.round;
+  $('chain-word').textContent = r.word;
+  $('chain-turn').textContent = r.done ? '판이 끝났어요' : `${r.turn}번 모둠 차례`;
+
+  const log = $('chain-log');
+  log.textContent = '';
+  for (const e of r.log) {
+    const chip = document.createElement('span');
+    chip.className = 'chain-log-item' + (e.result === 'ok' ? '' : ' is-out');
+    const mark = e.result === 'ok' ? '✓' : e.result === 'timeout' ? '⏱' : '✗';
+    chip.textContent = `${e.turn}번 ${mark}`;
+    log.appendChild(chip);
+  }
+
+  $('btn-chain-ok').hidden = r.done;
+  $('btn-chain-out').hidden = r.done;
+  $('btn-chain-again').hidden = !r.done;
+}
+
+function stopChainTimer() {
+  if (state.timerId !== null) {
+    clearInterval(state.timerId);
+    state.timerId = null;
+  }
+}
+
+function startChainTimer() {
+  stopChainTimer();
+  state.deadline = Date.now() + state.round.seconds * 1000;
+  paintTimer(state.round.seconds);
+  // 남은 시간은 벽시계(Date.now)로 계산한다. 인터벌이 몇 번 돌았는지로 세면
+  // 탭이 백그라운드로 갔을 때 브라우저가 인터벌을 늦춰 시간이 어긋난다.
+  state.timerId = setInterval(() => {
+    const left = Math.max(0, Math.ceil((state.deadline - Date.now()) / 1000));
+    paintTimer(left);
+    if (left === 0) chainAdvance('timeout');
+  }, 200);
+}
+
+function paintTimer(left) {
+  const el = $('chain-timer');
+  el.textContent = String(left);
+  // 색으로만 알리지 않는다 — CSS 에서 크기도 함께 커진다.
+  el.classList.toggle('is-urgent', left > 0 && left <= 3);
+  el.classList.toggle('is-over', left === 0);
+}
+
+function chainAdvance(result) {
+  stopChainTimer();
+  state.round = advance(state.round, result);
+  renderChain();
+  if (result === 'timeout') sound.timeUp();
+  if (!state.round.done) startChainTimer();
 }
 
 function toolStub(hostId, text) {
@@ -324,7 +404,6 @@ function toolStub(hostId, text) {
   host.appendChild(card);
 }
 
-function renderChainStub() { toolStub('screen-chain', '끝말잇기 도우미는 다음 단계에서 만들어요.'); }
 function renderGestureStub() { toolStub('screen-gesture', '몸으로 말해요는 다음 단계에서 만들어요.'); }
 
 /* ── 부팅 ──────────────────────────────────────────────────── */
@@ -340,6 +419,12 @@ function wire() {
   $('btn-quit').addEventListener('click', finish);
   $('btn-continue').addEventListener('click', () => (state.item ? nextItem() : show('HOME')));
   $('btn-home').addEventListener('click', () => show('HOME'));
+
+  $('btn-chain-ok').addEventListener('click', () => chainAdvance('ok'));
+  $('btn-chain-out').addEventListener('click', () => chainAdvance('out'));
+  $('btn-chain-again').addEventListener('click', startChain);
+  $('btn-chain-new').addEventListener('click', startChain);
+  $('btn-chain-quit').addEventListener('click', () => show('HOME'));
 
   const mute = $('btn-mute');
   const paintMute = () => mute.setAttribute('aria-pressed', store.isMuted() ? 'true' : 'false');
@@ -360,9 +445,20 @@ function wire() {
   document.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const onQuiz = state.screen === 'PROMPT' || state.screen === 'HINT' || state.screen === 'ANSWER';
+    const onChain = state.screen === 'CHAIN';
 
     if (e.key === 'Escape') {
       if (onQuiz) { e.preventDefault(); finish(); }
+      else if (onChain) { e.preventDefault(); show('HOME'); }
+      return;
+    }
+
+    if (onChain) {
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        if (state.round && state.round.done) startChain();
+        else chainAdvance('ok');
+      }
       return;
     }
     if (!onQuiz) return;

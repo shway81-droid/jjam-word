@@ -4512,6 +4512,366 @@
       "answer": "내일",
       "also": [],
       "note": ""
+    },
+    {
+      "id": "chain-001",
+      "type": "chain",
+      "level": "easy",
+      "word": "기차"
+    },
+    {
+      "id": "chain-002",
+      "type": "chain",
+      "level": "easy",
+      "word": "사과"
+    },
+    {
+      "id": "chain-003",
+      "type": "chain",
+      "level": "easy",
+      "word": "바다"
+    },
+    {
+      "id": "chain-004",
+      "type": "chain",
+      "level": "easy",
+      "word": "나무"
+    },
+    {
+      "id": "chain-005",
+      "type": "chain",
+      "level": "easy",
+      "word": "학교"
+    },
+    {
+      "id": "chain-006",
+      "type": "chain",
+      "level": "easy",
+      "word": "가방"
+    },
+    {
+      "id": "chain-007",
+      "type": "chain",
+      "level": "easy",
+      "word": "모자"
+    },
+    {
+      "id": "chain-008",
+      "type": "chain",
+      "level": "easy",
+      "word": "시계"
+    },
+    {
+      "id": "chain-009",
+      "type": "chain",
+      "level": "easy",
+      "word": "우산"
+    },
+    {
+      "id": "chain-010",
+      "type": "chain",
+      "level": "easy",
+      "word": "연필"
+    },
+    {
+      "id": "chain-011",
+      "type": "chain",
+      "level": "easy",
+      "word": "신발"
+    },
+    {
+      "id": "chain-012",
+      "type": "chain",
+      "level": "easy",
+      "word": "창문"
+    },
+    {
+      "id": "chain-013",
+      "type": "chain",
+      "level": "easy",
+      "word": "하늘"
+    },
+    {
+      "id": "chain-014",
+      "type": "chain",
+      "level": "easy",
+      "word": "딸기"
+    },
+    {
+      "id": "chain-015",
+      "type": "chain",
+      "level": "easy",
+      "word": "수박"
+    },
+    {
+      "id": "chain-016",
+      "type": "chain",
+      "level": "easy",
+      "word": "지도"
+    },
+    {
+      "id": "chain-017",
+      "type": "chain",
+      "level": "easy",
+      "word": "의자"
+    },
+    {
+      "id": "chain-018",
+      "type": "chain",
+      "level": "easy",
+      "word": "책상"
+    },
+    {
+      "id": "chain-019",
+      "type": "chain",
+      "level": "easy",
+      "word": "가위"
+    },
+    {
+      "id": "chain-020",
+      "type": "chain",
+      "level": "easy",
+      "word": "우유"
+    },
+    {
+      "id": "chain-021",
+      "type": "chain",
+      "level": "easy",
+      "word": "김밥"
+    },
+    {
+      "id": "chain-022",
+      "type": "chain",
+      "level": "easy",
+      "word": "과자"
+    },
+    {
+      "id": "chain-023",
+      "type": "chain",
+      "level": "easy",
+      "word": "포도"
+    },
+    {
+      "id": "chain-024",
+      "type": "chain",
+      "level": "easy",
+      "word": "감자"
+    },
+    {
+      "id": "chain-025",
+      "type": "chain",
+      "level": "easy",
+      "word": "토끼"
+    },
+    {
+      "id": "chain-026",
+      "type": "chain",
+      "level": "easy",
+      "word": "나비"
+    },
+    {
+      "id": "chain-027",
+      "type": "chain",
+      "level": "easy",
+      "word": "개미"
+    },
+    {
+      "id": "chain-028",
+      "type": "chain",
+      "level": "easy",
+      "word": "버스"
+    },
+    {
+      "id": "chain-029",
+      "type": "chain",
+      "level": "easy",
+      "word": "축구"
+    },
+    {
+      "id": "chain-030",
+      "type": "chain",
+      "level": "easy",
+      "word": "친구"
+    },
+    {
+      "id": "chain-031",
+      "type": "chain",
+      "level": "normal",
+      "word": "병원"
+    },
+    {
+      "id": "chain-032",
+      "type": "chain",
+      "level": "normal",
+      "word": "안경"
+    },
+    {
+      "id": "chain-033",
+      "type": "chain",
+      "level": "normal",
+      "word": "장갑"
+    },
+    {
+      "id": "chain-034",
+      "type": "chain",
+      "level": "normal",
+      "word": "수건"
+    },
+    {
+      "id": "chain-035",
+      "type": "chain",
+      "level": "normal",
+      "word": "냄비"
+    },
+    {
+      "id": "chain-036",
+      "type": "chain",
+      "level": "normal",
+      "word": "접시"
+    },
+    {
+      "id": "chain-037",
+      "type": "chain",
+      "level": "normal",
+      "word": "칠판"
+    },
+    {
+      "id": "chain-038",
+      "type": "chain",
+      "level": "normal",
+      "word": "풍선"
+    },
+    {
+      "id": "chain-039",
+      "type": "chain",
+      "level": "normal",
+      "word": "열쇠"
+    },
+    {
+      "id": "chain-040",
+      "type": "chain",
+      "level": "normal",
+      "word": "편지"
+    },
+    {
+      "id": "chain-041",
+      "type": "chain",
+      "level": "normal",
+      "word": "사진"
+    },
+    {
+      "id": "chain-042",
+      "type": "chain",
+      "level": "normal",
+      "word": "사탕"
+    },
+    {
+      "id": "chain-043",
+      "type": "chain",
+      "level": "normal",
+      "word": "당근"
+    },
+    {
+      "id": "chain-044",
+      "type": "chain",
+      "level": "normal",
+      "word": "배추"
+    },
+    {
+      "id": "chain-045",
+      "type": "chain",
+      "level": "normal",
+      "word": "양파"
+    },
+    {
+      "id": "chain-046",
+      "type": "chain",
+      "level": "normal",
+      "word": "고추"
+    },
+    {
+      "id": "chain-047",
+      "type": "chain",
+      "level": "normal",
+      "word": "강아지"
+    },
+    {
+      "id": "chain-048",
+      "type": "chain",
+      "level": "normal",
+      "word": "다람쥐"
+    },
+    {
+      "id": "chain-049",
+      "type": "chain",
+      "level": "normal",
+      "word": "문어"
+    },
+    {
+      "id": "chain-050",
+      "type": "chain",
+      "level": "normal",
+      "word": "새우"
+    },
+    {
+      "id": "chain-051",
+      "type": "chain",
+      "level": "hard",
+      "word": "오징어"
+    },
+    {
+      "id": "chain-052",
+      "type": "chain",
+      "level": "hard",
+      "word": "물고기"
+    },
+    {
+      "id": "chain-053",
+      "type": "chain",
+      "level": "hard",
+      "word": "자전거"
+    },
+    {
+      "id": "chain-054",
+      "type": "chain",
+      "level": "hard",
+      "word": "비행기"
+    },
+    {
+      "id": "chain-055",
+      "type": "chain",
+      "level": "hard",
+      "word": "지하철"
+    },
+    {
+      "id": "chain-056",
+      "type": "chain",
+      "level": "hard",
+      "word": "문방구"
+    },
+    {
+      "id": "chain-057",
+      "type": "chain",
+      "level": "hard",
+      "word": "서점"
+    },
+    {
+      "id": "chain-058",
+      "type": "chain",
+      "level": "hard",
+      "word": "극장"
+    },
+    {
+      "id": "chain-059",
+      "type": "chain",
+      "level": "hard",
+      "word": "온천"
+    },
+    {
+      "id": "chain-060",
+      "type": "chain",
+      "level": "hard",
+      "word": "버섯"
     }
   ]
 }

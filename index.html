@@ -100,8 +100,23 @@
       </div>
     </section>
 
-    <!-- 4. 끝말잇기 도우미 -->
-    <section id="screen-chain" class="screen chain" hidden></section>
+    <!-- 4. 끝말잇기 도우미 — 화면은 단어를 모른다. 차례와 시간만 맡는다. -->
+    <section id="screen-chain" class="screen chain" hidden>
+      <p class="chain-label">시작 단어</p>
+      <p class="chain-word" id="chain-word"></p>
+      <p class="chain-turn" id="chain-turn" role="status"></p>
+      <div class="chain-timer" id="chain-timer" role="timer" aria-label="남은 시간">0</div>
+      <div class="chain-log" id="chain-log" aria-label="지나간 차례"></div>
+      <div class="chain-actions">
+        <button class="btn btn-primary btn-big" id="btn-chain-ok" type="button">성공 <kbd>Space</kbd></button>
+        <button class="btn btn-ghost btn-big" id="btn-chain-out" type="button">탈락</button>
+        <button class="btn btn-primary btn-big" id="btn-chain-again" type="button" hidden>새 단어로 <kbd>Space</kbd></button>
+      </div>
+      <div class="chain-corner">
+        <button class="btn btn-ghost btn-sm" id="btn-chain-new" type="button">새 단어로</button>
+        <button class="btn btn-ghost btn-sm" id="btn-chain-quit" type="button">마치기</button>
+      </div>
+    </section>
 
     <!-- 5. 몸으로 말해요 -->
     <section id="screen-gesture" class="screen gesture" hidden></section>

@@ -329,6 +329,58 @@ kbd {
 }
 .quiz-count, .gesture-count { font-size: 0.9rem; font-weight: 700; color: var(--ink-soft); }
 
+/* ── 끝말잇기 도우미 ──
+   시작 단어가 주인공이고, 그 아래 차례와 남은 시간이 큼직하게 붙는다.
+   교사는 [성공]·[탈락] 두 버튼만 본다. */
+.chain-label, .gesture-topic { font-size: 1rem; font-weight: 800; color: var(--ink-soft); }
+.chain-word {
+  font-size: clamp(3.4rem, 14vw, 11rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.chain-turn {
+  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  padding: 0.3rem 1.4rem;
+  border-radius: var(--radius-pill);
+}
+.chain-timer {
+  font-size: clamp(3rem, 9vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;   /* 숫자가 바뀔 때 폭이 흔들리지 않게 */
+  color: var(--ink-soft);
+}
+/* 남은 3초 — 색으로만 알리지 않는다. 크기도 함께 커져 색을 못 보는 아이도 안다. */
+.chain-timer.is-urgent { color: var(--accent); transform: scale(1.12); }
+.chain-timer.is-over { color: var(--accent-deep); }
+
+.chain-log { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; max-width: 42rem; }
+.chain-log-item {
+  font-size: 0.94rem;
+  font-weight: 700;
+  padding: 0.22rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+.chain-log-item.is-out { background: var(--accent-soft); color: var(--accent-deep); }
+
+/* ── 몸으로 말해요 — 한 명만 화면을 등지고 맞힌다. 단어가 화면의 절반이다. ── */
+.gesture-word {
+  font-size: clamp(4rem, 18vw, 14rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--ink);
+  word-break: keep-all;
+}
+
 /* ── 마무리 ── */
 .done { text-align: center; }
 .done-emoji { font-size: 4.4rem; line-height: 1; }
