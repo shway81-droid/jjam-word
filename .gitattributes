@@ -1,0 +1,8 @@
+# 저장소 안은 항상 LF. 윈도우에서 작업하더라도 GitHub Pages 로 나가는 내용이
+# 플랫폼마다 달라지지 않게 한다.
+* text=auto eol=lf
+
+# 이 파일들은 절대 줄바꿈 변환 대상이 아니다.
+# 폰트가 변환되면 check-font-coverage 의 sha256 대조에서 걸린다.
+*.woff2 binary
+*.png   binary

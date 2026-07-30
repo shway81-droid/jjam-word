@@ -8,6 +8,7 @@
 
 import { candidates, pickNext } from './pick.js';
 import { store } from './store.js';
+import { sound } from './sound.js';
 
 const TYPES = {
   choseong: { label: 'ㄱㄴㄷ 초성퀴즈', emoji: '🔤', kind: 'quiz', topics: true, blurb: '초성을 보고 낱말을 외쳐요' },
@@ -209,6 +210,8 @@ function updateCount() {
 /* ── 출제 ──────────────────────────────────────────────────── */
 
 function start() {
+  // 첫 사용자 제스처에서 오디오를 깨운다 — 이보다 늦으면 자동재생 정책에 막힌다.
+  sound.ensure();
   state.pool = poolNow();
   if (TYPES[state.type].kind === 'tool') {
     startTool();
@@ -261,9 +264,13 @@ function renderItem() {
 }
 
 function setStage(stage) {
+  const entering = state.stage !== stage;
   state.stage = stage;
   if (stage === 'HINT') state.hintOpened = true;
   const showAnswer = stage === 'ANSWER';
+
+  if (entering && stage === 'HINT') sound.hint();
+  if (entering && stage === 'ANSWER') sound.reveal();
 
   // 건너뛴 힌트는 정답과 함께 나타나지 않는다. 안 그러면 정답 버튼 한 번에
   // 힌트와 정답이 동시에 튀어나와, 아이들 눈이 어디를 봐야 할지 모른다.
@@ -337,8 +344,10 @@ function wire() {
   const mute = $('btn-mute');
   const paintMute = () => mute.setAttribute('aria-pressed', store.isMuted() ? 'true' : 'false');
   paintMute();
+  sound.setMuted(store.isMuted());
   mute.addEventListener('click', () => {
     store.setMuted(!store.isMuted());
+    sound.setMuted(store.isMuted());
     paintMute();
   });
 
