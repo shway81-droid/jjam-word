@@ -1332,6 +1332,3186 @@
       "answer": "승마",
       "also": [],
       "note": ""
+    },
+    {
+      "id": "proverb-001",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "가는 말이 고와야 ______",
+      "hint": "첫 글자는 '오'",
+      "answer": "오는 말이 곱다",
+      "also": [
+        "오는 말도 곱다"
+      ],
+      "note": "말을 예쁘게 하자는 뜻이에요."
+    },
+    {
+      "id": "proverb-002",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "낮말은 새가 듣고 ______",
+      "hint": "첫 글자는 '밤'",
+      "answer": "밤말은 쥐가 듣는다",
+      "also": [],
+      "note": "어디서나 말을 조심하라는 뜻이에요."
+    },
+    {
+      "id": "proverb-003",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "티끌 모아 ______",
+      "hint": "첫 글자는 '태'",
+      "answer": "태산",
+      "also": [],
+      "note": "작은 것도 모으면 아주 커져요."
+    },
+    {
+      "id": "proverb-004",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "세 살 버릇 ______",
+      "hint": "첫 글자는 '여'",
+      "answer": "여든까지 간다",
+      "also": [],
+      "note": "어릴 때 습관이 오래 남아요."
+    },
+    {
+      "id": "proverb-005",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "소 잃고 ______",
+      "hint": "첫 글자는 '외'",
+      "answer": "외양간 고친다",
+      "also": [],
+      "note": "일이 끝난 뒤에 손쓰면 늦어요."
+    },
+    {
+      "id": "proverb-006",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "원숭이도 나무에서 ______",
+      "hint": "첫 글자는 '떨'",
+      "answer": "떨어진다",
+      "also": [],
+      "note": "잘하는 사람도 실수할 때가 있어요."
+    },
+    {
+      "id": "proverb-007",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "시작이 ______",
+      "hint": "첫 글자는 '반'",
+      "answer": "반이다",
+      "also": [],
+      "note": "시작하는 것만으로도 크게 나아간 거예요."
+    },
+    {
+      "id": "proverb-008",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "등잔 밑이 ______",
+      "hint": "첫 글자는 '어'",
+      "answer": "어둡다",
+      "also": [],
+      "note": "가까운 것을 오히려 모를 때가 있어요."
+    },
+    {
+      "id": "proverb-009",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "발 없는 말이 ______",
+      "hint": "첫 글자는 '천'",
+      "answer": "천 리 간다",
+      "also": [],
+      "note": "소문은 아주 멀리까지 퍼져요."
+    },
+    {
+      "id": "proverb-010",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "아는 길도 ______",
+      "hint": "첫 글자는 '물'",
+      "answer": "물어 가라",
+      "also": [],
+      "note": "잘 아는 일도 확인하면 좋아요."
+    },
+    {
+      "id": "proverb-011",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "돌다리도 ______",
+      "hint": "첫 글자는 '두'",
+      "answer": "두들겨 보고 건너라",
+      "also": [],
+      "note": "확실해 보여도 한 번 더 살펴봐요."
+    },
+    {
+      "id": "proverb-012",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "호랑이도 제 말 하면 ______",
+      "hint": "첫 글자는 '온'",
+      "answer": "온다",
+      "also": [],
+      "note": "남 얘기를 하면 그 사람이 나타나기도 해요."
+    },
+    {
+      "id": "proverb-013",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "우물 안 ______",
+      "hint": "첫 글자는 '개'",
+      "answer": "개구리",
+      "also": [],
+      "note": "넓은 세상을 모르는 것을 뜻해요."
+    },
+    {
+      "id": "proverb-014",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "바늘 도둑이 ______",
+      "hint": "첫 글자는 '소'",
+      "answer": "소도둑 된다",
+      "also": [],
+      "note": "작은 잘못을 그냥 두면 큰 잘못이 돼요."
+    },
+    {
+      "id": "proverb-015",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "배보다 ______",
+      "hint": "첫 글자는 '배'",
+      "answer": "배꼽이 더 크다",
+      "also": [],
+      "note": "중요한 것보다 딸린 것이 더 클 때 써요."
+    },
+    {
+      "id": "proverb-016",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "고래 싸움에 ______",
+      "hint": "첫 글자는 '새'",
+      "answer": "새우 등 터진다",
+      "also": [],
+      "note": "큰 사람들 다툼에 약한 쪽이 피해를 봐요."
+    },
+    {
+      "id": "proverb-017",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "가랑비에 ______",
+      "hint": "첫 글자는 '옷'",
+      "answer": "옷 젖는다",
+      "also": [],
+      "note": "작은 것이 쌓여 큰 일이 돼요."
+    },
+    {
+      "id": "proverb-018",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "웃는 얼굴에 ______",
+      "hint": "첫 글자는 '침'",
+      "answer": "침 못 뱉는다",
+      "also": [],
+      "note": "웃으며 대하면 상대도 모질게 굴기 어려워요."
+    },
+    {
+      "id": "proverb-019",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "남의 떡이 ______",
+      "hint": "첫 글자는 '커'",
+      "answer": "커 보인다",
+      "also": [],
+      "note": "남의 것이 더 좋아 보여요."
+    },
+    {
+      "id": "proverb-020",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "열 번 찍어 ______",
+      "hint": "첫 글자는 '안'",
+      "answer": "안 넘어가는 나무 없다",
+      "also": [],
+      "note": "꾸준히 하면 결국 해내요."
+    },
+    {
+      "id": "proverb-021",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "콩 심은 데 콩 나고 ______",
+      "hint": "첫 글자는 '팥'",
+      "answer": "팥 심은 데 팥 난다",
+      "also": [],
+      "note": "한 대로 그대로 돌아와요."
+    },
+    {
+      "id": "proverb-022",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "하늘이 무너져도 ______",
+      "hint": "첫 글자는 '솟'",
+      "answer": "솟아날 구멍이 있다",
+      "also": [],
+      "note": "아무리 힘들어도 길이 있어요."
+    },
+    {
+      "id": "proverb-023",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "꿩 먹고 ______",
+      "hint": "첫 글자는 '알'",
+      "answer": "알 먹고",
+      "also": [],
+      "note": "한 번에 두 가지를 얻어요."
+    },
+    {
+      "id": "proverb-024",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "첫술에 ______",
+      "hint": "첫 글자는 '배'",
+      "answer": "배부르랴",
+      "also": [],
+      "note": "처음부터 만족스럽기는 어려워요."
+    },
+    {
+      "id": "proverb-025",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "급할수록 ______",
+      "hint": "첫 글자는 '돌'",
+      "answer": "돌아가라",
+      "also": [],
+      "note": "서두르면 오히려 늦어져요."
+    },
+    {
+      "id": "proverb-026",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "하나를 보고 ______",
+      "hint": "첫 글자는 '열'",
+      "answer": "열을 안다",
+      "also": [],
+      "note": "작은 것만 봐도 전체를 알 수 있어요."
+    },
+    {
+      "id": "proverb-027",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "지렁이도 ______",
+      "hint": "첫 글자는 '밟'",
+      "answer": "밟으면 꿈틀한다",
+      "also": [],
+      "note": "약해 보여도 마구 대하면 안 돼요."
+    },
+    {
+      "id": "proverb-028",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "무쇠도 갈면 ______",
+      "hint": "첫 글자는 '바'",
+      "answer": "바늘 된다",
+      "also": [],
+      "note": "꾸준히 애쓰면 이루어져요."
+    },
+    {
+      "id": "proverb-029",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "개구리 ______",
+      "hint": "첫 글자는 '올'",
+      "answer": "올챙이 적 생각 못 한다",
+      "also": [],
+      "note": "지난날 어려웠던 때를 잊는 걸 말해요."
+    },
+    {
+      "id": "proverb-030",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "될성부른 나무는 ______",
+      "hint": "첫 글자는 '떡'",
+      "answer": "떡잎부터 알아본다",
+      "also": [],
+      "note": "잘될 사람은 어릴 때부터 보여요."
+    },
+    {
+      "id": "proverb-031",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "쇠뿔도 단김에 ______",
+      "hint": "첫 글자는 '빼'",
+      "answer": "빼라",
+      "also": [],
+      "note": "할 일은 마음먹은 김에 해요."
+    },
+    {
+      "id": "proverb-032",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "열 손가락 깨물어 ______",
+      "hint": "첫 글자는 '안'",
+      "answer": "안 아픈 손가락 없다",
+      "also": [],
+      "note": "누구나 다 소중해요."
+    },
+    {
+      "id": "proverb-033",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자다가 ______",
+      "hint": "첫 글자는 '봉'",
+      "answer": "봉창 두드린다",
+      "also": [],
+      "note": "엉뚱한 소리를 할 때 써요."
+    },
+    {
+      "id": "proverb-034",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "뛰는 놈 위에 ______",
+      "hint": "첫 글자는 '나'",
+      "answer": "나는 놈 있다",
+      "also": [],
+      "note": "위에는 늘 더 잘하는 사람이 있어요."
+    },
+    {
+      "id": "proverb-035",
+      "type": "proverb",
+      "level": "easy",
+      "topic": null,
+      "prompt": "백지장도 ______",
+      "hint": "첫 글자는 '맞'",
+      "answer": "맞들면 낫다",
+      "also": [],
+      "note": "쉬운 일도 함께하면 더 나아요."
+    },
+    {
+      "id": "proverb-036",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "가재는 ______",
+      "hint": "첫 글자는 '게'",
+      "answer": "게 편이다",
+      "also": [],
+      "note": "비슷한 사람끼리 서로 감싸 줘요."
+    },
+    {
+      "id": "proverb-037",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "사공이 많으면 ______",
+      "hint": "첫 글자는 '배'",
+      "answer": "배가 산으로 간다",
+      "also": [],
+      "note": "지시하는 사람이 많으면 일이 엉켜요."
+    },
+    {
+      "id": "proverb-038",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "서당 개 삼 년이면 ______",
+      "hint": "첫 글자는 '풍'",
+      "answer": "풍월을 읊는다",
+      "also": [],
+      "note": "오래 보고 들으면 저절로 익혀요."
+    },
+    {
+      "id": "proverb-039",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "소문난 잔치에 ______",
+      "hint": "첫 글자는 '먹'",
+      "answer": "먹을 것 없다",
+      "also": [],
+      "note": "떠들썩한 것이 실제로는 별것 아닐 때 써요."
+    },
+    {
+      "id": "proverb-040",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "아니 땐 굴뚝에 ______",
+      "hint": "첫 글자는 '연'",
+      "answer": "연기 날까",
+      "also": [],
+      "note": "까닭 없이 일이 생기지는 않아요."
+    },
+    {
+      "id": "proverb-041",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "언 발에 ______",
+      "hint": "첫 글자는 '오'",
+      "answer": "오줌 누기",
+      "also": [],
+      "note": "잠깐 나아지지만 곧 더 나빠지는 방법이에요."
+    },
+    {
+      "id": "proverb-042",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "우는 아이 ______",
+      "hint": "첫 글자는 '젖'",
+      "answer": "젖 준다",
+      "also": [],
+      "note": "말해야 얻을 수 있어요."
+    },
+    {
+      "id": "proverb-043",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "웃음 끝에 ______",
+      "hint": "첫 글자는 '눈'",
+      "answer": "눈물",
+      "also": [],
+      "note": "즐거움 뒤에 슬픔이 올 수도 있어요."
+    },
+    {
+      "id": "proverb-044",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "종로에서 뺨 맞고 ______",
+      "hint": "첫 글자는 '한'",
+      "answer": "한강에서 눈 흘긴다",
+      "also": [],
+      "note": "엉뚱한 곳에 화를 풀 때 써요."
+    },
+    {
+      "id": "proverb-045",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "하룻강아지 ______",
+      "hint": "첫 글자는 '범'",
+      "answer": "범 무서운 줄 모른다",
+      "also": [],
+      "note": "겪어 보지 않아 겁이 없는 걸 말해요."
+    },
+    {
+      "id": "proverb-046",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "호랑이 굴에 가야 ______",
+      "hint": "첫 글자는 '호'",
+      "answer": "호랑이 새끼를 잡는다",
+      "also": [],
+      "note": "얻으려면 그곳으로 뛰어들어야 해요."
+    },
+    {
+      "id": "proverb-047",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "굼벵이도 ______",
+      "hint": "첫 글자는 '구'",
+      "answer": "구르는 재주가 있다",
+      "also": [],
+      "note": "누구에게나 잘하는 것이 하나쯤 있어요."
+    },
+    {
+      "id": "proverb-048",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "그림의 ______",
+      "hint": "먹고 싶어도 먹을 수 없는 것이에요.",
+      "answer": "떡",
+      "also": [],
+      "note": "보기만 하고 가질 수는 없어요."
+    },
+    {
+      "id": "proverb-049",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "누워서 ______",
+      "hint": "첫 글자는 '떡'",
+      "answer": "떡 먹기",
+      "also": [],
+      "note": "아주 쉬운 일이에요."
+    },
+    {
+      "id": "proverb-050",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "도토리 키 ______",
+      "hint": "첫 글자는 '재'",
+      "answer": "재기",
+      "also": [],
+      "note": "고만고만한 것끼리 견주는 걸 말해요."
+    },
+    {
+      "id": "proverb-051",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "마른하늘에 ______",
+      "hint": "첫 글자는 '날'",
+      "answer": "날벼락",
+      "also": [],
+      "note": "갑자기 뜻밖의 일이 닥쳐요."
+    },
+    {
+      "id": "proverb-052",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "말이 씨가 ______",
+      "hint": "첫 글자는 '된'",
+      "answer": "된다",
+      "also": [],
+      "note": "말한 대로 이루어질 수 있어요."
+    },
+    {
+      "id": "proverb-053",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "모르면 ______",
+      "hint": "첫 글자는 '약'",
+      "answer": "약이요 아는 게 병",
+      "also": [],
+      "note": "모르는 게 나을 때도 있어요."
+    },
+    {
+      "id": "proverb-054",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "물에 빠진 사람 건져 주니 ______",
+      "hint": "첫 글자는 '내'",
+      "answer": "내 봇짐 내라 한다",
+      "also": [],
+      "note": "도움을 받고도 더 바라는 걸 말해요."
+    },
+    {
+      "id": "proverb-055",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "미운 아이 ______",
+      "hint": "첫 글자는 '떡'",
+      "answer": "떡 하나 더 준다",
+      "also": [],
+      "note": "미울수록 더 잘해 주라는 뜻이에요."
+    },
+    {
+      "id": "proverb-056",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "밑 빠진 독에 ______",
+      "hint": "첫 글자는 '물'",
+      "answer": "물 붓기",
+      "also": [],
+      "note": "해도 해도 채워지지 않아요."
+    },
+    {
+      "id": "proverb-057",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "백문이 ______",
+      "hint": "첫 글자는 '불'",
+      "answer": "불여일견",
+      "also": [],
+      "note": "백 번 듣는 것보다 한 번 보는 게 나아요."
+    },
+    {
+      "id": "proverb-058",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "보기 좋은 떡이 ______",
+      "hint": "첫 글자는 '먹'",
+      "answer": "먹기도 좋다",
+      "also": [],
+      "note": "보기 좋으면 속도 좋을 때가 많아요."
+    },
+    {
+      "id": "proverb-059",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "불난 집에 ______",
+      "hint": "첫 글자는 '부'",
+      "answer": "부채질한다",
+      "also": [],
+      "note": "어려운 사람을 더 힘들게 하는 걸 말해요."
+    },
+    {
+      "id": "proverb-060",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "비 온 뒤에 ______",
+      "hint": "첫 글자는 '땅'",
+      "answer": "땅이 굳어진다",
+      "also": [],
+      "note": "힘든 일을 겪고 나면 더 단단해져요."
+    },
+    {
+      "id": "proverb-061",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "뿌린 대로 ______",
+      "hint": "첫 글자는 '거'",
+      "answer": "거둔다",
+      "also": [],
+      "note": "한 만큼 돌아와요."
+    },
+    {
+      "id": "proverb-062",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "산 넘어 ______",
+      "hint": "첫 글자는 '산'",
+      "answer": "산이다",
+      "also": [],
+      "note": "어려움이 계속 이어져요."
+    },
+    {
+      "id": "proverb-063",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "새 발의 ______",
+      "hint": "몸속에 흐르는 붉은 것이에요.",
+      "answer": "피",
+      "also": [],
+      "note": "아주 적은 양을 뜻해요."
+    },
+    {
+      "id": "proverb-064",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "소 뒷걸음질 치다 ______",
+      "hint": "첫 글자는 '쥐'",
+      "answer": "쥐 잡는다",
+      "also": [],
+      "note": "어쩌다 우연히 잘될 때 써요."
+    },
+    {
+      "id": "proverb-065",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "손바닥으로 ______",
+      "hint": "첫 글자는 '하'",
+      "answer": "하늘 가리기",
+      "also": [],
+      "note": "숨기려 해도 숨길 수 없어요."
+    },
+    {
+      "id": "proverb-066",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "쇠귀에 ______",
+      "hint": "첫 글자는 '경'",
+      "answer": "경 읽기",
+      "also": [],
+      "note": "아무리 말해도 알아듣지 못할 때 써요."
+    },
+    {
+      "id": "proverb-067",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "십 년이면 ______",
+      "hint": "첫 글자는 '강'",
+      "answer": "강산도 변한다",
+      "also": [],
+      "note": "시간이 지나면 모든 것이 달라져요."
+    },
+    {
+      "id": "proverb-068",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "아 해 다르고 ______",
+      "hint": "첫 글자는 '어'",
+      "answer": "어 해 다르다",
+      "also": [],
+      "note": "같은 말도 어떻게 하느냐로 달라져요."
+    },
+    {
+      "id": "proverb-069",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "어물전 망신은 ______",
+      "hint": "첫 글자는 '꼴'",
+      "answer": "꼴뚜기가 시킨다",
+      "also": [],
+      "note": "한 사람 때문에 전체가 흉을 봐요."
+    },
+    {
+      "id": "proverb-070",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "옥에도 ______",
+      "hint": "첫 글자는 '티'",
+      "answer": "티가 있다",
+      "also": [],
+      "note": "아무리 좋아도 흠이 조금은 있어요."
+    },
+    {
+      "id": "proverb-071",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "우물을 파도 ______",
+      "hint": "첫 글자는 '한'",
+      "answer": "한 우물을 파라",
+      "also": [],
+      "note": "한 가지를 끝까지 해야 이뤄져요."
+    },
+    {
+      "id": "proverb-072",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "원수는 외나무다리에서 ______",
+      "hint": "첫 글자는 '만'",
+      "answer": "만난다",
+      "also": [],
+      "note": "피하고 싶은 사람을 꼭 마주쳐요."
+    },
+    {
+      "id": "proverb-073",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "입에 쓴 약이 ______",
+      "hint": "첫 글자는 '몸'",
+      "answer": "몸에 좋다",
+      "also": [],
+      "note": "듣기 싫은 말이 도움이 될 때가 있어요."
+    },
+    {
+      "id": "proverb-074",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "자라 보고 놀란 가슴 ______",
+      "hint": "첫 글자는 '솥'",
+      "answer": "솥뚜껑 보고 놀란다",
+      "also": [],
+      "note": "한 번 놀라면 비슷한 것에도 놀라요."
+    },
+    {
+      "id": "proverb-075",
+      "type": "proverb",
+      "level": "normal",
+      "topic": null,
+      "prompt": "작은 고추가 ______",
+      "hint": "첫 글자는 '더'",
+      "answer": "더 맵다",
+      "also": [],
+      "note": "작아도 알차고 매서울 수 있어요."
+    },
+    {
+      "id": "proverb-076",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "제 논에 ______",
+      "hint": "첫 글자는 '물'",
+      "answer": "물 대기",
+      "also": [],
+      "note": "자기에게만 좋게 하는 걸 말해요."
+    },
+    {
+      "id": "proverb-077",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "지피지기면 ______",
+      "hint": "첫 글자는 '백'",
+      "answer": "백전백승",
+      "also": [],
+      "note": "나와 상대를 알면 이겨요."
+    },
+    {
+      "id": "proverb-078",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "가랑잎이 솔잎더러 ______",
+      "hint": "첫 글자는 '바'",
+      "answer": "바스락거린다고 한다",
+      "also": [],
+      "note": "제 흉은 모르고 남을 흉볼 때 써요."
+    },
+    {
+      "id": "proverb-079",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "개똥밭에 굴러도 ______",
+      "hint": "첫 글자는 '이'",
+      "answer": "이승이 좋다",
+      "also": [],
+      "note": "힘들어도 살아 있는 것이 좋아요."
+    },
+    {
+      "id": "proverb-080",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "구슬이 서 말이라도 ______",
+      "hint": "첫 글자는 '꿰'",
+      "answer": "꿰어야 보배",
+      "also": [],
+      "note": "좋은 것도 다듬어야 값이 나요."
+    },
+    {
+      "id": "proverb-081",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "궁하면 ______",
+      "hint": "첫 글자는 '통'",
+      "answer": "통한다",
+      "also": [],
+      "note": "막다른 데서 길이 열려요."
+    },
+    {
+      "id": "proverb-082",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "귀에 걸면 귀걸이 ______",
+      "hint": "첫 글자는 '코'",
+      "answer": "코에 걸면 코걸이",
+      "also": [],
+      "note": "보는 쪽에 따라 달리 말할 수 있어요."
+    },
+    {
+      "id": "proverb-083",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "급하면 ______",
+      "hint": "첫 글자는 '바'",
+      "answer": "바늘허리에 실 매어 쓴다",
+      "also": [],
+      "note": "급하다고 순서를 건너뛰면 안 돼요."
+    },
+    {
+      "id": "proverb-084",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "까마귀 날자 ______",
+      "hint": "첫 글자는 '배'",
+      "answer": "배 떨어진다",
+      "also": [],
+      "note": "우연히 때가 겹쳐 오해를 살 때 써요."
+    },
+    {
+      "id": "proverb-085",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "남의 잔치에 ______",
+      "hint": "첫 글자는 '감'",
+      "answer": "감 놓아라 배 놓아라 한다",
+      "also": [],
+      "note": "남의 일에 끼어들어 참견하는 걸 말해요."
+    },
+    {
+      "id": "proverb-086",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "달걀로 ______",
+      "hint": "첫 글자는 '바'",
+      "answer": "바위 치기",
+      "also": [],
+      "note": "도저히 안 되는 일에 맞서는 걸 말해요."
+    },
+    {
+      "id": "proverb-087",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "되로 주고 ______",
+      "hint": "첫 글자는 '말'",
+      "answer": "말로 받는다",
+      "also": [],
+      "note": "조금 주고 크게 돌려받아요."
+    },
+    {
+      "id": "proverb-088",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "뚝배기보다 ______",
+      "hint": "첫 글자는 '장'",
+      "answer": "장맛이다",
+      "also": [],
+      "note": "겉모습보다 속이 중요해요."
+    },
+    {
+      "id": "proverb-089",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "마파람에 ______",
+      "hint": "첫 글자는 '게'",
+      "answer": "게 눈 감추듯",
+      "also": [],
+      "note": "아주 빨리 먹어 치우는 걸 말해요."
+    },
+    {
+      "id": "proverb-090",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "목마른 사람이 ______",
+      "hint": "첫 글자는 '우'",
+      "answer": "우물 판다",
+      "also": [],
+      "note": "급한 사람이 먼저 나서요."
+    },
+    {
+      "id": "proverb-091",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "물이 깊을수록 ______",
+      "hint": "첫 글자는 '소'",
+      "answer": "소리가 없다",
+      "also": [],
+      "note": "깊이 있는 사람은 떠들지 않아요."
+    },
+    {
+      "id": "proverb-092",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "바늘구멍으로 ______",
+      "hint": "첫 글자는 '황'",
+      "answer": "황소바람 들어온다",
+      "also": [],
+      "note": "작은 틈으로 큰 것이 들어와요."
+    },
+    {
+      "id": "proverb-093",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "발등에 ______",
+      "hint": "첫 글자는 '불'",
+      "answer": "불이 떨어졌다",
+      "also": [],
+      "note": "아주 급해진 상황이에요."
+    },
+    {
+      "id": "proverb-094",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "빈 수레가 ______",
+      "hint": "첫 글자는 '요'",
+      "answer": "요란하다",
+      "also": [],
+      "note": "아는 게 적을수록 더 떠들어요."
+    },
+    {
+      "id": "proverb-095",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "산에 가야 ______",
+      "hint": "첫 글자는 '범'",
+      "answer": "범을 잡는다",
+      "also": [],
+      "note": "뜻을 이루려면 그곳으로 가야 해요."
+    },
+    {
+      "id": "proverb-096",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "서투른 목수가 ______",
+      "hint": "첫 글자는 '연'",
+      "answer": "연장 탓한다",
+      "also": [],
+      "note": "실력이 부족한 사람이 도구를 핑계 대요."
+    },
+    {
+      "id": "proverb-097",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "아랫돌 빼서 ______",
+      "hint": "첫 글자는 '윗'",
+      "answer": "윗돌 괴기",
+      "also": [],
+      "note": "한쪽을 메우려 다른 쪽을 허무는 걸 말해요."
+    },
+    {
+      "id": "proverb-098",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "열 사람이 지켜도 ______",
+      "hint": "첫 글자는 '도'",
+      "answer": "도둑 하나를 못 막는다",
+      "also": [],
+      "note": "마음먹은 사람은 막기 어려워요."
+    },
+    {
+      "id": "proverb-099",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "참는 자에게 ______",
+      "hint": "첫 글자는 '복'",
+      "answer": "복이 온다",
+      "also": [],
+      "note": "견디면 좋은 일이 찾아와요."
+    },
+    {
+      "id": "proverb-100",
+      "type": "proverb",
+      "level": "hard",
+      "topic": null,
+      "prompt": "하늘은 스스로 돕는 자를 ______",
+      "hint": "첫 글자는 '돕'",
+      "answer": "돕는다",
+      "also": [],
+      "note": "스스로 애쓰는 사람에게 길이 열려요."
+    },
+    {
+      "id": "idiom-001",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "열 가운데 여덟이나 아홉, 거의 그렇다는 말",
+      "hint": "ㅅㅈㅍㄱ",
+      "answer": "십중팔구",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-002",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "한 가지 일로 두 가지 이득을 얻는 것",
+      "hint": "ㅇㅅㅇㅈ",
+      "answer": "일석이조",
+      "also": [],
+      "note": "돌 하나로 새 두 마리를 잡는다는 뜻이에요."
+    },
+    {
+      "id": "idiom-003",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "묻는 것과 전혀 다른 대답을 하는 것",
+      "hint": "ㄷㅁㅅㄷ",
+      "answer": "동문서답",
+      "also": [],
+      "note": "동쪽을 물었는데 서쪽을 답한다는 뜻이에요."
+    },
+    {
+      "id": "idiom-004",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "맑은 하늘의 벼락처럼 갑자기 닥친 일",
+      "hint": "ㅊㅊㅂㄹ",
+      "answer": "청천벽력",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-005",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "사방이 막혀 도움받을 곳이 없는 처지",
+      "hint": "ㅅㅁㅊㄱ",
+      "answer": "사면초가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-006",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "마음먹은 것이 사흘도 못 가는 것",
+      "hint": "ㅈㅅㅅㅇ",
+      "answer": "작심삼일",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-007",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "쏘는 것마다 다 맞히는 것",
+      "hint": "ㅂㅂㅂㅈ",
+      "answer": "백발백중",
+      "also": [],
+      "note": "백 번 쏘아 백 번 맞힌다는 뜻이에요."
+    },
+    {
+      "id": "idiom-008",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "여러 사람이 똑같이 말하는 것",
+      "hint": "ㅇㄱㄷㅅ",
+      "answer": "이구동성",
+      "also": [],
+      "note": "입은 다르지만 소리는 같다는 뜻이에요."
+    },
+    {
+      "id": "idiom-009",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "어디로 갈지 몰라 이리저리 헤매는 것",
+      "hint": "ㅇㅇㅈㅇ",
+      "answer": "우왕좌왕",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-010",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "일이 거침없이 빠르게 진행되는 것",
+      "hint": "ㅇㅅㅊㄹ",
+      "answer": "일사천리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-011",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "큰 그릇은 늦게 이루어진다는 말",
+      "hint": "ㄷㄱㅁㅅ",
+      "answer": "대기만성",
+      "also": [],
+      "note": "늦게 크게 되는 사람에게 써요."
+    },
+    {
+      "id": "idiom-012",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "여럿이 셋씩 넷씩 무리 지어 다니는 것",
+      "hint": "ㅅㅅㅇㅇ",
+      "answer": "삼삼오오",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-013",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자기가 한 일의 결과를 자기가 받는 것",
+      "hint": "ㅈㅇㅈㄷ",
+      "answer": "자업자득",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-014",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "많으면 많을수록 좋다는 말",
+      "hint": "ㄷㄷㅇㅅ",
+      "answer": "다다익선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-015",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "찾는 사람이 많아 문 앞이 붐비는 것",
+      "hint": "ㅁㅈㅅㅅ",
+      "answer": "문전성시",
+      "also": [],
+      "note": "문 앞이 시장처럼 된다는 뜻이에요."
+    },
+    {
+      "id": "idiom-016",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "처음부터 끝까지 한결같은 것",
+      "hint": "ㅅㅈㅇㄱ",
+      "answer": "시종일관",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-017",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "미리 준비해 두면 걱정할 일이 없다는 말",
+      "hint": "ㅇㅂㅁㅎ",
+      "answer": "유비무환",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-018",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "말하지 않아도 마음이 서로 통하는 것",
+      "hint": "ㅇㅅㅈㅅ",
+      "answer": "이심전심",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-019",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "사람이 아주 많이 모여 가득한 것",
+      "hint": "ㅇㅅㅇㅎ",
+      "answer": "인산인해",
+      "also": [],
+      "note": "사람이 산과 바다를 이룬다는 뜻이에요."
+    },
+    {
+      "id": "idiom-020",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "날마다 달마다 눈에 띄게 나아지는 것",
+      "hint": "ㅇㅊㅇㅈ",
+      "answer": "일취월장",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-021",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "겉만 바꿔 남을 속이는 것",
+      "hint": "ㅈㅅㅁㅅ",
+      "answer": "조삼모사",
+      "also": [],
+      "note": "아침에 세 개, 저녁에 네 개로 바꿔 속인 이야기예요."
+    },
+    {
+      "id": "idiom-022",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "어릴 때부터 함께 자란 친구",
+      "hint": "ㅈㅁㄱㅇ",
+      "answer": "죽마고우",
+      "also": [],
+      "note": "대나무 말을 타고 놀던 벗이라는 뜻이에요."
+    },
+    {
+      "id": "idiom-023",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "하늘이 높고 말이 튼튼해지는 가을",
+      "hint": "ㅊㄱㅁㅂ",
+      "answer": "천고마비",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-024",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "여러 가지를 두루 잘하는 사람",
+      "hint": "ㅍㅂㅁㅇ",
+      "answer": "팔방미인",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-025",
+      "type": "idiom",
+      "level": "easy",
+      "topic": null,
+      "prompt": "모양과 빛깔이 여러 가지로 다른 것",
+      "hint": "ㅎㅎㅅㅅ",
+      "answer": "형형색색",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-026",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "은혜를 뼈에 새겨 잊지 않는 것",
+      "hint": "ㄱㄱㄴㅁ",
+      "answer": "각골난망",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-027",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "달콤한 말로 남을 꾀는 것",
+      "hint": "ㄱㅇㅇㅅ",
+      "answer": "감언이설",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-028",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "잘못을 고쳐 착하게 되는 것",
+      "hint": "ㄱㄱㅊㅅ",
+      "answer": "개과천선",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-029",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "물건을 보면 갖고 싶어지는 마음",
+      "hint": "ㄱㅁㅅㅅ",
+      "answer": "견물생심",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-030",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "풀을 엮어서라도 은혜를 갚는 것",
+      "hint": "ㄱㅊㅂㅇ",
+      "answer": "결초보은",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-031",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "고생 끝에 즐거움이 온다는 말",
+      "hint": "ㄱㅈㄱㄹ",
+      "answer": "고진감래",
+      "also": [],
+      "note": "쓴 것이 다하면 단 것이 온다는 뜻이에요."
+    },
+    {
+      "id": "idiom-032",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "지나친 것은 모자란 것과 같다는 말",
+      "hint": "ㄱㅇㅂㄱ",
+      "answer": "과유불급",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-033",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "여럿 가운데 유독 뛰어난 사람",
+      "hint": "ㄱㄱㅇㅎ",
+      "answer": "군계일학",
+      "also": [],
+      "note": "닭 무리 속의 학이라는 뜻이에요."
+    },
+    {
+      "id": "idiom-034",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "좋은 것에 더 좋은 것이 얹히는 것",
+      "hint": "ㄱㅅㅊㅎ",
+      "answer": "금상첨화",
+      "also": [],
+      "note": "비단 위에 꽃을 더한다는 뜻이에요."
+    },
+    {
+      "id": "idiom-035",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "기세가 하늘을 찌를 듯 뽐내는 것",
+      "hint": "ㄱㄱㅁㅈ",
+      "answer": "기고만장",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-036",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "재주와 능력이 여러 가지인 것",
+      "hint": "ㄷㅈㄷㄴ",
+      "answer": "다재다능",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-037",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "괴로움과 즐거움을 함께 하는 것",
+      "hint": "ㄷㄱㄷㄹ",
+      "answer": "동고동락",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-038",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "남의 말을 귀담아듣지 않고 흘리는 것",
+      "hint": "ㅁㅇㄷㅍ",
+      "answer": "마이동풍",
+      "also": [],
+      "note": "말의 귀를 스치는 바람이라는 뜻이에요."
+    },
+    {
+      "id": "idiom-039",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "소문난 대로 정말 훌륭한 것",
+      "hint": "ㅁㅂㅎㅈ",
+      "answer": "명불허전",
+      "also": [],
+      "note": "이름이 헛되이 전해지지 않는다는 뜻이에요."
+    },
+    {
+      "id": "idiom-040",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "깊이 빠져들어 자기를 잊은 상태",
+      "hint": "ㅁㅇㅈㄱ",
+      "answer": "무아지경",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-041",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "널리 배워 아는 것이 많은 것",
+      "hint": "ㅂㅎㄷㅅ",
+      "answer": "박학다식",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-042",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "반은 믿고 반은 의심하는 것",
+      "hint": "ㅂㅅㅂㅇ",
+      "answer": "반신반의",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-043",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "부부가 오래도록 함께 늙어 가는 것",
+      "hint": "ㅂㄴㅎㄹ",
+      "answer": "백년해로",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-044",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "모든 일은 반드시 바른 데로 돌아간다",
+      "hint": "ㅅㅍㄱㅈ",
+      "answer": "사필귀정",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-045",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "온갖 어려움을 다 겪어 본 것",
+      "hint": "ㅅㅈㅅㅈ",
+      "answer": "산전수전",
+      "also": [],
+      "note": "산에서도 물에서도 싸워 봤다는 뜻이에요."
+    },
+    {
+      "id": "idiom-046",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "나쁜 일에 또 나쁜 일이 겹치는 것",
+      "hint": "ㅅㅅㄱㅅ",
+      "answer": "설상가상",
+      "also": [],
+      "note": "눈 위에 서리가 내린다는 뜻이에요."
+    },
+    {
+      "id": "idiom-047",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "손쓸 방법이 전혀 없는 것",
+      "hint": "ㅅㅅㅁㅊ",
+      "answer": "속수무책",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-048",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "시간이 지나는 매 순간마다",
+      "hint": "ㅅㅅㄱㄱ",
+      "answer": "시시각각",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-049",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "귀신처럼 나타나고 사라지는 것",
+      "hint": "ㅅㅊㄱㅁ",
+      "answer": "신출귀몰",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-050",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "마음을 바꿔 새로 시작하는 것",
+      "hint": "ㅅㄱㅇㅈ",
+      "answer": "심기일전",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-051",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "남을 업신여기고 잘난 척하는 것",
+      "hint": "ㅇㅎㅁㅇ",
+      "answer": "안하무인",
+      "also": [],
+      "note": "눈 아래 사람이 없다는 뜻이에요."
+    },
+    {
+      "id": "idiom-052",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "남의 다툼 덕에 뜻밖의 이득을 얻는 것",
+      "hint": "ㅇㅂㅈㄹ",
+      "answer": "어부지리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-053",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "처지를 바꿔 상대 입장에서 생각하는 것",
+      "hint": "ㅇㅈㅅㅈ",
+      "answer": "역지사지",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-054",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "어떻게 될지 도무지 알 수 없는 것",
+      "hint": "ㅇㄹㅁㅈ",
+      "answer": "오리무중",
+      "also": [],
+      "note": "안개가 오 리나 끼었다는 뜻이에요."
+    },
+    {
+      "id": "idiom-055",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "옛것을 익혀 새것을 아는 것",
+      "hint": "ㅇㄱㅈㅅ",
+      "answer": "온고지신",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-056",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "마음을 정하지 못하고 망설이는 것",
+      "hint": "ㅇㅇㅂㄷ",
+      "answer": "우유부단",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-057",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "한 번에 두 가지 이득을 얻는 것",
+      "hint": "ㅇㄱㅇㄷ",
+      "answer": "일거양득",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-058",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "여럿이 한마음 한몸처럼 되는 것",
+      "hint": "ㅇㅅㄷㅊ",
+      "answer": "일심동체",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-059",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "자기가 한 것을 자기가 칭찬하는 것",
+      "hint": "ㅈㅎㅈㅊ",
+      "answer": "자화자찬",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-060",
+      "type": "idiom",
+      "level": "normal",
+      "topic": null,
+      "prompt": "나쁜 일이 오히려 좋은 일로 바뀌는 것",
+      "hint": "ㅈㅎㅇㅂ",
+      "answer": "전화위복",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-061",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "서로 아주 사이가 나쁜 관계",
+      "hint": "ㄱㅇㅈㄱ",
+      "answer": "견원지간",
+      "also": [],
+      "note": "개와 원숭이 사이라는 뜻이에요."
+    },
+    {
+      "id": "idiom-062",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "일이 안 될 때는 뜻밖의 것까지 걸린다",
+      "hint": "ㄱㄹㅇㄱ",
+      "answer": "계란유골",
+      "also": [],
+      "note": "달걀에도 뼈가 있다는 뜻이에요."
+    },
+    {
+      "id": "idiom-063",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "아주 깊고 변하지 않는 우정",
+      "hint": "ㄱㅍㅈㄱ",
+      "answer": "관포지교",
+      "also": [],
+      "note": "관중과 포숙아의 우정에서 온 말이에요."
+    },
+    {
+      "id": "idiom-064",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "눈을 비비고 다시 볼 만큼 크게 나아진 것",
+      "hint": "ㄱㅁㅅㄷ",
+      "answer": "괄목상대",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-065",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "여러 번 죽을 뻔하다 겨우 살아난 것",
+      "hint": "ㄱㅅㅇㅅ",
+      "answer": "구사일생",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-066",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "착한 것을 권하고 나쁜 것을 벌하는 것",
+      "hint": "ㄱㅅㅈㅇ",
+      "answer": "권선징악",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-067",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "금이나 옥처럼 귀하게 여기는 규칙",
+      "hint": "ㄱㄱㅇㅈ",
+      "answer": "금과옥조",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-068",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "뛰어난 사람은 숨어 있어도 드러난다",
+      "hint": "ㄴㅈㅈㅊ",
+      "answer": "낭중지추",
+      "also": [],
+      "note": "주머니 속의 송곳이라는 뜻이에요."
+    },
+    {
+      "id": "idiom-069",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "몹시 애를 쓰며 마음을 태우는 것",
+      "hint": "ㄴㅅㅊㅅ",
+      "answer": "노심초사",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-070",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "일도 많고 어려움도 많았던 것",
+      "hint": "ㄷㅅㄷㄴ",
+      "answer": "다사다난",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-071",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "여러 갈래가 하나로 크게 뭉치는 것",
+      "hint": "ㄷㄷㄷㄱ",
+      "answer": "대동단결",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-072",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "등불을 가까이할 만한, 책 읽기 좋은 가을",
+      "hint": "ㄷㅎㄱㅊ",
+      "answer": "등화가친",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-073",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "끈기 있게 하면 어려운 일도 이룬다",
+      "hint": "ㅁㅂㅈㅊ",
+      "answer": "마부작침",
+      "also": [],
+      "note": "도끼를 갈아 바늘을 만든다는 뜻이에요."
+    },
+    {
+      "id": "idiom-074",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "불을 보듯 아주 분명한 것",
+      "hint": "ㅁㅇㄱㅎ",
+      "answer": "명약관화",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-075",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "뿌리째 뽑아 근원을 치우는 것",
+      "hint": "ㅂㅂㅅㅇ",
+      "answer": "발본색원",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-076",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "우열을 가리기 어려운 형세",
+      "hint": "ㅂㅈㅈㅅ",
+      "answer": "백중지세",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-077",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "생각 없이 남을 따라 움직이는 것",
+      "hint": "ㅂㅎㄴㄷ",
+      "answer": "부화뇌동",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-078",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "기초가 약해 오래가지 못하는 것",
+      "hint": "ㅅㅅㄴㄱ",
+      "answer": "사상누각",
+      "also": [],
+      "note": "모래 위에 지은 집이라는 뜻이에요."
+    },
+    {
+      "id": "idiom-079",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "세상이 아주 크게 달라진 것",
+      "hint": "ㅅㅈㅂㅎ",
+      "answer": "상전벽해",
+      "also": [],
+      "note": "뽕밭이 푸른 바다가 되었다는 뜻이에요."
+    },
+    {
+      "id": "idiom-080",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "손에서 책을 놓지 않는 것",
+      "hint": "ㅅㅂㅅㄱ",
+      "answer": "수불석권",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-081",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "몹시 어지럽고 시끄러운 상황",
+      "hint": "ㅇㅂㄱㅎ",
+      "answer": "아비규환",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-082",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "규율 없이 모인 어수선한 무리",
+      "hint": "ㅇㅎㅈㅈ",
+      "answer": "오합지졸",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-083",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "괴로움을 참으며 훗날을 준비하는 것",
+      "hint": "ㅇㅅㅅㄷ",
+      "answer": "와신상담",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-084",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "꾸준히 하면 산도 옮길 수 있다",
+      "hint": "ㅇㄱㅇㅅ",
+      "answer": "우공이산",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-085",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "하나를 벌해 여럿을 조심하게 하는 것",
+      "hint": "ㅇㅂㅂㄱ",
+      "answer": "일벌백계",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-086",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "스스로 힘써 집안을 일으키는 것",
+      "hint": "ㅈㅅㅅㄱ",
+      "answer": "자수성가",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-087",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "이를 갈며 몹시 분해하는 것",
+      "hint": "ㅈㅊㅂㅅ",
+      "answer": "절치부심",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-088",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "아주 적은 양을 이르는 말",
+      "hint": "ㅈㅈㅈㅎ",
+      "answer": "조족지혈",
+      "also": [],
+      "note": "새 발의 피라는 뜻이에요."
+    },
+    {
+      "id": "idiom-089",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "배우는 사람이 가르친 사람보다 나아지는 것",
+      "hint": "ㅊㅊㅇㄹ",
+      "answer": "청출어람",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "idiom-090",
+      "type": "idiom",
+      "level": "hard",
+      "topic": null,
+      "prompt": "남의 일을 보고 배워 내 것으로 삼는 것",
+      "hint": "ㅌㅅㅈㅅ",
+      "answer": "타산지석",
+      "also": [],
+      "note": "다른 산의 돌이라는 뜻이에요."
+    },
+    {
+      "id": "riddle-001",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "다리가 네 개인데 걷지 못하는 것은?",
+      "hint": "교실에 서른 개쯤 있어요.",
+      "answer": "책상",
+      "also": [
+        "의자",
+        "식탁"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-002",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "눈이 있어도 보지 못하는 것은?",
+      "hint": "땅속에서 자라는 채소예요.",
+      "answer": "감자",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-003",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "이름에 문이 있는데 열 수 없는 바다 동물은?",
+      "hint": "다리가 여덟 개예요.",
+      "answer": "문어",
+      "also": [],
+      "note": "'문어'에 '문'이 들어 있어요."
+    },
+    {
+      "id": "riddle-004",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "아무리 먹어도 배부르지 않는 것은?",
+      "hint": "해마다 하나씩 늘어요.",
+      "answer": "나이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-005",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "발이 하나인데 넘어지지 않는 것은?",
+      "hint": "숲에 아주 많아요.",
+      "answer": "나무",
+      "also": [
+        "버섯"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-006",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "겨울에 자라고 봄에 사라지는 것은?",
+      "hint": "처마 끝에 매달려요.",
+      "answer": "고드름",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-007",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "두드리면 열리는 것은?",
+      "hint": "집에 들어갈 때 지나가요.",
+      "answer": "문",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-008",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "밤에는 길어지고 낮에는 짧아지는 것은?",
+      "hint": "해를 등지면 앞에 생겨요.",
+      "answer": "그림자",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-009",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "하나를 주면 똑같이 하나를 돌려주는 것은?",
+      "hint": "얼굴을 비춰 봐요.",
+      "answer": "거울",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-010",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "소리는 나는데 눈에 보이지 않는 것은?",
+      "hint": "나뭇잎을 흔들어요.",
+      "answer": "바람",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-011",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "구멍이 많은데도 물을 잘 담는 것은?",
+      "hint": "설거지할 때 써요.",
+      "answer": "스펀지",
+      "also": [
+        "행주"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-012",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "이가 많은데 물지 못하는 것은?",
+      "hint": "머리를 정리할 때 써요.",
+      "answer": "빗",
+      "also": [
+        "톱"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-013",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "뿔이 있는데 소가 아닌 것은?",
+      "hint": "등에 집을 지고 느리게 기어요.",
+      "answer": "달팽이",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-014",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "귀가 두 개인데 듣지 못하는 것은?",
+      "hint": "손잡이가 양쪽에 달렸어요.",
+      "answer": "냄비",
+      "also": [
+        "주전자"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-015",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "열 형제가 나란히 있는 것은?",
+      "hint": "다섯 개씩 두 편으로 나뉘어요.",
+      "answer": "손가락",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-016",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "깎을수록 짧아지지만 더 잘 쓰이는 것은?",
+      "hint": "심이 드러나야 글씨가 써져요.",
+      "answer": "연필",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-017",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "아무리 써도 줄지 않는 것은?",
+      "hint": "머릿속에서 자꾸 떠올라요.",
+      "answer": "생각",
+      "also": [
+        "마음"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-018",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "자기 몸을 태워 남을 밝히는 것은?",
+      "hint": "생일 케이크에 꽂아요.",
+      "answer": "촛불",
+      "also": [
+        "초"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-019",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "밤에만 둥글게 떠오르는 것은?",
+      "hint": "차고 기울며 모양이 바뀌어요.",
+      "answer": "달",
+      "also": [
+        "보름달"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-020",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "낮에 자고 밤에 움직이는 새는?",
+      "hint": "\"부엉부엉\" 소리를 내요.",
+      "answer": "부엉이",
+      "also": [
+        "올빼미"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-021",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "발이 아주 많은데도 느린 것은?",
+      "hint": "다리가 수십 개인 벌레예요.",
+      "answer": "지네",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-022",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "하늘에 있지만 손으로 잡을 수 없는 것은?",
+      "hint": "밤에 반짝여요.",
+      "answer": "별",
+      "also": [
+        "구름",
+        "달빛"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-023",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "심을 때는 하나인데 거둘 때는 여럿인 것은?",
+      "hint": "땅에 넣으면 열매가 많이 달려요.",
+      "answer": "씨",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-024",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "짧은 바늘이 하루에 두 바퀴 도는 것은?",
+      "hint": "숫자가 둥글게 둘러 있어요.",
+      "answer": "시계",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-025",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "매일 열고 닫지만 문이 아닌 것은?",
+      "hint": "잠들 때 감아요.",
+      "answer": "눈",
+      "also": [
+        "입"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-026",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "겉은 딱딱하고 속은 하얀 것은?",
+      "hint": "가시 달린 껍질 속에 들어 있어요.",
+      "answer": "밤",
+      "also": [
+        "호두",
+        "계란"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-027",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "다리 없이 하늘을 흘러가는 것은?",
+      "hint": "바람에 밀려 모양이 바뀌어요.",
+      "answer": "구름",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-028",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "검은 얼굴에 흰 글씨가 쓰이는 것은?",
+      "hint": "선생님이 앞에서 써요.",
+      "answer": "칠판",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-029",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "늘 두 개가 붙어 다니는 것은?",
+      "hint": "밖에 나갈 때 신어요.",
+      "answer": "신발",
+      "also": [
+        "양말",
+        "젓가락"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-030",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "물속에 살면서 물을 마시지 않는 것은?",
+      "hint": "아가미로 숨을 쉬어요.",
+      "answer": "물고기",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-031",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "봄에 피고 가을에 지는 것은?",
+      "hint": "벌과 나비가 찾아와요.",
+      "answer": "꽃",
+      "also": [
+        "잎"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-032",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "위에서 아래로만 떨어지는 것은?",
+      "hint": "구름에서 내려요.",
+      "answer": "비",
+      "also": [
+        "우박"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-033",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "앉으면 낮아지고 서면 높아지는 것은?",
+      "hint": "해마다 재 봐요.",
+      "answer": "키",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-034",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "방이 여러 칸인데 사람이 안 사는 것은?",
+      "hint": "교실 뒤에 붙어 있어요.",
+      "answer": "사물함",
+      "also": [
+        "서랍"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-035",
+      "type": "riddle",
+      "level": "easy",
+      "topic": null,
+      "prompt": "안이 비어 있어야 소리가 나는 것은?",
+      "hint": "채로 두드려요.",
+      "answer": "북",
+      "also": [
+        "종"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-036",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "물을 주면 꺼지고 안 주면 커지는 것은?",
+      "hint": "장작을 태우며 타올라요.",
+      "answer": "불",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-037",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "쓸수록 작아지지만 깨끗하게 해 주는 것은?",
+      "hint": "손을 문지르면 하얗게 일어나요.",
+      "answer": "비누",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-038",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "새것일 때 가장 크고 쓸수록 작아지는 것은?",
+      "hint": "잘못 쓴 글씨를 문질러요.",
+      "answer": "지우개",
+      "also": [
+        "양초"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-039",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "다리는 하나인데 그늘을 만드는 것은?",
+      "hint": "비 올 때 펴서 들어요.",
+      "answer": "우산",
+      "also": [
+        "파라솔"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-040",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "문을 열면 불이 켜지고 닫으면 꺼지는 것은?",
+      "hint": "음식을 차게 보관해요.",
+      "answer": "냉장고",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-041",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "겨울에 두꺼워지고 여름에 얇아지는 것은?",
+      "hint": "계절마다 갈아입어요.",
+      "answer": "옷",
+      "also": [
+        "이불"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-042",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "아무리 무거운 것도 띄우는 것은?",
+      "hint": "배가 그 위를 지나가요.",
+      "answer": "물",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-043",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "두 사람이 마주 앉아야 움직이는 것은?",
+      "hint": "놀이터에서 오르락내리락해요.",
+      "answer": "시소",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-044",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "밟을수록 앞으로 나아가는 것은?",
+      "hint": "자전거에 달려 있어요.",
+      "answer": "페달",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-045",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "흔들면 소리가 나고 열면 조용해지는 것은?",
+      "hint": "동전을 모아 두는 통이에요.",
+      "answer": "저금통",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-046",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "사람보다 먼저 아침을 알리는 것은?",
+      "hint": "\"꼬끼오\" 하고 울어요.",
+      "answer": "닭",
+      "also": [
+        "수탉"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-047",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "물 위에 뜨지만 배가 아닌 것은?",
+      "hint": "물갈퀴로 헤엄쳐요.",
+      "answer": "오리",
+      "also": [
+        "나뭇잎"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-048",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "낮에는 접어 두고 밤에 펴는 것은?",
+      "hint": "덮고 잠들어요.",
+      "answer": "이불",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-049",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "열매는 땅속에, 꽃은 땅 위에 있는 것은?",
+      "hint": "껍질을 까면 두 알이 나와요.",
+      "answer": "땅콩",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-050",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "자기 나이를 몸속에 둥근 줄로 남기는 것은?",
+      "hint": "나무를 자르면 보여요.",
+      "answer": "나이테",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-051",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "위에서 누르면 아래에서 나오는 것은?",
+      "hint": "칫솔에 짜서 써요.",
+      "answer": "치약",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-052",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "바퀴가 두 개인데 발로 움직이는 것은?",
+      "hint": "손잡이를 잡고 균형을 맞춰요.",
+      "answer": "자전거",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-053",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "여름에 시원한 바람을 만드는 것은?",
+      "hint": "손으로 흔들어요.",
+      "answer": "부채",
+      "also": [
+        "선풍기"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-054",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "껍질을 벗기면 눈물이 나는 것은?",
+      "hint": "매운 냄새가 코를 찔러요.",
+      "answer": "양파",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-055",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "물에 넣으면 몇 배로 커지는 것은?",
+      "hint": "국을 끓일 때 불려 써요.",
+      "answer": "미역",
+      "also": [
+        "콩"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-056",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "위는 뾰족하고 아래는 넓은 것은?",
+      "hint": "올라가면 마을이 작게 보여요.",
+      "answer": "산",
+      "also": [
+        "삼각형"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-057",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "소리 없이 내려 세상을 하얗게 덮는 것은?",
+      "hint": "겨울에 하늘에서 하나씩 내려요.",
+      "answer": "눈송이",
+      "also": [
+        "눈"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-058",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "두 개의 알이 있어야 앞이 잘 보이는 것은?",
+      "hint": "코와 귀에 걸쳐요.",
+      "answer": "안경",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-059",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "짜지만 음식에 없으면 안 되는 것은?",
+      "hint": "바닷물을 말려서 얻어요.",
+      "answer": "소금",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-060",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "앉을 수는 있지만 다리가 없는 것은?",
+      "hint": "바닥에 깔고 앉아요.",
+      "answer": "방석",
+      "also": [
+        "돗자리"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-061",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "하나뿐인데 모두가 나눠 쓰는 것은?",
+      "hint": "아침에 떠서 저녁에 져요.",
+      "answer": "해",
+      "also": [
+        "태양"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-062",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "붙었다 떼어지고 또 붙는 것은?",
+      "hint": "쇠붙이를 끌어당겨요.",
+      "answer": "자석",
+      "also": [
+        "테이프"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-063",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "무게가 없는데도 사람을 무겁게 하는 것은?",
+      "hint": "마음속에 쌓여요.",
+      "answer": "걱정",
+      "also": [
+        "근심"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-064",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "종이로 만들었는데 하늘을 나는 것은?",
+      "hint": "접어서 던져요.",
+      "answer": "종이비행기",
+      "also": [
+        "연"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-065",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "문지르면 뜨거워지는 것은?",
+      "hint": "두 개를 마주 비벼요.",
+      "answer": "손바닥",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-066",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "시간이 갈수록 줄어드는 것은?",
+      "hint": "시계를 볼수록 짧아져요.",
+      "answer": "남은 시간",
+      "also": [
+        "방학"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-067",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "뜨거울 때 마시면 몸이 따뜻해지는 것은?",
+      "hint": "잎을 물에 우려요.",
+      "answer": "차",
+      "also": [
+        "국"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-068",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "눈이 많이 달렸는데 못 보는 것은?",
+      "hint": "겉이 거칠고 머리에 잎이 있어요.",
+      "answer": "파인애플",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-069",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "던지면 스스로 돌아오는 것은?",
+      "hint": "휘어진 나무 막대예요.",
+      "answer": "부메랑",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-070",
+      "type": "riddle",
+      "level": "normal",
+      "topic": null,
+      "prompt": "소리를 그대로 되돌려 주는 것은?",
+      "hint": "산에서 크게 외치면 들려요.",
+      "answer": "메아리",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-071",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "가지고 있을 때는 모르고 잃으면 아는 것은?",
+      "hint": "아프면 비로소 생각나요.",
+      "answer": "건강",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-072",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "주면 줄지 않고 오히려 늘어나는 것은?",
+      "hint": "나눌수록 커져요.",
+      "answer": "사랑",
+      "also": [
+        "기쁨",
+        "웃음"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-073",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "세상에서 가장 큰 코를 가진 나라는?",
+      "hint": "타코로 유명한 나라예요.",
+      "answer": "멕시코",
+      "also": [],
+      "note": "나라 이름 끝에 '코'가 있어요."
+    },
+    {
+      "id": "riddle-074",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "밟히면서도 사람을 편하게 해 주는 것은?",
+      "hint": "층을 오르내릴 때 디뎌요.",
+      "answer": "계단",
+      "also": [
+        "카펫"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-075",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "넣을 곳은 하나인데 나올 곳은 여럿인 것은?",
+      "hint": "물이 위로 솟았다 퍼져요.",
+      "answer": "분수",
+      "also": [
+        "샤워기"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-076",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "열지 않고도 안이 다 보이는 것은?",
+      "hint": "속이 훤히 보이는 그릇이에요.",
+      "answer": "유리병",
+      "also": [
+        "창문"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-077",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "젖으면 무거워지고 마르면 가벼워지는 것은?",
+      "hint": "물기를 닦는 데 써요.",
+      "answer": "수건",
+      "also": [
+        "빨래"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-078",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "겉은 하얀데 깨면 노란 것이 나오는 것은?",
+      "hint": "닭이 낳아요.",
+      "answer": "달걀",
+      "also": [
+        "계란"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-079",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "아무도 살지 않는데 늘 열려 있는 집은?",
+      "hint": "나뭇가지 위에 지어요.",
+      "answer": "새집",
+      "also": [
+        "둥지"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-080",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "다리를 건너지 않고 강을 건너는 것은?",
+      "hint": "노를 저어 물 위로 가요.",
+      "answer": "배",
+      "also": [
+        "헤엄"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-081",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "하루에 한 번 오는데 잡을 수 없는 것은?",
+      "hint": "해가 뜨는 때예요.",
+      "answer": "아침",
+      "also": [
+        "밤"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-082",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "세면 셀수록 늘어나는 것은?",
+      "hint": "걸을 때마다 하나씩 더해져요.",
+      "answer": "걸음",
+      "also": [
+        "숫자"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-083",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "겨울에는 짧고 여름에는 긴 것은?",
+      "hint": "해가 떠 있는 시간이에요.",
+      "answer": "낮",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-084",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "자기는 뜨겁지 않은데 남을 뜨겁게 하는 것은?",
+      "hint": "창문으로 들어와 방을 데워요.",
+      "answer": "햇빛",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-085",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "채우면 무거워지고 비우면 가벼워지는 것은?",
+      "hint": "등에 메고 학교에 가요.",
+      "answer": "가방",
+      "also": [
+        "책가방"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-086",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "두 개인데 하나만 잃어도 못 쓰는 것은?",
+      "hint": "밥 먹을 때 짝으로 써요.",
+      "answer": "젓가락",
+      "also": [
+        "장갑"
+      ],
+      "note": ""
+    },
+    {
+      "id": "riddle-087",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "앞으로 읽어도 뒤로 읽어도 같은 말은?",
+      "hint": "가을에 줄지어 날아가는 새예요.",
+      "answer": "기러기",
+      "also": [
+        "토마토",
+        "오디오"
+      ],
+      "note": "거꾸로 읽어도 같은 말을 '회문'이라고 해요."
+    },
+    {
+      "id": "riddle-088",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "나이가 들수록 굽지만 더 단단해지는 것은?",
+      "hint": "겨울에도 잎이 푸르러요.",
+      "answer": "소나무",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-089",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "하늘과 땅 사이를 잇는 일곱 색 다리는?",
+      "hint": "비 온 뒤에 나타나요.",
+      "answer": "무지개",
+      "also": [],
+      "note": ""
+    },
+    {
+      "id": "riddle-090",
+      "type": "riddle",
+      "level": "hard",
+      "topic": null,
+      "prompt": "매일 만나도 이름을 부를 수 없는 날은?",
+      "hint": "하루만 기다리면 오늘이 돼요.",
+      "answer": "내일",
+      "also": [],
+      "note": ""
     }
   ]
 }
