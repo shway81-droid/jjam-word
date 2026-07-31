@@ -47,6 +47,13 @@ function reveal() {
   [[523.25, 0], [659.25, 0.09], [783.99, 0.18]].forEach(([f, at]) => tone(f, at, 0.5, 0.08));
 }
 
+/* 남은 3초 초읽기 — 짧고 마른 한 점. 초읽기는 재촉이지 경고가 아니므로
+   시간 초과 소리보다 확실히 작고 짧게 둔다. */
+function tick() {
+  if (!ensure()) return;
+  tone(880, 0, 0.07, 0.035, 'triangle');
+}
+
 /* 시간 초과 — 끝말잇기에서 쓴다. 내려가는 두 음, 야단치는 소리가 아니게 작게. */
 function timeUp() {
   if (!ensure()) return;
@@ -58,4 +65,4 @@ function setMuted(v) {
   if (master) master.gain.setTargetAtTime(muted ? 0 : 1, ctx.currentTime, 0.05);
 }
 
-export const sound = { ensure, hint, reveal, timeUp, setMuted };
+export const sound = { ensure, hint, reveal, tick, timeUp, setMuted };

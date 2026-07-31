@@ -9,7 +9,7 @@
 import { candidates, pickNext } from './pick.js';
 import { store } from './store.js';
 import { sound } from './sound.js';
-import { createRound, advance } from './chain.js';
+import { createRound, advance, expire } from './chain.js';
 
 const TYPES = {
   choseong: { label: 'ㄱㄴㄷ 초성퀴즈', emoji: '🔤', kind: 'quiz', topics: true, blurb: '초성을 보고 낱말을 외쳐요' },
@@ -77,6 +77,9 @@ const state = {
   round: null,        // 끝말잇기 한 판
   timerId: null,
   deadline: 0,
+  paused: false,
+  remainMs: 0,        // 멈춰 둔 동안 들고 있는 남은 시간
+  lastTick: 0,        // 초읽기를 초당 한 번만 울리기 위한 마지막 정수 초
   cardCount: 0,       // 몸으로 말해요 — 이번에 넘긴 카드 수
 };
 
@@ -379,6 +382,7 @@ function startChain() {
   store.pushRecent('chain', got.item.id);
 
   state.round = createRound({ word: got.item.word, groups: state.groups, seconds: state.seconds });
+  state.paused = false;   // 지난 판을 멈춰 둔 채 나갔을 수 있다
   renderChain();
   show('CHAIN');
   startChainTimer();
@@ -386,8 +390,14 @@ function startChain() {
 
 function renderChain() {
   const r = state.round;
+  // 시간이 다 됐지만 아직 교사가 판정하지 않은 상태. 판은 살아 있다.
+  const expired = r.expired && !r.done;
+
   $('chain-word').textContent = r.word;
-  $('chain-turn').textContent = r.done ? '판이 끝났어요' : `${r.turn}번 모둠 차례`;
+  $('chain-turn').textContent = r.done
+    ? '판이 끝났어요'
+    : expired ? `${r.turn}번 모둠 — 시간 초과` : `${r.turn}번 모둠 차례`;
+  $('chain-turn').classList.toggle('is-expired', expired);
 
   const log = $('chain-log');
   log.textContent = '';
@@ -399,9 +409,19 @@ function renderChain() {
     log.appendChild(chip);
   }
 
+  // 시간이 다 되면 두 버튼의 *뜻*이 바뀐다 — 자리는 그대로 둔다.
+  // 교사는 화면이 아니라 교실을 보고 있으므로, 손이 기억한 위치가 흔들리면 안 된다.
+  // Space 는 어느 쪽이든 "지금 가장 흔한 다음"에 붙는다.
+  $('btn-chain-ok').innerHTML = expired ? '그래도 성공' : '성공 <kbd>Space</kbd>';
+  $('btn-chain-out').innerHTML = expired ? '시간 초과 ⏱ <kbd>Space</kbd>' : '탈락';
   $('btn-chain-ok').hidden = r.done;
   $('btn-chain-out').hidden = r.done;
   $('btn-chain-again').hidden = !r.done;
+
+  const pause = $('btn-chain-pause');
+  pause.hidden = r.done || expired;
+  pause.textContent = state.paused ? '▶ 이어서 (P)' : '⏸ 잠깐 (P)';
+  pause.setAttribute('aria-pressed', state.paused ? 'true' : 'false');
 }
 
 function stopChainTimer() {
@@ -411,32 +431,78 @@ function stopChainTimer() {
   }
 }
 
+const TICK_MS = 100;      // 링이 뚝뚝 끊기지 않을 만큼만 자주 (숫자는 초 단위로 바뀐다)
+const URGENT_FROM = 3;    // 남은 3초부터 초읽기
+
 function startChainTimer() {
   stopChainTimer();
+  state.paused = false;
   state.deadline = Date.now() + state.round.seconds * 1000;
-  paintTimer(state.round.seconds);
+  // 시작하자마자 초읽기가 울리지 않게 첫 초보다 위에서 시작한다.
+  state.lastTick = state.round.seconds + 1;
   // 남은 시간은 벽시계(Date.now)로 계산한다. 인터벌이 몇 번 돌았는지로 세면
   // 탭이 백그라운드로 갔을 때 브라우저가 인터벌을 늦춰 시간이 어긋난다.
-  state.timerId = setInterval(() => {
-    const left = Math.max(0, Math.ceil((state.deadline - Date.now()) / 1000));
-    paintTimer(left);
-    if (left === 0) chainAdvance('timeout');
-  }, 200);
+  state.timerId = setInterval(tickChainTimer, TICK_MS);
+  tickChainTimer();
 }
 
-function paintTimer(left) {
+function tickChainTimer() {
+  const leftMs = Math.max(0, state.deadline - Date.now());
+  paintTimer(leftMs);
+
+  // 초읽기는 정수 초가 내려간 순간에만. 인터벌은 그보다 훨씬 자주 돈다.
+  const left = Math.ceil(leftMs / 1000);
+  if (left > 0 && left <= URGENT_FROM && left < state.lastTick) sound.tick();
+  state.lastTick = left;
+
+  if (leftMs === 0) chainTimeUp();
+}
+
+/* 0 초 — 소리 한 번 울리고 화면은 여기서 멈춘다.
+   다음에 무슨 일이 일어날지는 교사의 딸깍이 정한다. */
+function chainTimeUp() {
+  stopChainTimer();
+  state.round = expire(state.round);
+  sound.timeUp();
+  renderChain();
+}
+
+function toggleChainPause() {
+  if (state.round.done || state.round.expired) return;
+  if (state.paused) {
+    state.deadline = Date.now() + state.remainMs;
+    state.paused = false;
+    state.timerId = setInterval(tickChainTimer, TICK_MS);
+    tickChainTimer();
+  } else {
+    state.remainMs = Math.max(0, state.deadline - Date.now());
+    stopChainTimer();
+    state.paused = true;
+    paintTimer(state.remainMs);
+  }
+  renderChain();
+}
+
+function paintTimer(leftMs) {
   const el = $('chain-timer');
+  const left = Math.ceil(leftMs / 1000);
   el.textContent = String(left);
-  // 색으로만 알리지 않는다 — CSS 에서 크기도 함께 커진다.
-  el.classList.toggle('is-urgent', left > 0 && left <= 3);
+  // 색으로만 알리지 않는다 — CSS 에서 크기도 함께 커지고, 링이 함께 줄어든다.
+  el.classList.toggle('is-urgent', left > 0 && left <= URGENT_FROM);
   el.classList.toggle('is-over', left === 0);
+
+  // 링은 남은 비율(0~1)로 그린다. 뒷자리에서는 숫자보다 줄어드는 호가 먼저 읽힌다.
+  const total = state.round ? state.round.seconds * 1000 : 1;
+  const clock = $('chain-clock');
+  clock.style.setProperty('--left', String(Math.max(0, Math.min(1, leftMs / total))));
+  clock.classList.toggle('is-paused', state.paused);
+  clock.classList.toggle('is-over', leftMs === 0);
 }
 
 function chainAdvance(result) {
   stopChainTimer();
   state.round = advance(state.round, result);
   renderChain();
-  if (result === 'timeout') sound.timeUp();
   if (!state.round.done) startChainTimer();
 }
 
@@ -454,8 +520,10 @@ function wire() {
   $('btn-continue').addEventListener('click', () => (state.item ? nextItem() : show('HOME')));
   $('btn-home').addEventListener('click', () => show('HOME'));
 
+  // 시간 초과 뒤의 [탈락] 자리는 '시간 초과'다 — 기록에 ⏱ 로 남는다.
   $('btn-chain-ok').addEventListener('click', () => chainAdvance('ok'));
-  $('btn-chain-out').addEventListener('click', () => chainAdvance('out'));
+  $('btn-chain-out').addEventListener('click', () => chainAdvance(state.round.expired ? 'timeout' : 'out'));
+  $('btn-chain-pause').addEventListener('click', toggleChainPause);
   $('btn-chain-again').addEventListener('click', startChain);
   $('btn-chain-new').addEventListener('click', startChain);
   $('btn-chain-quit').addEventListener('click', () => show('HOME'));
@@ -499,8 +567,15 @@ function wire() {
     if (onChain) {
       if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
-        if (state.round && state.round.done) startChain();
+        if (!state.round) return;
+        // 시간이 다 됐으면 Space 의 뜻이 '시간 초과'로 옮겨 간다 — 화면의 버튼과 같다.
+        if (state.round.done) startChain();
+        else if (state.round.expired) chainAdvance('timeout');
         else chainAdvance('ok');
+      } else if (e.key === 'p' || e.key === 'P' || e.key === 'ㅔ') {
+        // H 와 같은 이유 — 한글 자판이 켜져 있으면 P 자리에서 'ㅔ' 가 온다.
+        e.preventDefault();
+        if (state.round) toggleChainPause();
       }
       return;
     }

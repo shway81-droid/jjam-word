@@ -16,14 +16,24 @@ export function createRound({ word, groups, seconds }) {
     seconds: Math.max(MIN_SECONDS, Number(seconds) || MIN_SECONDS),
     turn: 1,
     log: [],
+    expired: false,
     done: false,
   };
+}
+
+/** 시간이 다 됐다 — 판을 끝내지는 *않는다*.
+    화면이 멋대로 탈락시키면 "방금 말했는데!" 하는 순간에 되돌릴 길이 없다.
+    시간 초과로 칠지 그래도 인정할지는 교실을 보고 있는 교사가 정한다
+    (PRD 4절 "자동 진행 없음"과 같은 이유). */
+export function expire(round) {
+  if (round.done || round.expired) return round;
+  return { ...round, expired: true };
 }
 
 /** result: 'ok' 성공 → 다음 차례 / 'out' 탈락 · 'timeout' 시간 초과 → 판 종료 */
 export function advance(round, result) {
   if (round.done) return round;
   const log = [...round.log, { turn: round.turn, result }];
-  if (result !== 'ok') return { ...round, log, done: true };
-  return { ...round, log, turn: (round.turn % round.groups) + 1 };
+  if (result !== 'ok') return { ...round, log, expired: false, done: true };
+  return { ...round, log, expired: false, turn: (round.turn % round.groups) + 1 };
 }

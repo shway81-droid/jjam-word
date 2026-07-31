@@ -46,7 +46,7 @@
       <h2 class="group-title">진행 도우미</h2>
       <div class="type-grid" id="type-grid-tool" aria-label="도구형 말놀이 선택"></div>
       <footer class="site-footer">
-        <p><kbd>Space</kbd> 다음 단계 · <kbd>H</kbd> 힌트 · <kbd>Esc</kbd> 마치기</p>
+        <p><kbd>Space</kbd> 다음 단계 · <kbd>H</kbd> 힌트 · <kbd>P</kbd> 타이머 잠깐 · <kbd>Esc</kbd> 마치기</p>
       </footer>
     </section>
 
@@ -105,7 +105,11 @@
       <p class="chain-label">시작 단어</p>
       <p class="chain-word" id="chain-word"></p>
       <p class="chain-turn" id="chain-turn" role="status"></p>
-      <div class="chain-timer" id="chain-timer" role="timer" aria-label="남은 시간">0</div>
+      <!-- 남은 시간 — 줄어드는 링 안에 숫자. 뒷자리에서는 숫자보다 호가 먼저 읽힌다.
+           0이 되어도 판을 자동으로 끝내지 않는다(js/chain.js expire 참고). -->
+      <div class="chain-clock" id="chain-clock">
+        <div class="chain-timer" id="chain-timer" role="timer" aria-label="남은 시간">0</div>
+      </div>
       <div class="chain-log" id="chain-log" aria-label="지나간 차례"></div>
       <div class="chain-actions">
         <button class="btn btn-primary btn-big" id="btn-chain-ok" type="button">성공 <kbd>Space</kbd></button>
@@ -113,6 +117,7 @@
         <button class="btn btn-primary btn-big" id="btn-chain-again" type="button" hidden>새 단어로 <kbd>Space</kbd></button>
       </div>
       <div class="chain-corner">
+        <button class="btn btn-ghost btn-sm" id="btn-chain-pause" type="button" aria-pressed="false">⏸ 잠깐 (P)</button>
         <button class="btn btn-ghost btn-sm" id="btn-chain-new" type="button">새 단어로</button>
         <button class="btn btn-ghost btn-sm" id="btn-chain-quit" type="button">마치기</button>
       </div>
