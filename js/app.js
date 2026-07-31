@@ -40,6 +40,26 @@ function lenClass(text) {
 // 최근 주제는 "3연속 회피"에만 쓰므로 몇 개만 들고 있으면 된다.
 const TOPIC_MEMORY = 4;
 
+// 속담은 빈칸을 그 자리에 채워야 한 문장으로 읽힌다.
+//   "모르면 ______"  +  "약이요 아는 게 병"  →  "모르면 약이요 아는 게 병"
+// 빈칸을 남겨 둔 채 답을 아래에 따로 띄우면, 정작 "이어 말한" 모습이 화면에 없다.
+const BLANK = '______';
+
+function fillBlank(el, prompt, answer) {
+  const at = prompt.indexOf(BLANK);
+  if (at < 0) return false;
+  const head = prompt.slice(0, at);
+  const tail = prompt.slice(at + BLANK.length);
+  const span = document.createElement('span');
+  span.className = 'filled';
+  span.textContent = answer;
+  el.textContent = '';
+  el.append(document.createTextNode(head), span, document.createTextNode(tail));
+  // 채우고 나면 문장이 길어진다 — 글자 크기를 다시 계산해 한 화면에 담는다.
+  el.dataset.len = lenClass(head + answer + tail);
+  return true;
+}
+
 const state = {
   screen: 'HOME',
   type: null,
@@ -258,6 +278,7 @@ function renderItem() {
   prompt.dataset.len = lenClass(it.prompt);
   $('quiz-hint').textContent = it.hint;
   $('answer-text').textContent = it.answer;
+  $('answer-text').hidden = false;   // 빈칸에 채운 문항에서는 정답을 아래에 또 띄우지 않는다
 
   const also = $('answer-also');
   const alsoList = Array.isArray(it.also) ? it.also.filter(Boolean) : [];
@@ -287,6 +308,13 @@ function setStage(stage) {
   $('btn-hint').hidden = state.hintOpened || showAnswer;   // 힌트는 한 번만
   $('btn-reveal').hidden = showAnswer;
   $('btn-next').hidden = !showAnswer;
+
+  if (showAnswer) {
+    // 빈칸이 있는 유형(속담)은 그 자리를 채운다. 채웠으면 같은 답을 아래에
+    // 한 번 더 띄우지 않는다 — 화면에 답이 두 번 나오면 어디를 읽어야 할지 흐려진다.
+    const filledIn = fillBlank($('quiz-prompt'), state.item.prompt, state.item.answer);
+    $('answer-text').hidden = filledIn;
+  }
 
   if (showAnswer && !state.counted) {
     // 오늘 푼 수는 정답을 처음 열 때만 센다. 힌트를 여러 번 눌러도 늘지 않는다.

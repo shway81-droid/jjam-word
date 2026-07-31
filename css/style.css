@@ -291,6 +291,15 @@ kbd {
   padding: 0.7rem 1.5rem;
 }
 
+/* 속담처럼 빈칸이 있는 문제는 그 자리에 답이 채워진다. 채워진 부분만 색을 달리해
+   무엇이 답이었는지 한눈에 보이게 한다. inline 요소라 transform 대신 opacity 로
+   나타낸다 — inline-block 으로 만들면 긴 답이 통째로 줄바꿈을 못 해 화면을 넘긴다. */
+@keyframes fill-in { from { opacity: 0; } to { opacity: 1; } }
+.quiz-prompt .filled { color: var(--accent); animation: fill-in 0.28s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .quiz-prompt .filled { animation: none; }
+}
+
 .quiz-answer { text-align: center; }
 .answer-text {
   font-size: clamp(2.6rem, 8vw, 6.4rem);
