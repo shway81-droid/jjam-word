@@ -12,6 +12,8 @@ jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야
 - `js/store.js` — localStorage (`jjam-word:recent:<type>`, `jjam-word:muted`, `jjam-word:today`)
 - `js/sound.js` — Web Audio 합성 (음원 파일 0개). 음소거는 master gain 한 곳
 - `js/chain.js` — [순수] 끝말잇기 차례 진행 규칙 (불변 객체)
+- `js/clock.js` — [순수] 수업 타이머(상단바, 1~5분). 놀이에 속하지 않아 화면을 바꿔도
+  이어서 흐른다. 끝말잇기 차례 타이머(`chain.js`)와는 다른 물건이다
 - `data/words.json` — 단일 소스 560개: 문항 400 + 끝말잇기 시작단어 60 + 몸으로말해요 카드 100
 - `sw.js` — network-first 서비스워커 (콘텐츠 갱신과 오프라인을 함께)
 

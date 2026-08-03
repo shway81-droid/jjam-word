@@ -60,9 +60,17 @@ function timeUp() {
   [[440, 0], [330, 0.16]].forEach(([f, at]) => tone(f, at, 0.34, 0.06, 'triangle'));
 }
 
+/* 수업 타이머 끝 — 차례 타이머(timeUp)와 반드시 달라야 한다. 끝말잇기 화면에서는
+   둘이 같은 화면에서 울리므로, 소리가 같으면 "누구 시간이 끝났는지"를 못 가린다.
+   이쪽은 세 음이 올라갔다 내려온다 — 종료를 알리는 소리지 재촉이 아니다. */
+function sessionEnd() {
+  if (!ensure()) return;
+  [[523.25, 0], [698.46, 0.18], [392.0, 0.4]].forEach(([f, at]) => tone(f, at, 0.6, 0.07, 'triangle'));
+}
+
 function setMuted(v) {
   muted = !!v;
   if (master) master.gain.setTargetAtTime(muted ? 0 : 1, ctx.currentTime, 0.05);
 }
 
-export const sound = { ensure, hint, reveal, tick, timeUp, setMuted };
+export const sound = { ensure, hint, reveal, tick, timeUp, sessionEnd, setMuted };

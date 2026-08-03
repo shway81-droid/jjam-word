@@ -10,6 +10,7 @@ import { candidates, pickNext } from './pick.js';
 import { store } from './store.js';
 import { sound } from './sound.js';
 import { createRound, advance, expire } from './chain.js';
+import * as clock from './clock.js';
 
 const TYPES = {
   choseong: { label: 'ㄱㄴㄷ 초성퀴즈', emoji: '🔤', kind: 'quiz', topics: true, blurb: '초성을 보고 낱말을 외쳐요' },
@@ -81,6 +82,8 @@ const state = {
   remainMs: 0,        // 멈춰 둔 동안 들고 있는 남은 시간
   lastTick: 0,        // 초읽기를 초당 한 번만 울리기 위한 마지막 정수 초
   cardCount: 0,       // 몸으로 말해요 — 이번에 넘긴 카드 수
+  clock: clock.createClock(),   // 수업 타이머 — 놀이를 바꿔도 이어서 흐른다
+  clockId: null,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -506,6 +509,136 @@ function chainAdvance(result) {
   if (!state.round.done) startChainTimer();
 }
 
+/* ── 수업 타이머 ───────────────────────────────────────────────
+   규칙(js/clock.js)은 DOM 을 모른다. 여기서는 그리고 듣기만 한다.
+   화면을 옮겨도 끊지 않는다 — show() 가 이 시계를 건드리지 않는 것이 핵심이다.
+   (끝말잇기 차례 타이머는 반대로 화면을 떠나면 끊는다. 다른 물건이다.) */
+
+const CLOCK_TICK_MS = 250;      // 숫자는 초 단위로만 바뀐다. 이보다 자주 볼 이유가 없다.
+const CLOCK_URGENT_MS = 10000;  // 마지막 10초부터 커진다
+
+function renderClock() {
+  const c = state.clock;
+  const left = clock.remaining(c, Date.now());
+  const urgent = c.running && left > 0 && left <= CLOCK_URGENT_MS;
+
+  $('clock').dataset.state = clock.isIdle(c) ? 'idle'
+    : c.expired ? 'over'
+    : urgent ? 'urgent'
+    : c.running ? 'running' : 'paused';
+
+  $('clock-time').textContent = clock.isIdle(c) ? '타이머'
+    : c.expired ? '시간 끝'
+    : clock.format(left);
+
+  // 눈으로 보이는 글자와 화면 낭독기가 읽는 말이 서로 어긋나지 않게 한다.
+  $('btn-clock').setAttribute('aria-label', clock.isIdle(c) ? '타이머 시간 고르기'
+    : c.expired ? '시간이 끝났어요. 다시 고르기'
+    : c.running ? `남은 시간 ${clock.format(left)}, 잠깐 멈추기`
+    : `${clock.format(left)} 남기고 멈춤. 이어서 하기`);
+
+  $('btn-clock-reset').hidden = clock.isIdle(c);
+}
+
+function startClockTicking() {
+  stopClockTicking();
+  state.clockId = setInterval(clockTick, CLOCK_TICK_MS);
+}
+
+function stopClockTicking() {
+  if (state.clockId !== null) {
+    clearInterval(state.clockId);
+    state.clockId = null;
+  }
+}
+
+function clockTick() {
+  const next = clock.tick(state.clock, Date.now());
+  const justEnded = next.expired && !state.clock.expired;
+  state.clock = next;
+  if (justEnded) {
+    stopClockTicking();
+    sound.sessionEnd();
+  }
+  renderClock();
+}
+
+/* 고르는 순간이 곧 시작이다. 시간이 끝나도 놀이를 닫지 않는다 —
+   답을 외치는 중에 화면이 혼자 홈으로 돌아가 버리면 곤란하다. */
+function setClockMinutes(minutes) {
+  sound.ensure();     // 첫 사용자 조작 — 여기서 오디오를 깨워 둔다
+  state.clock = clock.start(state.clock, minutes, Date.now());
+  showClockMenu(false);
+  startClockTicking();
+  renderClock();
+}
+
+function resetClock() {
+  stopClockTicking();
+  state.clock = clock.createClock();
+  showClockMenu(false);
+  renderClock();
+}
+
+/** 상단바 칩 딸깍 — 걸어 둔 시간이 없으면 고르는 자리를 펴고, 돌고 있으면 멈춘다. */
+function clickClock() {
+  if (clock.isIdle(state.clock) || state.clock.expired) {
+    showClockMenu($('clock-menu').hidden);
+    return;
+  }
+  toggleClockPause();
+}
+
+/* 걸어 둔 시간이 없거나 이미 끝났으면 아무 일도 하지 않는다 —
+   잠깐 멈춤은 "멈춤"이지 "타이머 켜기"가 아니다. */
+function pauseClockNow() {
+  const c = state.clock;
+  if (!c.running) return;
+  state.clock = clock.pause(c, Date.now());
+  stopClockTicking();
+  renderClock();
+}
+
+function resumeClockNow() {
+  const c = state.clock;
+  if (c.running || c.expired || clock.isIdle(c)) return;
+  state.clock = clock.resume(c, Date.now());
+  startClockTicking();
+  renderClock();
+}
+
+function toggleClockPause() {
+  if (state.clock.running) pauseClockNow(); else resumeClockNow();
+}
+
+/** `P` 와 끝말잇기의 [⏸ 잠깐] 이 함께 부른다.
+    끝말잇기 화면에서는 차례 타이머와 수업 타이머가 한 번에 멈춘다 — 아이 말을
+    되물을 때 둘 중 하나만 멈추면 소용이 없다. 하나라도 흐르고 있으면 둘 다
+    멈추고, 아무것도 흐르지 않으면 둘 다 이어서 간다(따로 놀지 않게). */
+function togglePauseAll() {
+  const chainLive = state.screen === 'CHAIN' && state.round && !state.round.done && !state.round.expired;
+  const running = state.clock.running || (chainLive && !state.paused);
+  if (chainLive && state.paused !== running) toggleChainPause();
+  if (running) pauseClockNow(); else resumeClockNow();
+}
+
+function showClockMenu(open) {
+  $('clock-menu').hidden = !open;
+  $('btn-clock').setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function buildClockMenu() {
+  const menu = $('clock-menu');
+  for (const m of clock.MINUTES) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('role', 'menuitem');
+    b.textContent = `${m}분`;
+    b.addEventListener('click', () => setClockMinutes(m));
+    menu.appendChild(b);
+  }
+}
+
 /* ── 부팅 ──────────────────────────────────────────────────── */
 
 function wire() {
@@ -523,13 +656,18 @@ function wire() {
   // 시간 초과 뒤의 [탈락] 자리는 '시간 초과'다 — 기록에 ⏱ 로 남는다.
   $('btn-chain-ok').addEventListener('click', () => chainAdvance('ok'));
   $('btn-chain-out').addEventListener('click', () => chainAdvance(state.round.expired ? 'timeout' : 'out'));
-  $('btn-chain-pause').addEventListener('click', toggleChainPause);
+  $('btn-chain-pause').addEventListener('click', togglePauseAll);
   $('btn-chain-again').addEventListener('click', startChain);
   $('btn-chain-new').addEventListener('click', startChain);
   $('btn-chain-quit').addEventListener('click', () => show('HOME'));
 
   $('btn-gesture-next').addEventListener('click', nextCard);
   $('btn-gesture-quit').addEventListener('click', () => show('HOME'));
+
+  buildClockMenu();
+  renderClock();
+  $('btn-clock').addEventListener('click', clickClock);
+  $('btn-clock-reset').addEventListener('click', resetClock);
 
   const mute = $('btn-mute');
   const paintMute = () => mute.setAttribute('aria-pressed', store.isMuted() ? 'true' : 'false');
@@ -545,6 +683,8 @@ function wire() {
   document.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (b) b.blur();
+    // 시간 고르는 자리는 딴 데를 누르면 닫힌다 — 펼쳐 놓고 잊어버려도 화면을 가리지 않게.
+    if (!e.target.closest('#clock')) showClockMenu(false);
   });
 
   document.addEventListener('keydown', (e) => {
@@ -554,8 +694,18 @@ function wire() {
     const onGesture = state.screen === 'GESTURE';
 
     if (e.key === 'Escape') {
+      if (!$('clock-menu').hidden) { e.preventDefault(); showClockMenu(false); return; }
       if (onQuiz) { e.preventDefault(); finish(); }
       else if (onChain || onGesture) { e.preventDefault(); show('HOME'); }
+      return;
+    }
+
+    // P 는 어느 화면에서든 "잠깐". 끝말잇기에서는 차례 타이머와 수업 타이머가
+    // 한 번에 멈춘다 — 아이 말을 되물을 때 둘 중 하나만 멈추면 소용이 없다.
+    // (한글 자판이 켜져 있으면 P 자리에서 'ㅔ' 가 온다 — 교실에서 흔한 상황이다.)
+    if (e.key === 'p' || e.key === 'P' || e.key === 'ㅔ') {
+      e.preventDefault();
+      togglePauseAll();
       return;
     }
 
@@ -572,10 +722,6 @@ function wire() {
         if (state.round.done) startChain();
         else if (state.round.expired) chainAdvance('timeout');
         else chainAdvance('ok');
-      } else if (e.key === 'p' || e.key === 'P' || e.key === 'ㅔ') {
-        // H 와 같은 이유 — 한글 자판이 켜져 있으면 P 자리에서 'ㅔ' 가 온다.
-        e.preventDefault();
-        if (state.round) toggleChainPause();
       }
       return;
     }

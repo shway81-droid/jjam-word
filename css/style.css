@@ -121,6 +121,89 @@ kbd {
 .icon-btn[aria-pressed="true"] .spk-x { display: inline; }
 .icon-btn[aria-pressed="true"] .spk-wave { display: none; }
 
+/* ── 수업 타이머 — 상단바에 사는 시계 ──
+   평소에는 작다. 주인공은 문제 글자지 시계가 아니다.
+   대신 마지막 10초에 커지고 색이 뒤집힌다 — 뒷자리에서 "이제 곧 끝"이 보여야 한다. */
+.clock { position: relative; display: flex; align-items: center; gap: 0.15rem; }
+
+.clock-face {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 42px;
+  padding: 0 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--on-accent);
+  font-size: 1rem;
+  font-weight: 800;
+  /* 숫자 폭을 고정한다 — 3:59→3:58 마다 상단바가 들썩이면 눈이 그리로 끌린다. */
+  font-variant-numeric: tabular-nums;
+  transition: background 0.12s, transform 0.12s;
+}
+.clock-face:hover { background: rgba(255, 255, 255, 0.26); }
+.clock-face:focus-visible { outline: 3px solid #FFD34D; outline-offset: 2px; }
+.clock-icon { font-size: 1.05em; line-height: 1; }
+.clock-time { min-width: 2.6em; text-align: center; }
+
+.clock-reset {
+  width: 34px;
+  height: 34px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* 멈춤 — 색을 빼서 "지금은 안 흐른다"를 조용히 알린다. */
+.clock[data-state="paused"] .clock-face { background: rgba(0, 0, 0, 0.18); border-color: rgba(255, 255, 255, 0.24); }
+
+/* 마지막 10초 — 색만으로 알리지 않는다. 크기도 함께 커진다(PRD 12절). */
+.clock[data-state="urgent"] .clock-face {
+  background: #FFD34D;
+  border-color: #FFD34D;
+  color: var(--accent-deep);
+  transform: scale(1.14);
+  font-size: 1.16rem;
+}
+
+/* 0 초 — 숫자 대신 말로 알린다. 판은 그대로 두고 알리기만 한다. */
+.clock[data-state="over"] .clock-face {
+  background: var(--on-accent);
+  border-color: var(--on-accent);
+  color: var(--accent-deep);
+  transform: scale(1.06);
+}
+
+.clock-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.45rem;
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+.clock-menu button {
+  min-width: 3.1rem;
+  padding: 0.5rem 0.4rem;
+  border: 1px solid var(--outline-variant);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.clock-menu button:hover { background: var(--surface); }
+.clock-menu button:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .clock-face { transition: none; }
+}
+
 /* ── 화면 공통 ── */
 .screen {
   max-width: var(--maxw);
@@ -453,12 +536,15 @@ kbd {
   html { font-size: 16px; }
   .brand-sub { display: none; }
 
-  /* 자매 바로가기는 이름이 빠져도 아이콘 5개라 287px 이다. 브랜드와 음소거
+  /* 자매 바로가기는 이름이 빠져도 아이콘 여러 개라 폭이 넓다. 브랜드와 음소거
      버튼까지 한 줄에 넣으면 폰 폭을 넘겨 페이지가 옆으로 밀린다.
      .jjam-switch 의 스타일은 상류 공통 파일(shared/jjam-switcher.js) 안에 있어
      여기서 줄일 수 없으므로, 상단바를 두 줄로 접어 가로 스크롤을 없앤다. */
   .topbar { flex-wrap: wrap; row-gap: 0.5rem; }
-  .topbar-actions { width: 100%; justify-content: flex-end; }
+  /* 타이머까지 들어오면 한 줄에 다 못 담는다 — 넘치면 접히게 두고,
+     좁을 때는 타이머 메뉴를 오른쪽 끝이 아니라 그 자리 아래에 편다. */
+  .topbar-actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; row-gap: 0.4rem; }
+  .clock-menu { right: auto; left: 0; }
   .setup-actions { flex-direction: column-reverse; }
   .setup-actions .btn { width: 100%; }
   .quiz-corner, .gesture-corner, .chain-corner { position: static; margin-top: 0.8rem; }

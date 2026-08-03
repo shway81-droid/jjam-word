@@ -26,6 +26,17 @@
       </span>
     </a>
     <div class="topbar-actions">
+      <!-- 수업 타이머 — 어느 놀이에도 속하지 않아 상단바에 둔다(js/clock.js 머리말 참고).
+           상단바는 여섯 화면 위에 늘 떠 있는 유일한 자리라, 여기 두면 초성퀴즈를
+           하다 수수께끼로 갈아타도 같은 시계가 같은 자리에서 계속 흐른다. -->
+      <div class="clock" id="clock" data-state="idle">
+        <button class="clock-face" id="btn-clock" type="button" aria-expanded="false" aria-haspopup="true">
+          <span class="clock-icon" aria-hidden="true">⏱</span>
+          <span class="clock-time" id="clock-time" role="timer">타이머</span>
+        </button>
+        <button class="icon-btn clock-reset" id="btn-clock-reset" type="button" aria-label="타이머 지우기" hidden>↺</button>
+        <div class="clock-menu" id="clock-menu" role="menu" aria-label="시간 고르기" hidden></div>
+      </div>
       <!-- 음소거 토글 — 출제 화면 안이 아니라 상단바에 둔다 (출제 화면 버튼은 힌트·정답·다음뿐). -->
       <button id="btn-mute" class="icon-btn" type="button" aria-label="소리 켜고 끄기" aria-pressed="false">
         <svg class="ic-line" viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9.5v5h3.2L12 19V5L7.2 9.5H4z"/><path class="spk-wave" d="M15.5 9c1.6 1.7 1.6 4.3 0 6M18 6.8c2.8 2.9 2.8 7.5 0 10.4"/><path class="spk-x" d="M15.5 9.5l5 5M20.5 9.5l-5 5"/></svg>
