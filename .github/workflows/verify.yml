@@ -1,0 +1,43 @@
+# ===================================================================
+# npm test 를 PR 마다 돌린다
+# ===================================================================
+# 이 저장소는 빌드 단계가 없는 정적 사이트라 "배포 전 검사"라 할 것이 npm test
+# 하나뿐이다. 그 하나가 사람 손에만 달려 있으면, 문항을 급히 하나 더 넣은 PR 에서
+# 제일 먼저 빠진다. 그래서 PR 과 main 푸시에서 자동으로 돌린다.
+#
+# npm test = node --test + validate-data + check-font-coverage (package.json 참고)
+# ===================================================================
+
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# 같은 브랜치에 연달아 푸시하면 이전 실행은 취소한다 — 어차피 마지막 것만 본다.
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      # playwright 는 아이콘 생성(scripts/gen-icons.mjs)에만 쓰고 테스트는 쓰지 않는다.
+      # 브라우저까지 내려받으면 설치가 몇 배로 길어지므로 건너뛴다.
+      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test

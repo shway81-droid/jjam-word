@@ -17,7 +17,8 @@ jjam(짬짬이 게임)의 자매 프로젝트 — 게임·퀴즈·영상·이야
 
 ## 규칙
 
-- `npm test` 필수 통과 = `node --test` + `validate-data` + `check-font-coverage`
+- `npm test` 필수 통과 = `node --test` + `validate-data` + `check-font-coverage`.
+  PR·main 푸시마다 `.github/workflows/verify.yml` 이 같은 명령을 돌린다
 - 외부 이미지·영상·폰트 CDN·JS 라이브러리 의존 금지 (오프라인·저작권)
 - **상류에서 받아오는 파일은 직접 고치지 않는다** — `shared/jjam-switcher.js`,
   `scripts/check-font-coverage.mjs`, `assets/fonts/*`.
