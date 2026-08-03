@@ -121,87 +121,84 @@ kbd {
 .icon-btn[aria-pressed="true"] .spk-x { display: inline; }
 .icon-btn[aria-pressed="true"] .spk-wave { display: none; }
 
-/* ── 수업 타이머 — 상단바에 사는 시계 ──
-   평소에는 작다. 주인공은 문제 글자지 시계가 아니다.
-   대신 마지막 10초에 커지고 색이 뒤집힌다 — 뒷자리에서 "이제 곧 끝"이 보여야 한다. */
-.clock { position: relative; display: flex; align-items: center; gap: 0.15rem; }
+/* ── 수업 타이머 — 오른쪽 위에 따로 사는 패널 ──
+   화면(.screen)이 아니라 그 밖에 있다. 여섯 화면을 토글해도 이 패널은 그대로다.
+   숫자가 이 패널의 주인공이라 크게 둔다 — 교실 뒷자리에서 읽혀야 한다. */
+.clock {
+  position: fixed;
+  top: 92px;
+  right: 18px;
+  z-index: 9;
+  width: 276px;
+  padding: 0.85rem 0.9rem 0.8rem;
+  border: 2px solid var(--outline-variant);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 18%, transparent);
+  text-align: center;
+}
 
-.clock-face {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  height: 42px;
-  padding: 0 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--on-accent);
-  font-size: 1rem;
-  font-weight: 800;
-  /* 숫자 폭을 고정한다 — 3:59→3:58 마다 상단바가 들썩이면 눈이 그리로 끌린다. */
+.clock-label { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); letter-spacing: 0.02em; }
+
+.clock-time {
+  /* 숫자 폭을 고정한다 — 3:59→3:58 마다 패널이 들썩이면 눈이 그리로 끌린다. */
   font-variant-numeric: tabular-nums;
-  transition: background 0.12s, transform 0.12s;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--accent-deep);
+  transition: color 0.12s, transform 0.12s;
 }
-.clock-face:hover { background: rgba(255, 255, 255, 0.26); }
-.clock-face:focus-visible { outline: 3px solid #FFD34D; outline-offset: 2px; }
-.clock-icon { font-size: 1.05em; line-height: 1; }
-.clock-time { min-width: 2.6em; text-align: center; }
-
-.clock-reset {
-  width: 34px;
-  height: 34px;
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
+.clock[data-state="idle"] .clock-time { color: color-mix(in srgb, var(--ink-soft) 45%, #fff); }
 /* 멈춤 — 색을 빼서 "지금은 안 흐른다"를 조용히 알린다. */
-.clock[data-state="paused"] .clock-face { background: rgba(0, 0, 0, 0.18); border-color: rgba(255, 255, 255, 0.24); }
+.clock[data-state="paused"] .clock-time { color: var(--ink-soft); }
 
 /* 마지막 10초 — 색만으로 알리지 않는다. 크기도 함께 커진다(PRD 12절). */
-.clock[data-state="urgent"] .clock-face {
-  background: #FFD34D;
-  border-color: #FFD34D;
-  color: var(--accent-deep);
-  transform: scale(1.14);
-  font-size: 1.16rem;
-}
+.clock[data-state="urgent"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, #fff); }
+.clock[data-state="urgent"] .clock-time { color: var(--accent); transform: scale(1.1); }
 
-/* 0 초 — 숫자 대신 말로 알린다. 판은 그대로 두고 알리기만 한다. */
-.clock[data-state="over"] .clock-face {
-  background: var(--on-accent);
-  border-color: var(--on-accent);
-  color: var(--accent-deep);
-  transform: scale(1.06);
-}
+/* 0 초 — 숫자 대신 말로 알린다. 놀이는 그대로 두고 알리기만 한다.
+   패널 전체를 진한 색으로 덮지는 않는다 — 그러면 지금 걸려 있는 시간 표시와
+   [잠깐]·[↺] 이 배경에 묻혀, 정작 다음에 눌러야 할 것이 안 보인다. */
+.clock[data-state="over"] { border-color: var(--accent); background: var(--accent-soft); }
+.clock[data-state="over"] .clock-label { color: var(--accent-deep); }
+.clock[data-state="over"] .clock-time { color: var(--accent); font-size: 2.9rem; }
 
-.clock-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 20;
-  display: flex;
-  gap: 0.3rem;
-  padding: 0.45rem;
-  border-radius: var(--radius-sm);
-  background: var(--card);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
-}
-.clock-menu button {
-  min-width: 3.1rem;
-  padding: 0.5rem 0.4rem;
+.clock-picks { display: flex; gap: 0.25rem; margin-top: 0.5rem; }
+.clock-picks button {
+  flex: 1;
+  padding: 0.42rem 0;
   border: 1px solid var(--outline-variant);
   border-radius: 10px;
   background: var(--card);
   color: var(--ink);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 700;
 }
-.clock-menu button:hover { background: var(--surface); }
-.clock-menu button:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.clock-picks button:hover { background: var(--surface); }
+.clock-picks button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+.clock-controls { display: flex; gap: 0.25rem; margin-top: 0.35rem; }
+.clock-btn {
+  flex: 1;
+  padding: 0.42rem 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+.clock-btn:hover { background: var(--surface-high); }
+.clock-btn[disabled] { opacity: 0.42; cursor: default; }
+.clock-reset { flex: 0 0 2.6rem; font-size: 1.05rem; line-height: 1; }
+.clock-picks button:focus-visible,
+.clock-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+.clock-btn kbd { background: rgba(0, 0, 0, 0.09); }
 
 @media (prefers-reduced-motion: reduce) {
-  .clock-face { transition: none; }
+  .clock-time { transition: none; }
 }
 
 /* ── 화면 공통 ── */
@@ -411,10 +408,12 @@ kbd {
   margin-top: 0.6rem;
 }
 
+/* 오른쪽 위는 수업 타이머가 쓴다(.clock). 진행 버튼은 그 반대편으로 비켜 앉는다 —
+   겹치면 좁은 전자칠판에서 [마치기] 가 타이머 밑으로 숨는다. */
 .quiz-corner, .gesture-corner, .chain-corner {
   position: absolute;
   top: 1rem;
-  right: 0;
+  left: 0;
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -530,6 +529,23 @@ kbd {
 .site-footer { margin-top: 2.4rem; text-align: center; font-size: 0.86rem; color: var(--ink-soft); }
 .site-footer kbd { background: var(--surface-high); }
 
+/* 1920 전자칠판에서는 본문(1180px)과 패널이 서로 닿지 않는다. 그보다 좁아지면
+   패널이 본문 위로 올라와 홈의 말놀이 카드를 덮어 버린다 — 실제로 [수수께끼] 가
+   눌리지 않았다. 그 구간에서는 본문이 패널만큼 자리를 비켜 준다(가리지 않게). */
+@media (min-width: 1101px) and (max-width: 1799px) {
+  .screen { padding-right: calc(var(--gutter) + 292px); }
+}
+
+/* 본문 폭이 더 좁아지면 비켜 줄 자리도 없다.
+   그때는 띄우지 말고 상단바 아래에 그냥 얹는다 — 가리는 것보다 밀어내는 편이 낫다. */
+@media (max-width: 1100px) {
+  .clock {
+    position: static;
+    width: min(100%, 340px);
+    margin: 0.9rem auto 0;
+  }
+}
+
 /* ── 좁은 화면 ── */
 @media (max-width: 720px) {
   :root { --gutter: 18px; }
@@ -541,10 +557,7 @@ kbd {
      .jjam-switch 의 스타일은 상류 공통 파일(shared/jjam-switcher.js) 안에 있어
      여기서 줄일 수 없으므로, 상단바를 두 줄로 접어 가로 스크롤을 없앤다. */
   .topbar { flex-wrap: wrap; row-gap: 0.5rem; }
-  /* 타이머까지 들어오면 한 줄에 다 못 담는다 — 넘치면 접히게 두고,
-     좁을 때는 타이머 메뉴를 오른쪽 끝이 아니라 그 자리 아래에 편다. */
-  .topbar-actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; row-gap: 0.4rem; }
-  .clock-menu { right: auto; left: 0; }
+  .topbar-actions { width: 100%; justify-content: flex-end; }
   .setup-actions { flex-direction: column-reverse; }
   .setup-actions .btn { width: 100%; }
   .quiz-corner, .gesture-corner, .chain-corner { position: static; margin-top: 0.8rem; }

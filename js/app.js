@@ -521,23 +521,31 @@ function renderClock() {
   const c = state.clock;
   const left = clock.remaining(c, Date.now());
   const urgent = c.running && left > 0 && left <= CLOCK_URGENT_MS;
+  const idle = clock.isIdle(c);
 
-  $('clock').dataset.state = clock.isIdle(c) ? 'idle'
+  $('clock').dataset.state = idle ? 'idle'
     : c.expired ? 'over'
     : urgent ? 'urgent'
     : c.running ? 'running' : 'paused';
 
-  $('clock-time').textContent = clock.isIdle(c) ? '타이머'
-    : c.expired ? '시간 끝'
-    : clock.format(left);
+  $('clock-time').textContent = c.expired ? '시간 끝' : clock.format(left);
+  $('clock-label').textContent = c.expired ? '수업 타이머 — 끝' : '수업 타이머';
 
+  // 지금 걸려 있는 시간에 표시를 남긴다 — 3분을 걸어 뒀는지 5분인지 나중에 헷갈린다.
+  for (const b of $('clock-picks').children) {
+    b.setAttribute('aria-pressed', !idle && Number(b.dataset.min) === c.totalMs / 60000 ? 'true' : 'false');
+  }
+
+  const pause = $('btn-clock');
+  const canPause = !idle && !c.expired;
+  pause.disabled = !canPause;
+  pause.innerHTML = c.running || !canPause ? '⏸ 잠깐 <kbd>P</kbd>' : '▶ 이어서 <kbd>P</kbd>';
   // 눈으로 보이는 글자와 화면 낭독기가 읽는 말이 서로 어긋나지 않게 한다.
-  $('btn-clock').setAttribute('aria-label', clock.isIdle(c) ? '타이머 시간 고르기'
-    : c.expired ? '시간이 끝났어요. 다시 고르기'
+  pause.setAttribute('aria-label', !canPause ? '잠깐 멈춤 — 걸어 둔 시간이 없어요'
     : c.running ? `남은 시간 ${clock.format(left)}, 잠깐 멈추기`
     : `${clock.format(left)} 남기고 멈춤. 이어서 하기`);
 
-  $('btn-clock-reset').hidden = clock.isIdle(c);
+  $('btn-clock-reset').disabled = idle;
 }
 
 function startClockTicking() {
@@ -568,7 +576,6 @@ function clockTick() {
 function setClockMinutes(minutes) {
   sound.ensure();     // 첫 사용자 조작 — 여기서 오디오를 깨워 둔다
   state.clock = clock.start(state.clock, minutes, Date.now());
-  showClockMenu(false);
   startClockTicking();
   renderClock();
 }
@@ -576,17 +583,7 @@ function setClockMinutes(minutes) {
 function resetClock() {
   stopClockTicking();
   state.clock = clock.createClock();
-  showClockMenu(false);
   renderClock();
-}
-
-/** 상단바 칩 딸깍 — 걸어 둔 시간이 없으면 고르는 자리를 펴고, 돌고 있으면 멈춘다. */
-function clickClock() {
-  if (clock.isIdle(state.clock) || state.clock.expired) {
-    showClockMenu($('clock-menu').hidden);
-    return;
-  }
-  toggleClockPause();
 }
 
 /* 걸어 둔 시간이 없거나 이미 끝났으면 아무 일도 하지 않는다 —
@@ -622,20 +619,18 @@ function togglePauseAll() {
   if (running) pauseClockNow(); else resumeClockNow();
 }
 
-function showClockMenu(open) {
-  $('clock-menu').hidden = !open;
-  $('btn-clock').setAttribute('aria-expanded', open ? 'true' : 'false');
-}
-
-function buildClockMenu() {
-  const menu = $('clock-menu');
+/* 시간 버튼은 늘 펴 둔다. 접어 두면 3분을 걸려고 딸깍을 두 번 해야 하는데,
+   교실에서는 그 한 박자가 늦다 (교사 조작을 늘리지 않는다 — PRD 4절과 같은 뜻). */
+function buildClockPicks() {
+  const picks = $('clock-picks');
   for (const m of clock.MINUTES) {
     const b = document.createElement('button');
     b.type = 'button';
-    b.setAttribute('role', 'menuitem');
+    b.dataset.min = String(m);
+    b.setAttribute('aria-pressed', 'false');
     b.textContent = `${m}분`;
     b.addEventListener('click', () => setClockMinutes(m));
-    menu.appendChild(b);
+    picks.appendChild(b);
   }
 }
 
@@ -664,9 +659,9 @@ function wire() {
   $('btn-gesture-next').addEventListener('click', nextCard);
   $('btn-gesture-quit').addEventListener('click', () => show('HOME'));
 
-  buildClockMenu();
+  buildClockPicks();
   renderClock();
-  $('btn-clock').addEventListener('click', clickClock);
+  $('btn-clock').addEventListener('click', togglePauseAll);
   $('btn-clock-reset').addEventListener('click', resetClock);
 
   const mute = $('btn-mute');
@@ -683,8 +678,6 @@ function wire() {
   document.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (b) b.blur();
-    // 시간 고르는 자리는 딴 데를 누르면 닫힌다 — 펼쳐 놓고 잊어버려도 화면을 가리지 않게.
-    if (!e.target.closest('#clock')) showClockMenu(false);
   });
 
   document.addEventListener('keydown', (e) => {
@@ -694,7 +687,6 @@ function wire() {
     const onGesture = state.screen === 'GESTURE';
 
     if (e.key === 'Escape') {
-      if (!$('clock-menu').hidden) { e.preventDefault(); showClockMenu(false); return; }
       if (onQuiz) { e.preventDefault(); finish(); }
       else if (onChain || onGesture) { e.preventDefault(); show('HOME'); }
       return;
