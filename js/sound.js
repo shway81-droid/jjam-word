@@ -60,34 +60,60 @@ function timeUp() {
   [[440, 0], [330, 0.16]].forEach(([f, at]) => tone(f, at, 0.34, 0.06, 'triangle'));
 }
 
-/* 초침 소리 한 번 — 잡음을 아주 짧게 끊어 낸다.
-   맑은 음(오실레이터)으로 만들면 "삑" 하는 전자음이 되지 두 물체가 부딪는 소리가
-   되지 않는다. 시계 소리는 음정이 아니라 딱딱한 마찰음이라, 백색잡음을 좁은
-   대역으로 걸러 20ms 안에 떨어뜨린다. */
-function clack(freq, peak) {
-  const dur = 0.035;
-  const buf = ctx.createBuffer(1, Math.max(1, Math.ceil(ctx.sampleRate * dur)), ctx.sampleRate);
-  const data = buf.getChannelData(0);
-  for (let i = 0; i < data.length; i += 1) data[i] = Math.random() * 2 - 1;
+/* 초침 소리 한 번 — 두 겹이다.
+   (1) 탈진기가 톱니를 놓는 순간의 **딱딱한 잡음** — 좁은 대역만 남긴 백색잡음
+   (2) 그 충격에 시계 몸통이 우는 **공명** — 짧게 감쇠하는 음
+
+   잡음만 쓰면 메마른 "칙" 이 되고(처음에 그렇게 만들었다 다시 고쳤다), 맑은 음만
+   쓰면 "삑" 하는 전자음이 된다. 둘이 겹쳐야 시계 소리가 된다.
+
+   값은 탁상시계 — 플라스틱 몸통, 중간 높이에서 짧게 끊긴다. 다섯 가지를 만들어
+   교실에서 듣고 고른 것이다(벽시계·탁상시계·손목시계·회중시계·메트로놈). */
+const VOICE = {
+  click: { freq: 2600, q: 9, dur: 0.022 },
+  body: { freq: 640, dur: 0.045, gain: 0.34, type: 'triangle' },
+  detune: 0.88,     // 짝·홀수 초를 살짝 달리해 "재깍-재깍" 두 소리로 들리게
+};
+
+let noiseBuf = null;
+
+function clack(peak, high) {
+  const shift = high ? 1 : VOICE.detune;
+  const t = ctx.currentTime;
+
+  if (!noiseBuf) {
+    // 한 번만 만들어 두고 계속 쓴다 — 1초마다 새로 채우면 그때마다 잔일이 생긴다.
+    const n = Math.max(1, Math.ceil(ctx.sampleRate * 0.05));
+    noiseBuf = ctx.createBuffer(1, n, ctx.sampleRate);
+    const data = noiseBuf.getChannelData(0);
+    for (let i = 0; i < n; i += 1) data[i] = Math.random() * 2 - 1;
+  }
 
   const src = ctx.createBufferSource();
-  src.buffer = buf;
-  // 좁은 대역만 남겨야 "치익" 이 아니라 "똑" 이 된다.
+  src.buffer = noiseBuf;
   const band = ctx.createBiquadFilter();
   band.type = 'bandpass';
-  band.frequency.value = freq;
-  band.Q.value = 9;
-
-  const g = ctx.createGain();
-  const t = ctx.currentTime;
-  g.gain.setValueAtTime(peak, t);          // 시작이 곧 최대 — 초침에는 여는 시간이 없다
-  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-
+  band.frequency.value = VOICE.click.freq * shift;
+  band.Q.value = VOICE.click.q;
+  const cg = ctx.createGain();
+  cg.gain.setValueAtTime(peak, t);          // 시작이 곧 최대 — 초침에는 여는 시간이 없다
+  cg.gain.exponentialRampToValueAtTime(0.0001, t + VOICE.click.dur);
   src.connect(band);
-  band.connect(g);
-  g.connect(master);
+  band.connect(cg);
+  cg.connect(master);
   src.start(t);
-  src.stop(t + dur + 0.02);
+  src.stop(t + VOICE.click.dur + 0.02);
+
+  const osc = ctx.createOscillator();
+  osc.type = VOICE.body.type;
+  osc.frequency.value = VOICE.body.freq * shift;
+  const bg = ctx.createGain();
+  bg.gain.setValueAtTime(peak * VOICE.body.gain, t);
+  bg.gain.exponentialRampToValueAtTime(0.0001, t + VOICE.body.dur);
+  osc.connect(bg);
+  bg.connect(master);
+  osc.start(t);
+  osc.stop(t + VOICE.body.dur + 0.02);
 }
 
 /* 수업 타이머 재깍재깍 — 1초에 한 번. level 0~1 로 세기를 받는다.
@@ -97,7 +123,7 @@ function clack(freq, peak) {
 function tock(level = 0, high = false) {
   if (!ensure()) return;
   const t = Math.max(0, Math.min(1, level));
-  clack(high ? 3200 : 2100, 0.12 + t * 0.5);
+  clack(0.10 + t * 0.42, high);
 }
 
 /* 수업 타이머 끝 — 차례 타이머(timeUp)와 반드시 달라야 한다. 끝말잇기 화면에서는
