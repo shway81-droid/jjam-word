@@ -60,15 +60,44 @@ function timeUp() {
   [[440, 0], [330, 0.16]].forEach(([f, at]) => tone(f, at, 0.34, 0.06, 'triangle'));
 }
 
+/* 초침 소리 한 번 — 잡음을 아주 짧게 끊어 낸다.
+   맑은 음(오실레이터)으로 만들면 "삑" 하는 전자음이 되지 두 물체가 부딪는 소리가
+   되지 않는다. 시계 소리는 음정이 아니라 딱딱한 마찰음이라, 백색잡음을 좁은
+   대역으로 걸러 20ms 안에 떨어뜨린다. */
+function clack(freq, peak) {
+  const dur = 0.035;
+  const buf = ctx.createBuffer(1, Math.max(1, Math.ceil(ctx.sampleRate * dur)), ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < data.length; i += 1) data[i] = Math.random() * 2 - 1;
+
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  // 좁은 대역만 남겨야 "치익" 이 아니라 "똑" 이 된다.
+  const band = ctx.createBiquadFilter();
+  band.type = 'bandpass';
+  band.frequency.value = freq;
+  band.Q.value = 9;
+
+  const g = ctx.createGain();
+  const t = ctx.currentTime;
+  g.gain.setValueAtTime(peak, t);          // 시작이 곧 최대 — 초침에는 여는 시간이 없다
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+  src.connect(band);
+  band.connect(g);
+  g.connect(master);
+  src.start(t);
+  src.stop(t + dur + 0.02);
+}
+
 /* 수업 타이머 재깍재깍 — 1초에 한 번. level 0~1 로 세기를 받는다.
    마지막 10초에 점점 커지는 것이 이 소리의 일이다. 늘 같은 크기면 배경음이 되어
    아무도 안 듣지만, 커지면 "곧 끝난다"가 귀로 먼저 온다.
-   짝수/홀수 초의 음을 달리해 "재깍-재깍"으로 들리게 한다. */
+   짝·홀수 초의 대역을 달리해 "재깍-재깍" 두 소리로 들리게 한다. */
 function tock(level = 0, high = false) {
   if (!ensure()) return;
   const t = Math.max(0, Math.min(1, level));
-  // 0.018 → 0.14. 처음엔 거의 안 들리다가 끝에서 확실해진다.
-  tone(high ? 1100 : 820, 0, 0.05 + t * 0.03, 0.018 + t * 0.122, 'square');
+  clack(high ? 3200 : 2100, 0.12 + t * 0.5);
 }
 
 /* 수업 타이머 끝 — 차례 타이머(timeUp)와 반드시 달라야 한다. 끝말잇기 화면에서는
