@@ -82,7 +82,6 @@
 [퀴즈](https://shway81-droid.github.io/jjam-quiz/) ·
 [영상](https://shway81-droid.github.io/jjam-video/) ·
 [이야기](https://shway81-droid.github.io/jjam-story/) ·
-[쉼](https://shway81-droid.github.io/jjam-rest/) ·
 **낱말**
 
 ## 개발
