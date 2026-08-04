@@ -60,6 +60,17 @@ function timeUp() {
   [[440, 0], [330, 0.16]].forEach(([f, at]) => tone(f, at, 0.34, 0.06, 'triangle'));
 }
 
+/* 수업 타이머 재깍재깍 — 1초에 한 번. level 0~1 로 세기를 받는다.
+   마지막 10초에 점점 커지는 것이 이 소리의 일이다. 늘 같은 크기면 배경음이 되어
+   아무도 안 듣지만, 커지면 "곧 끝난다"가 귀로 먼저 온다.
+   짝수/홀수 초의 음을 달리해 "재깍-재깍"으로 들리게 한다. */
+function tock(level = 0, high = false) {
+  if (!ensure()) return;
+  const t = Math.max(0, Math.min(1, level));
+  // 0.018 → 0.14. 처음엔 거의 안 들리다가 끝에서 확실해진다.
+  tone(high ? 1100 : 820, 0, 0.05 + t * 0.03, 0.018 + t * 0.122, 'square');
+}
+
 /* 수업 타이머 끝 — 차례 타이머(timeUp)와 반드시 달라야 한다. 끝말잇기 화면에서는
    둘이 같은 화면에서 울리므로, 소리가 같으면 "누구 시간이 끝났는지"를 못 가린다.
    이쪽은 세 음이 올라갔다 내려온다 — 종료를 알리는 소리지 재촉이 아니다. */
@@ -73,4 +84,4 @@ function setMuted(v) {
   if (master) master.gain.setTargetAtTime(muted ? 0 : 1, ctx.currentTime, 0.05);
 }
 
-export const sound = { ensure, hint, reveal, tick, timeUp, sessionEnd, setMuted };
+export const sound = { ensure, hint, reveal, tick, tock, timeUp, sessionEnd, setMuted };

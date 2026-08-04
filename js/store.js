@@ -57,6 +57,17 @@ export function createStore(backend) {
     write('muted', JSON.stringify(!!v));
   }
 
+  /* 수업 타이머 재깍재깍 — 기본은 꺼 둔다.
+     초 소리가 늘 나면 조용히 생각해야 하는 문항에서 방해가 된다.
+     "지금은 시간이 간다"를 소리로 알리고 싶은 수업에서만 켠다. */
+  function isTicking() {
+    return readJSON('tick', false) === true;
+  }
+
+  function setTicking(v) {
+    write('tick', JSON.stringify(!!v));
+  }
+
   function todayCount(today) {
     const v = readJSON('today', null);
     return v && v.date === today && Number.isInteger(v.n) ? v.n : 0;
@@ -68,7 +79,7 @@ export function createStore(backend) {
     return n;
   }
 
-  return { recentIds, pushRecent, clearRecent, isMuted, setMuted, todayCount, bumpToday };
+  return { recentIds, pushRecent, clearRecent, isMuted, setMuted, isTicking, setTicking, todayCount, bumpToday };
 }
 
 // 브라우저 기본 인스턴스. Node(테스트)에는 localStorage 가 없으므로 방어한다.

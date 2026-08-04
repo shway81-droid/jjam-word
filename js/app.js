@@ -84,6 +84,7 @@ const state = {
   cardCount: 0,       // 몸으로 말해요 — 이번에 넘긴 카드 수
   clock: clock.createClock(),   // 수업 타이머 — 놀이를 바꿔도 이어서 흐른다
   clockId: null,
+  clockSec: 0,        // 재깍재깍을 초당 한 번만 울리기 위한 마지막 정수 초
 };
 
 const $ = (id) => document.getElementById(id);
@@ -516,6 +517,7 @@ function chainAdvance(result) {
 
 const CLOCK_TICK_MS = 250;      // 숫자는 초 단위로만 바뀐다. 이보다 자주 볼 이유가 없다.
 const CLOCK_URGENT_MS = 10000;  // 마지막 10초부터 커진다
+const CLOCK_URGENT_SEC = CLOCK_URGENT_MS / 1000;
 
 function renderClock() {
   const c = state.clock;
@@ -530,6 +532,10 @@ function renderClock() {
 
   $('clock-time').textContent = c.expired ? '시간 끝' : clock.format(left);
   $('clock-label').textContent = c.expired ? '수업 타이머 — 끝' : '수업 타이머';
+
+  // 마지막 10초에는 화면 가장자리가 물든다. 뒷자리에서는 이게 숫자보다 먼저 보인다.
+  document.body.classList.toggle('is-urgent', urgent);
+  document.body.classList.toggle('is-over', c.expired);
 
   // 지금 걸려 있는 시간에 표시를 남긴다 — 3분을 걸어 뒀는지 5분인지 나중에 헷갈린다.
   for (const b of $('clock-picks').children) {
@@ -561,14 +567,36 @@ function stopClockTicking() {
 }
 
 function clockTick() {
-  const next = clock.tick(state.clock, Date.now());
+  const now = Date.now();
+  const next = clock.tick(state.clock, now);
   const justEnded = next.expired && !state.clock.expired;
+  const left = Math.ceil(clock.remaining(next, now) / 1000);
+
+  // 재깍재깍·심장박동은 정수 초가 내려간 순간에만. 인터벌은 그보다 훨씬 자주 돈다.
+  if (next.running && left > 0 && left !== state.clockSec) {
+    if (store.isTicking()) {
+      // 마지막 10초에 점점 커진다. 그 전에는 늘 같은 세기로 조용히 간다.
+      const urgency = left <= CLOCK_URGENT_SEC ? (CLOCK_URGENT_SEC - left + 1) / CLOCK_URGENT_SEC : 0;
+      sound.tock(urgency, left % 2 === 0);
+    }
+    if (left <= CLOCK_URGENT_SEC) beatClock();
+  }
+  state.clockSec = left;
+
   state.clock = next;
   if (justEnded) {
     stopClockTicking();
     sound.sessionEnd();
   }
   renderClock();
+}
+
+/* 1초마다 숫자가 한 번 부푼다. 클래스를 지웠다 다시 붙여야 애니메이션이 또 돈다. */
+function beatClock() {
+  const el = $('clock-time');
+  el.classList.remove('is-beat');
+  void el.offsetWidth;
+  el.classList.add('is-beat');
 }
 
 /* 고르는 순간이 곧 시작이다. 시간이 끝나도 놀이를 닫지 않는다 —
@@ -583,7 +611,24 @@ function setClockMinutes(minutes) {
 function resetClock() {
   stopClockTicking();
   state.clock = clock.createClock();
+  state.clockSec = 0;
   renderClock();
+}
+
+function toggleTicking() {
+  sound.ensure();
+  const on = !store.isTicking();
+  store.setTicking(on);
+  paintTickButton();
+  if (on) sound.tock(0.2, false);   // 켜는 순간 한 번 들려 준다 — 어떤 소리인지 알고 켜야 한다
+}
+
+function paintTickButton() {
+  const on = store.isTicking();
+  const b = $('btn-clock-tick');
+  b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  b.setAttribute('aria-label', on ? '재깍재깍 소리 끄기' : '재깍재깍 소리 켜기');
+  b.textContent = on ? '🔔 재깍재깍' : '🔕 재깍재깍';
 }
 
 /* 걸어 둔 시간이 없거나 이미 끝났으면 아무 일도 하지 않는다 —
@@ -660,9 +705,11 @@ function wire() {
   $('btn-gesture-quit').addEventListener('click', () => show('HOME'));
 
   buildClockPicks();
+  paintTickButton();
   renderClock();
   $('btn-clock').addEventListener('click', togglePauseAll);
   $('btn-clock-reset').addEventListener('click', resetClock);
+  $('btn-clock-tick').addEventListener('click', toggleTicking);
 
   const mute = $('btn-mute');
   const paintMute = () => mute.setAttribute('aria-pressed', store.isMuted() ? 'true' : 'false');
