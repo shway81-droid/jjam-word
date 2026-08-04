@@ -3,7 +3,7 @@
    (2) 멀쩡한 말은 잡지 않는다  ← 오탐이 쌓이면 사람이 게이트를 끄게 된다 */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { violations } from '../scripts/banned.mjs';
+import { violations, CHOSEONG_BANNED } from '../scripts/banned.mjs';
 
 // 실제로 오탐이 났던 사례들. 하나라도 걸리면 문항을 못 쓰게 된다.
 const CLEAN = [
@@ -54,4 +54,26 @@ test('violations 는 걸린 사유를 돌려준다', () => {
   const v = violations('가난한 거지');
   assert.equal(v.length, 1);
   assert.match(v[0], /가정 형편/);
+});
+
+/* ── 초성퀴즈 전용 ──
+   초성만 화면 가득 띄우므로, 낱말이 멀쩡해도 초성이 욕설로 읽히면 못 쓴다.
+   수박(ㅅㅂ)·버스(ㅂㅅ) 가 실제로 그렇게 걸려 다른 낱말로 바뀌었다. */
+
+test('욕설로 읽히는 초성은 목록에 있다', () => {
+  for (const c of ['ㅅㅂ', 'ㅂㅅ', 'ㅆㅂ', 'ㅈㄹ']) {
+    assert.ok(CHOSEONG_BANNED.includes(c), `빠짐: ${c}`);
+  }
+});
+
+test('세 글자 초성은 막지 않는다 — 소방관·줄넘기까지 날아간다', () => {
+  for (const c of ['ㅅㅂㄱ', 'ㅈㄴㄱ', 'ㅂㅅㄱ', 'ㅁㅊㄷ']) {
+    assert.ok(!CHOSEONG_BANNED.includes(c), `과잉 차단: ${c}`);
+  }
+});
+
+test('바뀐 낱말의 초성은 깨끗하다', () => {
+  for (const c of ['ㅍㄷ', 'ㄱㄱㅊ']) {   // 포도, 구급차
+    assert.ok(!CHOSEONG_BANNED.includes(c));
+  }
 });
