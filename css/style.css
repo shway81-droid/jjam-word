@@ -142,12 +142,13 @@ kbd {
   text-align: center;
 }
 
-.clock-label { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); letter-spacing: 0.02em; }
-
+/* 제목("수업 타이머")은 두지 않는다. 숫자만 보면 시계인 줄 아는데, 제목이 있으면
+   그만큼 숫자가 작아진다. 그 자리를 숫자에 준다 — 교실 뒷자리 기준이다.
+   (읽어 주는 이름은 aria-label 로 남아 있다.) */
 .clock-time {
   /* 숫자 폭을 고정한다 — 3:59→3:58 마다 패널이 들썩이면 눈이 그리로 끌린다. */
   font-variant-numeric: tabular-nums;
-  font-size: 4rem;
+  font-size: 5.4rem;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -186,8 +187,7 @@ body.is-over .topbar { background: var(--accent-deep); }
    패널 전체를 진한 색으로 덮지는 않는다 — 그러면 지금 걸려 있는 시간 표시와
    [잠깐]·[↺] 이 배경에 묻혀, 정작 다음에 눌러야 할 것이 안 보인다. */
 .clock[data-state="over"] { border-color: var(--accent); background: var(--accent-soft); }
-.clock[data-state="over"] .clock-label { color: var(--accent-deep); }
-.clock[data-state="over"] .clock-time { color: var(--accent); font-size: 2.9rem; }
+.clock[data-state="over"] .clock-time { color: var(--accent); font-size: 3.4rem; }
 
 .clock-picks { display: flex; gap: 0.25rem; margin-top: 0.5rem; }
 .clock-picks button {

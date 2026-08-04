@@ -531,7 +531,6 @@ function renderClock() {
     : c.running ? 'running' : 'paused';
 
   $('clock-time').textContent = c.expired ? '시간 끝' : clock.format(left);
-  $('clock-label').textContent = c.expired ? '수업 타이머 — 끝' : '수업 타이머';
 
   // 마지막 10초에는 상단바가 1초마다 밝아졌다 돌아온다 — 뒷자리에서는 이게
   // 패널의 숫자보다 먼저 보인다. 본문은 건드리지 않는다.
