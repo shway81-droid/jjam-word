@@ -7,8 +7,6 @@
   "scripts": {
     "verify": "node --test && node scripts/validate-data.mjs && node scripts/check-font-coverage.mjs",
     "test": "npm run verify",
-    "sync:shared": "node scripts/sync-shared.mjs",
-    "sync:check": "node scripts/sync-shared.mjs --check",
     "icons": "node scripts/gen-icons.mjs",
     "start": "npx http-server . -p 8379 -c-1"
   },
